@@ -91,3 +91,43 @@ console.log(finalGrade(85, 5)); // 90
 console.log(finalGrade(60, 3)); // 75
 console.log(finalGrade(30, 1)); // 0
 */
+
+// 5 - Задача. Условие: нарисовать квадратик и прямоугольник с помощью звездочек
+
+function getRectangleString(w, h) {
+  // перенос строки
+  const rn = '\r\n';
+  // top bottom (2 строки верхняя и нижняя)
+  const tb = '*'.repeat(w) + rn;
+  // центр часть
+  const center =
+    w > 1 ? ('*' + ' '.repeat(w - 2) + '*' + rn).repeat(h - 2) : '';
+
+  return h > 1 ? tb + center + tb : tb.repeat(h);
+}
+
+/*  --- test
+console.log(getRectangleString(3, 3))
+***
+* *
+***
+*/
+
+// 6 - Задача. Условие: трансформирование, конвектирование в двоичное число. К нам приходит положительное целое число - нам его нужно возвращать в двоичном формате
+// Метод toString() возвращает строку, представляющую объект.- ОНА ПРИНИМАЕТ АРГУМЕНТОМ ОСНОВАНИЕ ВО ЧТО НУЖНО ПЕРЕВЕСТИ
+
+function toBinary(n) {
+  return Number(n.toString(2));
+  // return +(n.toString(2));
+}
+
+// => func
+
+const toBinary1 = (n) => +n.toString(2);
+
+/*  --- test
+console.log(toBinary(1)); // 1
+console.log(toBinary(3)); // 11
+console.log(toBinary(6)); // 110
+console.log(toBinary(11)); // 1011
+*/
