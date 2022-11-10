@@ -149,8 +149,71 @@ function findMissing(arr1, arr2) {
   }
 }
 
-// /*  --- test
+/*  --- test
 console.log(findMissing([1, 2, 3, 4], [1, 3, 4])); // 2
 console.log(findMissing([6, 1, 3, 6, 8, 2], [3, 6, 6, 1, 2])); // 8
+*/
 
+// 8 - Задача. Условие: Вернуть ТИП суммы 2-х аргументов
+
+function typeOfSum(a, b) {
+  return typeof (a + b);
+}
+
+/*  --- test
+console.log(typeOfSum(12, 1)); // number
+console.log(typeOfSum('d', 1)); // string
+console.log(typeOfSum('dd', '')); // string
+console.log(typeOfSum(true, 1)); // number
+console.log(typeOfSum('s', false)); // string
+console.log(typeOfSum(null, 1)); // number
+console.log(typeOfSum('s', null)); // string
+console.log(typeOfSum(null, undefined)); // number
+*/
+
+// 9 - Задача. Условие: Посчитать количество нечетных чисел до n (n/2 и округляем вниз)
+
+function oddCount(n) {
+  return Math.floor(n / 2);
+}
+
+/*  --- test
+console.log(oddCount(15)); // 7
+console.log(oddCount(22)); // 11
+*/
+
+// 10 - Задача. Условие: Повторить строку - Метод строк str.repeat(count)
+
+function repeatStr(n, str) {
+  return str.repeat(n);
+}
+
+/*  --- test
+console.log(repeatStr(3, '*')); // ***
+console.log(repeatStr(8, '#')); // ########
+*/
+
+// 11 - Задача. Условие: Поcчитать лучше ли средний балл у студентов чем у одного конкретного - reduce()
+// знак < или > возвращает true или false
+function betterThanAverage(classPoints, yourPoints) {
+  return (
+    classPoints.reduce((acc, item) => acc + item, 0) / classPoints.length <
+    yourPoints
+  );
+}
+
+/*  --- test
+console.log(betterThanAverage([3, 5, 6, 6], 7)); // true
+console.log(betterThanAverage([6, 6, 8, 9, 10], 7)); // false
+*/
+
+// 12 - Задача. Условие: есть персонаж и его пароль, и если он представляется своим именем и паролем то возвращаем "Ho Ho Ho!" если что-то не так то false
+
+function Sleigh(name, pass) {
+  return name === 'Santa Claus' && pass === 'Hey';
+}
+
+// /*  --- test
+console.log(Sleigh('Santa Claus', 'Hey')); // true
+console.log(Sleigh('Santa', 'Hey')); // false
 // */
