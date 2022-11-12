@@ -129,3 +129,52 @@ switch (1) {
 Пересечение множеств – это множество, которое состоит из всех общих элементов исходных множеств те - чтобы составить пересечение двух числовых множеств, необходимо элементы первого множества один за другим проверить на принадлежность второму множеству. Те из них, которые окажутся принадлежащими обоим множествам и будут составлять пересечение.
 А ∪ B = {1,3}
 */
+
+// 14- Что выведет консоль?
+let count = 2;
+console.log('14 task = ', count++); //2
+console.log(count); //3
+console.log(++count); //4 - выполняется сразу
+console.log(count); // 4
+
+// 15- Что выведет в консоль?
+// Оператор typeof позволяет определить тип параметра (число, строка, объект). Оператор возвращает строку, содержащую тип ('number', 'string', 'object').
+console.log('15 task ', typeof typeof null); // string
+console.log(typeof null); // 'object' Оператор возвращает строку
+
+// 16- Что выведет в консоль?
+
+const point = [1, 3];
+const segment = [point, [5, 5]];
+console.log(segment); // [ [ 1, 3 ], [ 5, 5 ] ]
+console.log(...segment); // [ 1, 3 ] [ 5, 5 ]
+const result16 = [...segment, [1, 8]];
+console.log('16 task ', result16); // [ [ 1, 3 ], [ 5, 5 ], [ 1, 8 ] ]
+
+// 17- Что выведет в консоль?
+
+let n17 = 3;
+let b17 = true;
+// n17 = n17.toString(2);
+console.log(n17, typeof n17); //11 , string
+console.log(Number(b17)); // 1
+console.log(!Number(b17)); // false !1 = false
+console.log(typeof n17.toString(), n17.toString()); // string 3
+n17 = n17.toString(2) + Number(b17) + n17.toString() - 3 + !Number(b17); // '1113' - 3 => '1110'
+console.log('task 17 ', n17);
+
+// 18- Что выведет в консоль?
+let arr18 = [1, 2, 3, 4, 5];
+console.log(arr18.push(99)); // 6 Метод .push возвращает новую длину массива, а не сам массив!
+console.log(arr18); // [ 1, 2, 3, 4, 5, 99 ]
+
+// 19- Что выведет в консоль?
+// Объект Set является коллекцией unique значений: значение может появляться только один раз в наборе.
+const set19 = new Set([1, 1, 2, 2, 3, 4, 5]);
+console.log('task 19 ', set19); // Set(5) { 1, 2, 3, 4, 5 }
+
+// 20- Что выведет в консоль?
+// Объект Number является объектом-обёрткой, позволяющей вам работать с числовыми значениями. Объект Number создаётся через конструктор Number().
+console.log(typeof new Number(1), new Number(1)); // object [Number: 1]
+console.log('task 20', new Number(1) === 1); // false
+console.log('task 20', new Number(1) == 1); // true
