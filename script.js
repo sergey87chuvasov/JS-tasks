@@ -178,3 +178,68 @@ console.log('task 19 ', set19); // Set(5) { 1, 2, 3, 4, 5 }
 console.log(typeof new Number(1), new Number(1)); // object [Number: 1]
 console.log('task 20', new Number(1) === 1); // false
 console.log('task 20', new Number(1) == 1); // true
+
+// 21- Что выведет в консоль?
+// Функция parseInt() принимает строку в качестве аргумента и возвращает целое число в соответствии с указанным основанием системы счисления.
+// Функция parseInt имеет 2 параметра, вторым параметром является система исчисления, к которой нужно привести строку.
+// Восьмери́чная систе́ма счисле́ния — позиционная целочисленная система счисления с основанием 8. Для представления чисел в ней используются цифры от 0 до 7
+let num21;
+console.log(num21); // undefined
+num21 = parseInt('08', 8) + parseInt('05', 8);
+console.log('task21', num21); //5
+
+// 22- Что выведет в консоль?
+// С помощью оператора || мы можем вернуть первый истинный операнд. Если все значения ложны, последний операнд возвращается.
+const one22 = false || {} || null; // {} true
+const two22 = null || false || ''; // last false ''
+const three22 = [] || 0 || true; // first true
+console.log(one22, two22, three22); // {} "" []
+
+// 23- Что выведет в консоль?
+// Если вы не передадите необязательный аргумент initialValue методу reduce, аккумулятор будет равен первому элементу при первом вызове.
+const arr23 = [1, 2, 3, 4];
+// x - akk y - curr val;
+arr23.reduce((x, y) => console.log('task 23 ', x, y)); // 1 2, undefined 3, undefined 4 тк нет return
+
+// 24- Что выведет в консоль?
+// [Object Object] — строковая версия экземпляра объекта. Это значение возвращается программой JavaScript, если вы пытаетесь распечатать объект без предварительного форматирования объекта как строки.
+const set24 = new Set();
+set24.add(1);
+set24.add('test');
+set24.add({ name: 'Serge' });
+
+for (let item of set24) {
+  console.log('task 24', item + 2); // 3 (2+1) test2 ('test'+2='test2) [object Object]2 ('[object Object]'+2 = '[object Object]2')
+}
+
+// 25- Что выведет в консоль?
+console.log('task25 ', '❤' === '❤'); // true
+console.log('task25 ', '❤' == '❤'); // true
+
+// 26- Что выведет в консоль?
+const numbers26 = [1, 2, 3, 4, 5, 6];
+const [y, z] = numbers26;
+console.log('task 26 ', y, z); // 1 2
+
+// 27- Что выведет в консоль?
+//&& оператор вернёт значение первого ложноподобного операнда при вычислении, либо значение последнего операнда, если все операнды оказались истиноподобными.
+const output27 = `Java ${[] && 'Script'} very ${
+  'stronger' && 'simple'
+} language`;
+console.log('task 27 ', output27); // Java Script very simple language
+
+// 28- Что выведет в консоль?
+//set.size – возвращает количество элементов в множестве.
+
+const set28 = new Set(['1', '0', '3', '4', '0', '5']);
+console.log('task 28', set28.size); // 5 (а эл 6 - повтор)
+
+// 29- Что выведет в консоль?
+const values29 = ['', null, undefined, NaN, false];
+for (let i = 0; i < values29.length; i++) {
+  console.log('task 29', Boolean(values29[i])); // false false false false false false
+}
+
+// 30- Что выведет в консоль?
+console.log('task 30 ', ![]); // false
+console.log('task 30 ', !['test30']); // false
