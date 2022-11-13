@@ -243,3 +243,85 @@ for (let i = 0; i < values29.length; i++) {
 // 30- Что выведет в консоль?
 console.log('task 30 ', ![]); // false
 console.log('task 30 ', !['test30']); // false
+
+// 31- Что выведет в консоль?
+const user31 = {
+  pass: 'Pass',
+  name: 'Serge',
+  id: 300,
+};
+
+const organize31 = (obj) => ({
+  id: undefined,
+  ...obj,
+});
+
+console.log('task31 ', organize31(user31)); // { id: 300, pass: 'Pass', name: 'Serge' }
+
+// 32- Что выведет в консоль?
+// Метод toString() возвращает строку, представляющую объект.
+const obj32 = {};
+console.log('task 32 ', typeof obj32.toString(), obj32.toString()); // string ,[object Object]
+
+// 33- Что выведет в консоль?
+class Something {}
+console.log(typeof Something); // function
+const someObj33 = new Something();
+console.log(typeof someObj33); // object
+console.log('task 33 ', typeof someObj33 === typeof Something); // false
+
+// 34- Что выведет консоль?
+// Метод Number. isNaN() определяет, является ли значение NaN (Not-A-Number).
+// Функция isNaN() определяет является ли литерал или переменная нечисловым значением ( NaN ) или нет
+console.log('task 34 ', Number.isNaN('string')); // false
+console.log('task 34 ', isNaN('string')); // true
+
+// 36- Что выведет консоль?
+// Объект arguments — это подобный массиву объект, который содержит аргументы, переданные в функцию.
+// console.log(typeof arguments); // 'object'
+console.log(
+  (function () {
+    return typeof arguments;
+  })()
+); // object
+
+// 35- Что выведет консоль?
+let arr35 = ['a', 'l', 'p', 'h'];
+console.log(arr35.length); // 4
+arr35.length = 10;
+console.log(arr35.length); // 10
+console.log(arr35); // [ 'a', 'l', 'p', 'h', <6 empty items> ]
+delete arr35[0];
+console.log(arr35); //[ <1 empty item>, 'l', 'p', 'h', <6 empty items> ]
+console.log(arr35.length); // 10
+
+// 37- Что выведет консоль?
+//Метод substr() возвращает указанное количество символов из строки, начиная с указанной позиции
+// Метод substring() возвращает подстроку строки между двумя индексами, или от одного индекса и до конца строки
+let str37 = 'MyTestingString';
+console.log(str37.slice(2, 8)); // Testin (c 2 инд но по 7 инд вкл)
+console.log(str37.substr(2, 8)); // TestingS (c 2 инд по 8 инд вкл)
+console.log(str37.substring(2, 8)); // Testin (c 2 инд по 7 инд вкл)
+
+// 38- Что выведет консоль?
+// Выражение x='x0ff ' - 1 равно NaN. Проверка x!=x есть ничто иное как проверка на NaN
+var x38;
+x38 = 'x0ff ' - 1;
+if (x38 != x38) {
+  console.log(true); // true тк NaN
+} else {
+  console.log(x38);
+}
+
+// 39- Что выведет консоль?
+const obj39 = {
+  name: 'Serge',
+  age: 25,
+  car: true,
+};
+for (var i in obj39) {
+  console.log('task 39 ', obj39[i]); // serge 25 true
+}
+for (var i in obj39) {
+  console.log('task 39 ', i); // name age car
+}
