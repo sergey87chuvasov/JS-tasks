@@ -325,3 +325,25 @@ for (var i in obj39) {
 for (var i in obj39) {
   console.log('task 39 ', i); // name age car
 }
+
+// 40- Что выведет консоль?
+let x40 = 5;
+console.log(x40++); // 5
+console.log(x40); // 6
+
+// 41- Что выведет консоль?
+console.log('task 41 ', typeof ([] + false), [] + false); // string, 'false'
+console.log('task 41 ', typeof ([] + false - null), [] + false - null); // number, NaN
+
+// 42- Что выведет консоль?
+console.log('task 42 ', typeof ([] + 1), [] + 1); // string '1'
+console.log('task 42 ', [] + 1 + 2); // '12'
+
+// 43- Что выведет консоль?
+let y43 = 1;
+let x43 = (y43 = 2);
+console.log(y43, x43); // 2 2
+
+// 44- Что выведет консоль?
+console.log('task 44 ', num44); // undefined
+var num44 = '123';
