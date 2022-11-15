@@ -371,4 +371,56 @@ console.log('task 47 ', func47(new Object())); // 1
 
 // 48- Что выведет консоль?
 let a48 = isNaN('2020');
-console.log('task 48 ', a48); // false тк "2020" преобразуется в число 37 которое не NaN
+console.log('task 48 ', a48); // false тк "2020" преобразуется в число которое не NaN
+
+// 49- Что выведет консоль?
+console.log(typeof +false, +false); // number 0
+console.log(typeof +true, +true); // number 1
+console.log(typeof +null, +null); // number 0
+
+// 50- Что выведет консоль?
+console.log('----------50--------');
+console.log(typeof ('' + 1 + 0), '' + 1 + 0); // string, '10'
+console.log(typeof (true + false), true + false); // number, 1
+console.log(Boolean(-1)); // false
+console.log(null + 1); // 1
+console.log(typeof ('-9' - 5), '-9 ' - 5); // number , -14
+console.log(undefined + 1); // NaN
+console.log('-9' + 5); // -95
+console.log(4 + 5 + 'px'); // 9px
+console.log('4px' - 2); // NaN
+console.log(undefined == null); // true
+console.log(undefined === null); // false
+
+// 51- Что выведет консоль?
+let a51 = 1;
+let b51 = ++a51 + a51;
+console.log('task 51 ', b51); //4 (сначала 1 +1(увеличенн сразу) +2 (переменная обновл))
+
+// 52- Что выведет консоль?
+// Вторым необязательным параметром можно указать максимальное количество элементов в получившемся массиве
+let s52 = 'myteststring';
+// console.log('task 52 ', s52.split(',')); // [ 'myteststring' ]
+console.log('task 52 ', s52.split(',', 6)); // [ 'myteststring' ]
+
+// 53- Что выведет консоль?
+let a53 = isNaN('2014');
+console.log('task 53 ', a53); // false  - JS авт. переводит "2014" в число 2014 и возвращает false, так как это число.
+
+// 54- Что выведет консоль?
+let dog54 = {
+  species: 'setter',
+};
+dog54.weight = 33;
+dog54['age'] = 8;
+console.log('task 54', dog54); // { species: 'setter', weight: 33, age: 8 }
+
+// 55- Что выведет консоль?
+let result55 = 0;
+function addValue(x) {
+  result55 = result55 + x;
+  return result55;
+}
+
+console.log('task 55 ', addValue(10)); //10
+console.log('task 55 ', addValue(addValue(10))); // 40 тк уже 10 +10+20
