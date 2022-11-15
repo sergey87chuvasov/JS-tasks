@@ -347,3 +347,28 @@ console.log(y43, x43); // 2 2
 // 44- Что выведет консоль?
 console.log('task 44 ', num44); // undefined
 var num44 = '123';
+
+// 45- Что выведет консоль?
+function sum45(num1, num2 = num1) {
+  console.log(num1 + num2); // 10 + 10 = 20
+}
+sum45(10); // 20
+
+// 46- Что выведет консоль?
+let a46 = 1;
+let c46 = a46++ + 1;
+console.log('task 46 ', c46); // 2  тк a+++1 = a++ +1
+
+// 47- Что выведет консоль?
+function func47(a) {
+  return '1';
+}
+console.log('task 47 ', func47()); // 1
+console.log('task 47 ', func47(1, 2)); // 1
+console.log('task 47 ', func47('1')); // 1
+console.log('task 47 ', func47(func47())); // 1
+console.log('task 47 ', func47(new Object())); // 1
+
+// 48- Что выведет консоль?
+let a48 = isNaN('2020');
+console.log('task 48 ', a48); // false тк "2020" преобразуется в число 37 которое не NaN

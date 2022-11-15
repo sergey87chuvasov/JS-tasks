@@ -213,7 +213,47 @@ function Sleigh(name, pass) {
   return name === 'Santa Claus' && pass === 'Hey';
 }
 
-// /*  --- test
+/*  --- test
 console.log(Sleigh('Santa Claus', 'Hey')); // true
 console.log(Sleigh('Santa', 'Hey')); // false
+*/
+
+// 13 - Задача. Конвертировать число в массив в обратном порядке
+
+function digitize(n) {
+  // Метод toString() возвращает строковое представление указанного объекта Number.
+  // num to string to arr revers return
+  // Метод split() разбивает объект String на массив строк путём разделения строки указанной подстрокой.
+  // reverse и map работает только с массивами
+  return n
+    .toString()
+    .split('')
+    .reverse()
+    .map((el) => +el);
+  // .map(Number);
+}
+
+/*  --- test
+console.log(digitize(348597)); // [ 7, 9, 5, 8, 4, 3 ]
+console.log(digitize(35231)); //  [ 1, 3, 2, 5, 3 ]
+*/
+
+// 14 - Задача. Развернуть строку
+// Метод join() объединяет все элементы массива (или массивоподобного объекта) в строку.
+function solution(str) {
+  // 1 opt - not best practice
+  // return str.split('').reverse().join('');
+
+  // 2 opt
+  // str.length - 1 - последний индекс
+  let s = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    s += str[i];
+  }
+  return s;
+}
+
+// /*  --- test
+console.log(solution('world')); // dlrow
+console.log(solution('InVaSiOn')); // nOiSaVnI
 // */
