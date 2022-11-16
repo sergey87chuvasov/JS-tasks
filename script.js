@@ -424,3 +424,77 @@ function addValue(x) {
 
 console.log('task 55 ', addValue(10)); //10
 console.log('task 55 ', addValue(addValue(10))); // 40 тк уже 10 +10+20
+
+// 56- Что выведет консоль?
+const arr56 = [1, 2, 3, 4];
+let test56 = arr56.reduce((pr, i) => pr + i, '1');
+console.log('task 56 ', typeof test56, test56); // string '11234'
+// console.log(typeof ('' + 1)); // string
+
+// 57- Что выведет консоль?
+const arr57 = [1, 2, 3, 4];
+let test57 = arr57.reduce((pr, i) => pr + i);
+console.log('task 57 ', test57); // 10 тк 1 идет в акк сразу + 2 +3 +4
+
+// 58- Что выведет консоль?
+// Метод indexOf() возвращает первый индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет.
+const arr58 = [1, 2, 3, 4];
+let test58 = arr58.indexOf(2, 3);
+console.log('task 58 ', test58); // -1
+console.log('task 58 ', arr58.indexOf(2)); // 1
+
+// 59- Что выведет консоль?
+// Метод find() возвращает значение первого найденного в массиве элемента, которое удовлетворяет условию переданному в callback функции. В противном случае возвращается undefined.
+const arr59 = [1, 2, 3, 4];
+let test59 = arr59.find((item) => item > 2);
+console.log('task 59 ', test59); // 3
+
+// 60- Что выведет консоль?
+const arr60 = [1, 2];
+let test60 = ([, , ...rest] = arr60);
+console.log('task 60, ', rest); // []
+
+// 61- Что выведет консоль?
+// console.log('task 61 ', square61(7)); // ReferenceError
+const square61 = function (number) {
+  return number * number;
+};
+console.log('task 61 ', square61(4)); // 16
+
+// 62- Что выведет консоль?
+function sum62() {
+  return arguments[0] + arguments[1] + arguments[2];
+}
+console.log('task 62 ', sum62(1, 2, 10)); // 13
+
+// 63- Что выведет консоль?
+function myFun63(a, b, ...manyMoreArgs) {
+  return a + b + manyMoreArgs[0];
+}
+console.log('task 63 ', myFun63(1, 2, 3, 4, 5, 6, 7, 8)); // 6
+
+// 64- Что выведет консоль?
+console.log(sayHello64()); // undefined - тк функц ничего не возвращает
+function sayHello64() {
+  console.log('hello');
+}
+
+// 65- Что выведет консоль?
+// console.log('task 65 ', sum65(1, 3)); // ReferenceError
+const sum65 = (a, b) => {
+  return a + b;
+};
+
+// 66- Что выведет консоль?
+// Рекурсия в программировании — это вызов функции из этой же самой функции
+// РЕКУРСИЯ - В 90% БЕЗ НЕЕ МОЖНО ОБОЙТИСЬ, - ЭТО ВОЗМОЖНОСТЬ ФУНКЦИИ ВЫЗВАТЬ САМУ СЕБЯ, основная ее опасность переполнить стек вызова
+const func66 = (n) => {
+  if (n !== 1) {
+    console.log(typeof (n !== 1)); // 4x boolean
+    return n * func66(n - 1);
+  } else {
+    return 1;
+  }
+};
+
+console.log('task 66 ', func66(5)); // 5 * 4 * 3 * 2 = 120 (1 !== 1 false)
