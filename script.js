@@ -498,3 +498,70 @@ const func66 = (n) => {
 };
 
 console.log('task 66 ', func66(5)); // 5 * 4 * 3 * 2 = 120 (1 !== 1 false)
+
+// 67- Что выведет консоль?
+function fn67() {
+  console.log('Привет из функции fn'); // 1 вывод - Привет из функции fn
+
+  return function (a) {
+    console.log(a); // 2 вывод - true
+  };
+}
+
+fn67()(true); // таким способом сразу можем вызвать функц возвр fn67
+
+// 68- Что выведет консоль
+var a68 = 'a,b'.split(',');
+console.log('task 68 ', a68); // [ 'a', 'b' ]
+var a688 = new Array('a', 'b');
+console.log('task 68 ', a688); // [ 'a', 'b' ]
+
+// 69- Что выведет консоль
+const compare69 = (a, b) => {
+  return a > b;
+};
+console.log('task 69 ', compare69('f', 'k')); // false чем дальше в алфатит тем больше
+
+// 70- Что выведет консоль
+const str70 = (a, b) => {
+  return a - b;
+};
+console.log('task 70 ', str70('a', 'b')); // NaN
+
+// 71- Что выведет консоль
+const expression71 = (a, b, c) => {
+  return a + b - c;
+};
+console.log('task 71 ', expression71('j', 's', 1)); // NaN 'js' - 1 так нельзя
+
+// 72- Что выведет консоль
+const arr72 = [1, 2, 3, 4, 5];
+console.log('task ', arr72.toString(), typeof arr72.toString()); // 1,2,3,4,5 string
+
+// 73- Что выведет консоль
+// Метод slice() возвращает новый массив, содержащий копию части исходного массива.
+const str73 = 'Не люблю учить JS';
+console.log(str73.length); // 17
+console.log('task 73 ', str73.slice(3, str73.length)); // люблю учить JS
+console.log('task 73 ', str73.slice(3, 8)); // люблю
+console.log('task 73 ', str73.slice(-2)); // JS
+console.log('task 73 ', str73.slice(-4)); // ь JS
+
+// 74- Что выведет консоль
+let a74 = [],
+  b74 = 1,
+  c74 = false,
+  d74 = [];
+
+console.log('task 74 ', typeof (b74 == c74) + ' ' + (a74 == d74)); // boolean false 2) [ ] == [ ], [ ] === [ ] -> false
+
+// 75- Что выведет консоль
+const myNumbers75 = ['55', '66', '77'];
+
+for (let item in myNumbers75) {
+  console.log('task 75 for in ', item); // 0 1 2
+}
+
+for (let item of myNumbers75) {
+  console.log('task 75 for of ', item); // 55  66 77
+}
