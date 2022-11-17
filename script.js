@@ -565,3 +565,81 @@ for (let item in myNumbers75) {
 for (let item of myNumbers75) {
   console.log('task 75 for of ', item); // 55  66 77
 }
+
+// 76- Что выведет консоль
+let num76 = 13;
+const minusEight = (x) => x - 8;
+num76 = (num76--, (num76 *= 3), (num76 = minusEight(num76)), (num76 -= 4)); // 13, 12*3 = 36, 36-8, 28 - 4
+console.log(num76); // 24
+
+// 77- Что выведет консоль
+// Метод Object.assign() копирует из исходных объектов в целевой объект только перечисляемые и собственные свойства
+const obj77 = {
+  a: 1,
+};
+
+const copy77 = Object.assign({}, obj77);
+console.log('task 77 ', copy77); // { a: 1 }
+
+// 78- Что выведет консоль
+// Выражение do...while создаёт цикл, который выполняет указанное выражение до тех пор, пока условие не станет ложным.
+let result78 = 0;
+
+do {
+  result78 += 10;
+} while (result78 <= 25);
+console.log('task 78 ', result78); // 30
+
+// 79- Что выведет консоль
+// Метод Math.sqrt() возвращает квадратный корень числа, то есть
+const numbers79 = [1, 4, 9];
+const roots79 = numbers79.map(Math.sqrt);
+console.log('task 79 ', roots79); // [ 1, 2, 3 ]
+
+// 80- Что выведет консоль
+// Метод substring() возвращает подстроку строки между двумя индексами, или от одного индекса и до конца строки.
+const str80 = 'Mozilla';
+console.log('task 80 ', str80.substring(3, 0)); // Moz
+console.log('task 80 ', str80.substring(3, 1)); // oz
+console.log('task 80 ', str80.substring(6, 3)); // ill
+console.log('task 80 ', str80.substring(1, 5)); // ozil
+console.log('task 80 ', str80.substring(0, 2)); // Mo
+
+// 81- Что выведет консоль
+const str81 = 'array';
+console.log('task 81 ', str80.split('')); // [ 'M', 'o', 'z', 'i', 'l', 'l', 'a' ]
+
+// 82- Что выведет консоль
+// Метод includes() определяет, содержит ли массив определённый элемент, возвращая в зависимости от этого true или false
+const str82 = 'Быть или не быть вот в чем вопрос';
+console.log('task 82 ', str82.includes('Вопрос')); // false
+console.log('task 82 ', str82.includes('вопрос')); // true
+
+// 83- Что выведет консоль
+const str83 = 'string';
+console.log(
+  'task 83 ',
+  str83.toLocaleLowerCase() === str83.toLocaleUpperCase() // false,  == false
+);
+
+// 84- Что выведет консоль
+// str.replace(str|regexp, str|func) - Это универсальный метод поиска-и-замены,
+const str84 = 'aaa bbb ccc';
+console.log('task 84 ', str84.replace(/b/g, 'j')); // aaa jjj ccc
+
+// 85- Что выведет консоль
+let a85 = 3;
+let b85 = new Number(3);
+let c85 = 3;
+console.log(a85 == b85); // true
+console.log(a85 === b85); // false
+console.log(a85 == c85); // true
+console.log(a85 === c85); // true
+
+// 86- Что выведет консоль
+const arr85 = [{ firstName: 'Petr' }];
+const arr855 = [...arr85];
+console.log('task 86 ', arr855); //  [ { firstName: 'Petr' } ]
+arr855[0].firstName = 'Serge';
+console.log('task 86 ', arr85); //  [ { firstName: 'Serge' } ] - Проблема поверхностного копирования
+console.log('task 86 ', arr855); //  [ { firstName: 'Serge' } ]
