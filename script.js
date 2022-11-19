@@ -768,3 +768,95 @@ const person2_97 = person1_97;
 delete person2_97.age;
 console.log('task 97', person1_97); // { name: 'Bob' }
 console.log('task 97', person2_97); // { name: 'Bob' }
+
+// 98- Что выведет консоль
+const person98 = {
+  name: 'Bob',
+  age: 21,
+};
+
+const person98_2 = person98;
+const person98_3 = { ...person98 };
+
+console.log('task 98 ', person98 === person98_2); // true
+console.log('task 98 ', person98 === person98_3); // false
+
+// 99- Что выведет консоль
+let options99 = { width: 200, height: 300 };
+let { width: w, height: h } = options99;
+// console.log('task 99 ', width); // ReferenceError: width is not defined
+console.log(w, h); // 200 300
+
+// 100- Что выведет консоль
+// Object.entries() метод возвращает массив собственных перечисляемых свойств указанного объекта в формате [key, value]
+// Метод Object.keys() возвращает массив из собственных перечисляемых свойств переданного объекта, в том же порядке, что и цикл for...in
+// Метод Object.values() возвращает массив значений перечисляемых свойств объекта в том же порядке что и цикл for...in
+let person100 = {
+  name: 'serge',
+  surname: 'ivanov',
+  age: '21',
+  lang: 'java',
+};
+console.log('task 100 ', Object.entries(person100)); // [[ 'name', 'serge' ],[ 'surname', 'ivanov' ],[ 'age', '21' ],[ 'lang', 'java' ]]
+console.log('task 100 ', Object.keys(person100)); // [ 'name', 'surname', 'age', 'lang' ]
+console.log('task 100 ', Object.values(person100)); // [ 'serge', 'ivanov', '21', 'java' ]
+
+// 101- Что выведет консоль
+// Метод Object. fromEntries() преобразует список пар ключ-значение в объект.
+const person101 = [
+  ['name', 'serge'],
+  ['surname', 'ivanov'],
+  ['age', '21'],
+  ['lang', 'java'],
+];
+console.log('task 101 ', Object.fromEntries(person101)); // { name: 'serge', surname: 'ivanov', age: '21', lang: 'java' }
+
+// 102- Что выведет консоль
+// Метод Object.freeze() замораживает объект: это значит, что он предотвращает добавление новых свойств к объекту, удаление старых свойств из объекта и изменение существующих свойств или значения их атрибутов перечисляемости, настраиваемости и записываемости
+
+let person102 = {
+  name: 'serge',
+  surname: 'ivanov',
+  age: '21',
+  lang: 'java',
+};
+
+Object.freeze(person102);
+person102.name = 'Bob';
+console.log('task 102 ', person102); // { name: 'serge', surname: 'ivanov', age: '21', lang: 'java' }
+
+// 103- Что выведет консоль
+// Метод Object.isFrozen() определяет, был ли объект заморожен.
+
+let person103 = {
+  name: 'serge',
+  surname: 'ivanov',
+};
+Object.freeze(person103);
+const person103_2 = { ...person103 };
+console.log('task 103 ', Object.isFrozen(person103)); // true
+console.log('task 103 ', Object.isFrozen(person103_2)); // false
+
+// 104- Что выведет консоль
+// Метод Math.floor() - округление вниз. Округляет аргумент до ближайшего меньшего целого.
+const number104 = 1.56;
+console.log('task 104 ', Math.floor(number104)); // 1
+
+// 105- Что выведет консоль
+// Метод Math.min возвращает минимальное число из группы чисел, переданных параметрами.Если параметрами ничего не передано, то будет возращено Infinity.По умолчанию метод не работает с массивами
+const arr105 = [-1, 2, 4, -10, 5, 6, 0];
+console.log('task 105 ', Math.min(arr105)); // NaN тк массив?
+
+// 106- Что выведет консоль
+const arr106 = [10, 12, 15, 21];
+for (let i = 0; i < arr106.length; i++) {
+  setTimeout(() => {
+    console.log('task 106 ', i); // 0 1 2 3
+  }, 0);
+}
+
+// 107- Что выведет консоль
+const sayHello107 = () => {
+  console.log('Hey');
+};
+setTimeout(sayHello107, 1000); // hey 1 sec !!! setTimeout(sayHello107(), 1000) - TYPEERROR
