@@ -643,3 +643,128 @@ console.log('task 86 ', arr855); //  [ { firstName: 'Petr' } ]
 arr855[0].firstName = 'Serge';
 console.log('task 86 ', arr85); //  [ { firstName: 'Serge' } ] - Проблема поверхностного копирования
 console.log('task 86 ', arr855); //  [ { firstName: 'Serge' } ]
+
+// 87- Что выведет консоль
+const obj87 = {
+  a: 1,
+};
+console.log('task 87- 1 ', obj87); // { a: 1 }
+
+(function (obj) {
+  obj = {
+    a: 2,
+  };
+})(obj87);
+console.log('task 87- 1 ', obj87); // { a: 1 }
+
+(function (obj) {
+  obj.a = 3;
+})(obj87);
+console.log('task 87- 1 ', obj87); // { a: 3 }
+
+// 88- Что выведет консоль
+let a88 = [];
+console.log(typeof a88); // object
+console.log(typeof !a88); // boolean
+console.log(typeof (a88 == a88)); // boolean
+console.log(typeof (a88 == !a88)); // boolean
+console.log(Boolean(a88)); // true
+console.log(Boolean(!a88)); // false
+console.log(Boolean(a88 == a88)); // true
+console.log(Boolean(a88 === a88)); // true
+console.log(Boolean(a88 == !a88)); // true
+console.log(Boolean(a88 === !a88)); // false
+// А во втором операнд "!a" преобразовывается к boolean и соответственно порождает преобразование к boolean операнда "a". []==false (пустой массив => false), ![]==false (ссылка на объект (в данном случае на массив) с оператором ! => false) т.е. [] == ![]
+console.log('task 88 ', (a88 == a88) + ' ' + (a88 == !a88)); //  1part: true тк [] = [] true 2part: true
+console.log('task 88 ', typeof ((a88 == a88) + ' ' + (a88 == !a88))); // string
+
+// 89- Что выведет консоль
+let a89 = 0.1;
+let b89 = 0.2;
+let c89 = 0.3;
+
+console.log(a89 + (b89 + c89)); // number 0.6
+console.log('task 89 ', a89 + (b89 + c89) === a89 + b89 + c89); // false   (== false)
+console.log('task 89 ', typeof (a89 + (b89 + c89) === a89 + b89 + c89)); // boolean
+console.log(1 + 2 + 3 == 3 + 2 + 1);
+
+// 90- Что выведет консоль
+const arr90 = [1, 2, 3];
+const arr901 = arr90;
+arr901.push(4);
+console.log(arr90); // [ 1, 2, 3, 4 ]
+console.log(arr901); // [ 1, 2, 3, 4 ]
+console.log('task 90 ', arr90 === arr901); // true
+
+// 91- Что выведет консоль
+const arr91 = [1, 2, 3];
+const arr911 = [...arr91];
+arr911.push(4);
+console.log(arr91); // [ 1, 2, 3 ]
+console.log(arr911); // [ 1, 2, 3, 4 ]
+console.log('task 91 ', arr91 === arr911); // false
+
+// 92- Что выведет консоль
+// Метод concat() возвращает новый массив, состоящий из массива, на котором он был вызван, соединённого с другими массивами и/или значениями, переданными в качестве аргументов.
+// Метод toString() возвращает строку, представляющую объект.
+const arr92 = [1, 2, 3];
+const arr921 = [...arr92];
+arr921.push(4);
+console.log(arr92); // [ 1, 2, 3 ]
+console.log(arr921); // [ 1, 2, 3, 4 ]
+const arr923 = arr921.concat();
+console.log(arr923); // [ 1, 2, 3, 4 ]
+console.log(typeof arr923.toString()); // string
+console.log(arr923.toString()); // '1,2,3,4'
+console.log('task 92 ', arr923.toString() === arr921.toString()); //true
+
+// 93- Что выведет консоль
+// Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
+const words93 = [
+  'spray',
+  'limit',
+  'elite',
+  'exubernat',
+  'destruction',
+  'present',
+];
+console.log(
+  'task 93 ',
+  words93.filter((word) => word.length > 11)
+); // []
+
+// 94- Что выведет консоль
+const numbers94 = [1, 2, 3, 4, 5];
+console.log(numbers94.reduce((acc, current) => acc + current, 5)); // 20 тк 5 + 1 + 2 + 3 + 4 + 5
+
+// 95- Что выведет консоль
+const numbers95 = [6, 1, 20, 3, 7, 8];
+console.log(
+  'task 95 ',
+  numbers95.sort((a, b) => b - a)
+); // [ 20, 8, 7, 6, 3, 1 ] тк b-a
+console.log(
+  'task 95 ',
+  numbers95.sort((a, b) => a - b)
+); // [ 1, 3, 6, 7, 8, 20 ]
+
+// 96- Что выведет консоль
+const arr96 = [1, 4, 5, 7, 7, 8, 3, 1];
+console.log(
+  'task 96 ',
+  arr96.find((item) => item === 10)
+); // undefined
+console.log(
+  'task 96 ',
+  arr96.find((item) => item === 1)
+); // 1
+
+// 97- Что выведет консоль
+const person1_97 = {
+  name: 'Bob',
+  age: 21,
+};
+const person2_97 = person1_97;
+delete person2_97.age;
+console.log('task 97', person1_97); // { name: 'Bob' }
+console.log('task 97', person2_97); // { name: 'Bob' }
