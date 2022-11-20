@@ -256,7 +256,7 @@ const organize31 = (obj) => ({
   ...obj,
 });
 
-console.log('task31 ', organize31(user31)); // { id: 300, pass: 'Pass', name: 'Serge' }
+console.log('task31 ', organize31(user31)); // { id: 300, pass: 'Pass', name: 'Serge' } - перезатер
 
 // 32- Что выведет в консоль?
 // Метод toString() возвращает строку, представляющую объект.
@@ -930,3 +930,91 @@ console.log('task 113 ', set113.has(1)); // true
 // Если есть два ключа с одинаковым именем, то ключ будет перезаписан. Его позиция сохранится, но значением будет последнее указанное
 const obj114 = { a: 'one', b: 'two', a: 'three' };
 console.log('task 114 ', obj114); // { a: 'three', b: 'two' }
+
+// 115- Что выведет консоль
+function sayHi115() {
+  console.log(name); // undefined
+  // console.log(age); // ReferenceError: tdz
+  var name = 'Serge';
+  let age = 21;
+}
+
+console.log('task 115 ', sayHi115());
+
+// 116- Что выведет консоль
+// Тем не менее, когда мы приводим объект к строке, он становится "[object Object]".
+const a116 = {};
+const b116 = { key: 'b' };
+const c116 = { key: 'c' };
+// a116[5] = 123; // { '5': 123 } - example
+a116[b116] = 123;
+console.log(a116); // { '[object Object]': 123 }
+a116[c116] = 456;
+console.log(a116); // { '[object Object]': 456 }
+console.log('task 116 ', a116[b116]); // 456
+
+// 117- Что выведет консоль
+// В обоих случаях мы передаем объект, на который будет указывать this. Но .call выполняется сразу же!.bind возвращает копию функции, но с привязанным контекстом. Она не выполняется незамедлительно.
+const person117 = { name: 'serge' };
+function sayHi117(age) {
+  console.log('task 117 ', `${this.name} is ${age}`);
+}
+
+sayHi117.call(person117, 21); // serge is 21
+sayHi117.bind(person117, 21); // function ??
+
+// 118- Что выведет консоль
+// Возведение в степень (**) (en-US)	справа налево
+console.log('task 118 ', 2 ** (3 ** 2)); // 512 (2**(3**2) // Ассоциативность
+
+// 119- Что выведет консоль
+// Метод Math.max() возвращает наибольшее из нуля или более чисел.
+let a119 = 10;
+let b119 = 29;
+console.log('task 119 ', Math.max(a119, b119)); // 29
+
+// 120- Что выведет консоль
+console.log(
+  'task 120 ',
+  (function () {
+    var a = true + false;
+    return a;
+  })()
+); // 1
+console.log(typeof (true + false), true + false); // number 1  ( 1 + 0)
+
+// 121- Что выведет консоль
+console.log(0 == 0); // true
+console.log(0 == '0'); // true
+console.log(0 === '0'); // false
+console.log(false == 'false'); // false
+console.log(false === 'false'); // false
+console.log(false == 0); // true
+console.log(false === 0); // false
+console.log(false == '0'); // true
+console.log(false === '0'); // false
+console.log(false == undefined); // false
+console.log(false === undefined); // false
+console.log(false == null); // false
+console.log(false === null); // false
+
+// 122- Что выведет консоль
+let a122 = new Array();
+a122['key'] = 'value';
+console.log('task 122 ', a122, a122.length); // [ key: 'value' ] length = 0
+
+// 123- Что выведет консоль
+// С помощью оператора || мы можем вернуть первый истинный операнд. Если все значения ложны, последний операнд возвращается.
+// && оператор вернёт значение первого ложноподобного операнда при вычислении, либо значение последнего операнда, если все операнды оказались истиноподобными.
+let a123 = '' || 0 || 2 || true || false; // 2
+let b123 = 3 && true && false && null; // false
+
+console.log('task 123 ', a123, b123); // 2 false
+
+// 124- Что выведет консоль
+// Функция sayHi возвращает значение, возвращаемое из немедленно вызываемого функционального выражения (IIFE). Результатом является 0 типа "number".
+function sayHi124(params) {
+  return (() => 0)();
+}
+
+console.log('task 124 ', typeof sayHi124()); // number
