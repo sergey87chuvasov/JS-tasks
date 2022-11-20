@@ -203,6 +203,7 @@ arr23.reduce((x, y) => console.log('task 23 ', x, y)); // 1 2, undefined 3, unde
 
 // 24- Что выведет в консоль?
 // [Object Object] — строковая версия экземпляра объекта. Это значение возвращается программой JavaScript, если вы пытаетесь распечатать объект без предварительного форматирования объекта как строки.
+// {name: 'Serge'} является объектом. Ни число, ни объект не являются строкой, поэтому они приводятся к строке. Всякий раз, когда мы приводим обычный объект, он становится "[object Object]". "[object Object]", объединенный с "2", становится "[object Object]2".
 const set24 = new Set();
 set24.add(1);
 set24.add('test');
@@ -1018,3 +1019,119 @@ function sayHi124(params) {
 }
 
 console.log('task 124 ', typeof sayHi124()); // number
+
+// 125- Что выведет консоль
+// typeof 1 возвращает "number". typeof "number" возвращает "string"
+console.log('task 125 ', typeof 1); // number
+console.log('task 125 ', typeof typeof 1); // string
+
+// 126- Что выведет консоль
+let a126 = 0;
+for (let i = 0; i < 5; i++) {
+  a126++;
+}
+console.log('task 126 ', 5); // 5 ЗАДАЧА ПРОСТО НА ВНИМАТЕЛЬНОСТЬ
+console.log('task 126 ', a126); // 5
+
+// 127- Что выведет консоль
+// Метод Object.keys() возвращает массив из собственных перечисляемых свойств переданного объекта, в том же порядке, что и цикл for...in
+// Метод Object.values() возвращает массив значений перечисляемых свойств объекта в том же порядке что и цикл for...in
+// Object.entries() метод возвращает массив собственных перечисляемых свойств указанного объекта в формате [key, value], в том же порядке, что и в цикле for...in
+let obj127 = {
+  10: 'a',
+  20: 'b',
+  30: 'c',
+  40: 'd',
+};
+console.log('task 127 ', Object.keys(obj127)); // [ '10', '20', '30', '40' ]
+console.log('task 127 ', Object.values(obj127)); // [ 'a', 'b', 'c', 'd' ]
+console.log('task 127 ', Object.entries(obj127)); // [ [ '10', 'a' ], [ '20', 'b' ], [ '30', 'c' ], [ '40', 'd' ] ]
+
+// 128- Что выведет консоль
+// Метод unshift() добавляет один или более элементов в начало массива и возвращает новую длину массива
+const arr128 = [true, 'js_test', 3, Infinity];
+const result128 = arr128.unshift(NaN);
+console.log('task 128 ', result128); // 5  возвращает новую длину массива
+console.log(arr128); // [ NaN, true, 'js_test', 3, Infinity ] - массив изменился
+
+// 129- Что выведет консоль
+const numbers129 = [1, 2, 3, 4, 5];
+const [y129] = numbers129;
+console.log('task 129 ', y129); //1
+
+// 130- Что выведет консоль
+console.log(Promise.resolve(5)); // Promise {<fulfilled>: 5} В этом случае мы просто передали числовое значение 5. Возвращается разрешенное обещание со значением 5.
+
+// 131- Что выведет консоль
+/*
+Унарный оператор ++ сперва возвращает значение операнда, затем приращивает значение операнда. Значение num1 равно 10, так как функция увеличений вначале возвращает значение num, которое равно 10, и только затем увеличивает значение num.
+num2 - это 10, так как мы передали num1 в incpasePassedNumber. number равно 10 (значение num1. Опять же, унарный оператор ++ сначала возвращает значение операнда, затем увеличивает значение операнда. Значение number равно 10, поэтому num2 равно 10.
+ */
+let num131 = 10;
+const increaseNumber = () => num131++;
+// console.log(num131); // 10
+const increasePassedNumber = (number) => number++; // passed number - пройденный номер
+// console.log(num131); // 10
+const num1_131 = increaseNumber();
+console.log(num131); // 11
+console.log(num1_131); // 10 - ответ
+const num2_131 = increasePassedNumber(num1_131);
+console.log(num2_131); // 10 - ответ
+console.log(num131); // 11
+
+// 132- Что выведет консоль
+const getlist132 = ([x, ...y]) => [x, y];
+const list132 = [1, 2, 3, 4];
+console.log('task 132 ', getlist132(list132)); // [ 1, [ 2, 3, 4 ] ]
+
+// 133- Что выведет консоль
+// Оператор delete удаляет свойство объекта. После удаления это свойство будет иметь значение undefined.
+// Однако переменные, объявленные с ключевым словом var, const или let, не могут быть удалены с помощью оператора delete.
+const name133 = 'Serge';
+age133 = 27; // Когда мы устанавливаем age равным 21, мы фактически добавляем свойство с именем age к глобальному объекту.
+console.log(age133); // 27
+
+console.log('task 133 ', delete name133); // false Переменная name была объявлена ​​с ключевым словом const, поэтому ее удаление не было успешным: возвращается false
+console.log('task 133 ', delete age133); // true Вы можете успешно удалить свойства из объектов, в том числе из глобального объекта, поэтому delete age возвращает true.
+console.log(name133); // Serge
+// console.log(age133); // ReferenceError  !!! age133 is not defined
+
+// 134- Что выведет консоль
+function nums134(a, b) {
+  if (a > b) {
+    console.log('a больше');
+  } else {
+    console.log('b больше');
+  }
+  return a + b; // если бы a+b было на след строке то return = undefined
+}
+
+console.log('task 134 ', nums134(4, 2)); // a больше 6
+console.log('task 134 ', nums134(1, 2)); // b больше 3
+
+// 135- Что выведет консоль
+console.log('task 135 ', Number(2) == Number(2)); // true;  == true   =='2' true
+console.log('task 135 ', Boolean(false) === Boolean(false)); // true  ==true  'false' == false
+console.log('task 135 ', Symbol('foo') === Symbol('foo')); // false Каждый Symbol совершенно уникален.
+
+// 136- Что выведет консоль
+// Object.entries(person) возвращает массив вложенных массивов, содержащий ключи и объекты: [ [ 'name', 'Serge' ], [ 'age', 33 ] ]
+// Используя цикл for-of, мы можем перебирать каждый элемент массива, в данном случае подмассивы. Мы можем мгновенно деструктурировать подмассивы в цикле for, используя const [x, y]. x равен первому элементу в подмассиве, y равен второму элементу в подмассиве.
+const person136 = {
+  name: 'Serge',
+  age: 33,
+};
+
+for (const [x, y] of Object.entries(person136)) {
+  console.log(x, y); // name Serge  age 33
+}
+
+// 137- Что выведет консоль
+let name137 = 'Serge';
+
+function getName137() {
+  // console.log(name137); // ReferenceError: Cannot access 'name137' before initialization TDZ
+  let name137 = 'Bob';
+}
+
+console.log('task 137 ', getName137());
