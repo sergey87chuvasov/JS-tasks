@@ -1218,3 +1218,73 @@ for (const item in person147) {
 for (const item in person147) {
   console.log(person147[item]); // serge 22
 }
+
+// 148- Что выведет консоль
+// Функция parseInt преобразует строку в целое число.
+// Преобразование произойдет, если только целое число стоит в начале строки, иначе будет выведено NaN.
+console.log('task 148 ', parseInt('abc')); // NaN
+console.log('task 148 ', parseInt('12abc')); // 12
+console.log('task 148 ', parseInt('12.2abc')); // 12 - дробная часть будет отброшена
+console.log('task 148 ', parseInt(null)); // NaN
+console.log('task 148 ', parseInt(true)); // NaN
+console.log('task 148 ', parseInt(0 / 0)); // NaN
+console.log('task 148 ', parseInt('10a' * 10)); // NaN
+console.log('task 148 ', parseInt('7*6', 10)); // 7, тк * не является допустимым числом. Он только разбирает "7" в десятичную 7. num теперь содержит значение 7
+
+// 149- Что выведет консоль
+console.log(!!null, Boolean(null)); // false, false  ~~~ !null - true
+console.log(undefined, Boolean(undefined), !undefined, !!undefined); // undefined false true false
+
+// 150- Что выведет консоль
+const set150 = new Set(['1', '0', '3', '4', '0', '5']);
+console.log('task 150 ', [...set150]); // [ '1', '0', '3', '4', '5' ]
+console.log('task 150 ', ...set150); // [ '1', '0', '3', '4', '5' ]
+
+// 151- Что выведет консоль
+// Объект arguments является локальной переменной, которая доступна во всех функциях, за исключением стрелочных, она позволяет ссылаться внутри функции на аргументы функции с помощью объекта arguments.
+const someFunc151 = function () {
+  return arguments;
+};
+
+console.log('task 151 ', someFunc151()); // [Arguments] {}
+
+// 152- Что выведет консоль
+function iHateThis() {
+  console.log(this); // [object Window]
+}
+// iHateThis();
+
+// 153- Что выведет консоль
+(function () {
+  // console.log(this); // [object Window]
+})();
+
+// 154- Что выведет консоль
+// Функция isNaN проверяет, является ли переданный параметр числом или нет. Вернет true, если параметр не является числом и false, если является.
+console.log(isNaN(String('a'))); // true - параметр не является числом
+console.log(isNaN({})); // true - параметр не является числом
+console.log(isNaN(() => {})); // true - параметр не является числом
+
+// 155- Что выведет консоль
+console.log('task 155 ', false && 1 && []); // false
+console.log('task 155 ', ' ' && true && 5); // 5 !!! любые непустые строки, даже из пробелов - true!
+
+// 156- Что выведет консоль
+function myFunc156() {
+  let a = (b = 33); // let a = b = 33 => a = ref error
+}
+myFunc156();
+console.log('task 156 ', b); // 33
+
+// 157- Что выведет консоль
+console.log('task 157 ', 3 + 4 + '5', typeof (3 + 4 + '5')); // 75, string
+
+// 158- Что выведет консоль
+console.log(
+  'task 158 ',
+  [1, 2, 3].map((num) => {
+    if (typeof num === 'number') return; // [ undefined, undefined, undefined ]
+    return num * 2;
+  })
+); // Когда мы не возвращаем значение из функции, функция возвращает значение undefined.
+// но если бы было return num то результат [ 1, 2, 3 ]
