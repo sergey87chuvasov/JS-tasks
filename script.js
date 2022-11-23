@@ -1288,3 +1288,88 @@ console.log(
   })
 ); // Когда мы не возвращаем значение из функции, функция возвращает значение undefined.
 // но если бы было return num то результат [ 1, 2, 3 ]
+
+// 159- Что выведет консоль
+// Когда мы устанавливаем y равным 10, мы фактически добавляем свойство y к глобальному объекту (window в браузере, global в Node). В браузере window.y теперь равен 10.
+// Переменные, объявленные с ключевым словом let, имеют блочную видимость, они определены только в блоке
+(() => {
+  let x160 = (y160 = 10);
+  /**
+   y = 10
+   let x = y
+   */
+})();
+console.log('task 159 ', typeof x160); // undefined
+console.log('task 159 ', typeof y160); // number
+
+// 160- Что выведет консоль
+console.log('task 160 ', [] + false - null + true); // NaN
+console.log('task 160 ', [] + false); // false
+console.log('task 160 ', [] + false - null); // NaN
+
+// 161- Что выведет консоль
+// Функция Array.from() создаёт новый массив на основе переданного объекта. Объект должен быть либо массивоподобным (как строка или объект arguments), либо итерируемым (как Set или Map).
+const arr161 = [NaN, 10, false];
+console.log(
+  'task 161 ',
+  Array.from(arr161, (x) => x + x) // [ NaN, 20, 0 ]
+);
+
+// 162- Что выведет консоль
+// Метод массива find() вернёт первый найденный в массиве элемент, который подходит под условие в переданной колбэк-функции.
+const arr162 = [2, 5, 7, 15];
+const func162 = (el) => {
+  if (el > 6) return true;
+};
+
+console.log('task 162 ', arr162.find(func162)); // 7
+
+// 163- Что выведет консоль
+// Элемент будет равен возвращаемому значению. 1 + 2 вернет 3, 1 * 2 вернет 2, а 1 / 2 вернет 0.5.
+const list163 = [1 + 2, 1 * 2, 1 / 2];
+console.log('task 163 ', list163); // task 163  [ 3, 2, 0.5 ]
+
+// 164- Что выведет консоль
+// По умолчанию аргументы имеют значение undefined, если только значение не было передано функции. В этом случае мы не передали значение для аргумента name. name равно логгируемому undefined.
+function sayHi164(name) {
+  return `Hi there , ${name}`;
+}
+console.log('task 164 ', sayHi164()); //  Hi there , undefined
+
+// 165- Что выведет консоль
+// Переменные с ключевыми словами const и let имеют блочную видимость. Вы не можете ссылаться на переменную за пределами блока, в котором она объявлена, вызывается ReferenceError.
+function checkAge165(age) {
+  if (age < 18) {
+    const msg = 'Sorry';
+  } else {
+    const msg = 'Yay!';
+  }
+  return msg;
+}
+// console.log('task 165 ', checkAge165(21)); // ReferenceError: msg is not defined
+
+// 166- Что выведет консоль
+// Метод charAt() возвращает указанный символ из строки
+// Чтобы получить символ по определенному индексу в строке, вы можете использовать скобочную нотацию
+console.log('task 166 ', 'I want pizza'[0]); // I
+
+// 167- Что выведет консоль
+function sum167(num1, num2 = num1) {
+  console.log('task 167 ', num1 + num2);
+}
+sum167(10); //  20
+
+// 168- Что выведет консоль
+class Person168 {
+  constructor(name) {
+    this.name = name;
+  }
+}
+const member168 = new Person168('Serge');
+console.log('task 168 ', member168, typeof member168, typeof Person168); // { name: 'Serge' } object function
+
+// 169- Что выведет консоль
+// Метод .push возвращает новую длину массива, а не сам массив!
+let newList169 = [1, 2, 3].push(4);
+console.log(newList169); // 4
+// console.log('task 169 ', newList169.push(5)); // TypeError: newList169.push is not a function
