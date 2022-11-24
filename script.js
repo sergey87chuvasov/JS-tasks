@@ -1373,3 +1373,92 @@ console.log('task 168 ', member168, typeof member168, typeof Person168); // { na
 let newList169 = [1, 2, 3].push(4);
 console.log(newList169); // 4
 // console.log('task 169 ', newList169.push(5)); // TypeError: newList169.push is not a function
+
+// 170- Что выведет консоль
+// ... args - прочие параметры. Значение прочих параметров - это массив, содержащий все оставшиеся аргументы и может быть передан только последним!
+// function getItems170 (fruitList, ...args, favoriteFruit) {
+//   return [...fruitList, ...args, favoriteFruit]
+// }
+
+// getItems170(['banana', 'apple'], 'pear', 'orange') // SyntaxError: Rest parameter must be last formal parameter
+
+function getItems170_1(fruitList, favoriteFruit, ...args) {
+  return [...fruitList, ...args, favoriteFruit];
+}
+
+console.log(
+  'task 170_1 ',
+  getItems170_1(['banana', 'apple'], 'pear', 'orange') // [ 'banana', 'apple', 'orange', 'pear' ]
+);
+
+// 171- Что выведет консоль
+// Когда вы возвращаете свойство, значение свойства равно возвращаемому значению, а не значению, установленному в функции конструктора.
+function Car171() {
+  this.make = 'Lamba';
+  return { make: 'Maserati' };
+}
+const myCar171 = new Car171();
+console.log('task 171 ', myCar171.make); // Maserati
+
+// 172- Что выведет консоль
+// Мы передаем значение 'I love' в качестве аргумента стрелочной функции x => x. x равно 'I love', которое и возвращается. Это приводит к I love to program.
+console.log('task 172 ', `${((x) => x)('i love')} to program`); // i love to program
+
+// 173- Что выведет консоль
+// sumValues принимает три аргумента:x, y и z. ...[1, 2, 3] приведет к перечню 1, 2, 3, который мы передаем функции sumValues.
+function sumValues173(x, y, z) {
+  return x + y + z;
+}
+console.log('task 173 ', sumValues173(...[1, 2, 3])); // 6
+
+// 174- Что выведет консоль
+// typeof name возвращает "строку". Строка "string" является истинным значением, поэтому !typeof name возвращает логическое значение false. false === "object" и false === "string" оба возвращают false.
+const name174 = 'Ivan Ivanov';
+console.log('task 174 ', !typeof name === 'object'); // false
+console.log('task 174 ', !typeof name === 'string'); // false
+
+// 175- Что выведет консоль
+// Первая функция получает аргумент x со значением 4. Мы вызываем вторую функцию, которая получает аргумент y со значением 5. Затем мы вызываем третью функцию, которая получает аргумент z со значением 6
+//  Когда мы пытаемся получить доступ к значениям x, y и z в функции последней стрелки, движок JS поднимается вверх по цепочке областей видимости, чтобы найти значения для x и y соответственно. Это возвращает 4 5 6.
+const add175 = (x) => (y) => (z) => {
+  console.log('task 175 ', x, y, z); // 4 5 6
+  return x + y + z;
+};
+add175(4)(5)(6);
+
+// 176- Что выведет консоль
+// Используя метод splice, мы модифицируем исходный массив, удаляя, заменяя или добавляя элементы. В этом случае мы удалили 2 элемента. map, filter и slice возвращают новый массив, find возвращает элемент, а reduce возвращает аккумулированное значение.
+const arr176 = [1, 2, 3, 4, 5, 6, 7];
+console.log('task 176 ', arr176.splice(1, 2)); // [ 2, 3 ]
+console.log(arr176); // [ 1, 4, 5, 6, 7 ]
+
+// 177- Что выведет консоль
+// Когда ты изменяешь один объект, то изменяются значения всех ссылок, указывающих на этот объект.
+let c177 = { greeting: 'hey!' };
+let d177;
+
+d177 = c177;
+c177.greeting = 'HELLO';
+console.log('task 177 ', d177.greeting); // HELLO
+
+// 178- Что выведет консоль
+console.log('task 178 ', +true); // 1
+console.log('task 178 ', !'Serge'); // false
+
+// 179- Что выведет консоль
+// Функция — это специальный тип объекта, который можно вызвать. Кроме того, функция — это объект со свойствами. Свойство такого объекта нельзя вызвать, так как оно не является функцией.
+function bark179() {
+  console.log('Woof');
+}
+bark179.animal = 'dog';
+console.log('task 179 ', bark179); // [Function: bark179] { animal: 'dog' }
+
+// 180- Что выведет консоль
+// В этом примере JavaScript сконвертировал число 1 в строку, чтобы операция внутри функции имела смысл и вернула значение. Во время сложения числа (1) и строки ('2') число преобразовывается к строке.
+function sum180(a, b) {
+  return a + b;
+}
+console.log('task 180 ', sum180(1, '2')); // 12
+console.log('task 180 ', sum180('2', '2')); // 22
+console.log('task 180 ', sum180(true, '2')); // true2
+console.log('task 180 ', sum180(true, false)); // 1
