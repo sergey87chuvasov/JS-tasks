@@ -1462,3 +1462,37 @@ console.log('task 180 ', sum180(1, '2')); // 12
 console.log('task 180 ', sum180('2', '2')); // 22
 console.log('task 180 ', sum180(true, '2')); // true2
 console.log('task 180 ', sum180(true, false)); // 1
+
+// 181- Что выведет консоль
+// Оператор запятой оценивает каждый из своих операндов(слева направо) и возвращает значение последнего операнда. В нашем случае это 5
+const func181_1 = () => true;
+const func181_2 = () => 'Hey world';
+const func181_3 = () => 5;
+const func_test181 = (func181_1(), func181_2(), func181_3());
+console.log('task 181 ', func_test181); // 5
+
+// 182- Что выведет консоль
+let a182 = [1, 2];
+(function () {
+  console.log(a182); // [ 1, 2 ]
+})();
+
+// 183- Что выведет консоль
+let obj183 = {
+  1: 1,
+  0: 0,
+};
+for (let key in obj183) {
+  console.log('task 182 ', key); //0 1
+  console.log('task 182_2 ', obj183[key]); //0 1
+}
+
+// 184- Что выведет консоль
+// eval выполняет код, переданный в виде строки
+const sum184 = eval('10*10+5');
+console.log('task 184 ', sum184); // 105
+
+// 185- Что выведет консоль
+const user185 = { name: 'Serge', age: 35 };
+const admin185 = { admin: true, ...user185 };
+console.log('task 185 ', admin185); // { admin: true, name: 'Serge', age: 35 }
