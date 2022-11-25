@@ -1496,3 +1496,42 @@ console.log('task 184 ', sum184); // 105
 const user185 = { name: 'Serge', age: 35 };
 const admin185 = { admin: true, ...user185 };
 console.log('task 185 ', admin185); // { admin: true, name: 'Serge', age: 35 }
+
+// 186- Что выведет консоль
+// Метод toString() возвращает строковое представление указанного массива и его элементов.
+const monthNames186 = ['янв', 'фев', 'мар', 'апр'];
+const myVar186 = monthNames186.toString();
+console.log('task 186 ', myVar186, typeof myVar186); // 'янв,фев,мар,апр' , string
+
+// 187- Что выведет консоль
+// JavaScript метод sort() позволяет отсортировать массив путём преобразования его элементов в строки и сравнения этих строк в порядке следования кодовых символов Unicode (сортирует массив по алфавиту).
+let arr187 = [5, 3, 22, true];
+arr187.sort();
+console.log('task 187 ', arr187); // [ 22, 3, 5, true ]
+
+// 188- Что выведет консоль
+// Свойство length определяет количество аргументов, ожидаемых функцией.
+console.log(Function.length); // 1
+console.log(function () {}.length); // 0
+console.log(function (a) {}.length); // 1
+console.log(function (a, b) {}.length); // 2
+console.log(function (a, b, c, d) {}.length); // 4
+console.log(function (...args) {}.length); // 0
+
+// 189- Что выведет консоль
+// В строгом режиме объект arguments не отражает изменения параметров. В нестрогром режиме объект arguments отражает измениня параметров функции, если параметры были переданы при вызове.
+// В данной задаче используется строгий режим, следовательно, параметры не изменятся.
+function func189(a, b) {
+  'use strict';
+  a = 30;
+  b = 17;
+  const js_test = arguments[1];
+  console.log('task 189 ', js_test); // 15
+}
+func189(5, 15);
+
+// 190- Что выведет консоль
+// Метод join объединяет элементы массива в строку с указанным разделителем (он будет вставлен между элементами массива).
+const arr190 = ['first', 'second', 'third'];
+const result190 = arr190.join(' + ');
+console.log('task 190 ', result190, typeof result190); // first + second + third,  string
