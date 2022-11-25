@@ -1535,3 +1535,44 @@ func189(5, 15);
 const arr190 = ['first', 'second', 'third'];
 const result190 = arr190.join(' + ');
 console.log('task 190 ', result190, typeof result190); // first + second + third,  string
+
+// 191- Что выведет консоль
+// mетод hasOwnProperty - проверяет, принадлежит ли указанное свойство самому объекту или нет.
+let obj191 = {
+  name: 'Serge',
+};
+console.log('task 191 ', obj191.hasOwnProperty('name')); // true
+
+// 192- Что выведет консоль
+// Метод apply() принимает аргументы в виде массива.
+// чтобы найти максимальное число в списке значений, достаточно воспользоваться методом Math.max():
+// Первый аргумент служит контекстом вызо­ва и становится значением ключевого слова this в теле функции.
+const arr192 = [0, 15, 5];
+const result192 = Math.max.apply(20, arr192);
+console.log('task 192 ', result192, this); // 15
+
+// 193- Что выведет консоль
+// В данном случае вызов Object.assign({}, obj193) означает, что мы копируем данные из объекта obj193 в пустой объект {}. Результатом этого копирования стал объект copy193. Причем это совсем другой объект, нежели obj193. И любые изменения с константой copy193 здесь никак не затронут константу obj193.
+var obj193 = { a: 1 };
+var copy193 = Object.assign({}, obj193);
+console.log('task 193 ', copy193); // { a: 1 }
+
+// 194- Что выведет консоль
+function newArr194(value) {
+  return [value];
+}
+console.log('task 194 ', newArr194(5)); // [ 5 ]
+
+// 195- Что выведет консоль
+// JavaScript метод isNaN()ECMAScript 2015 определяет, является ли передаваемое значение NaN (англ. Not-a-Number, "не число") и возвращает логическое значение.
+function func195(x) {
+  if (isNaN(x)) {
+    return NaN;
+  }
+  return x;
+}
+
+console.log('task 195 ', func195('1'), typeof func195('1')); // 1 string
+console.log('task 195 ', func195('abc')); // NaN
+console.log('task 195 ', func195(1)); // 1
+console.log('task 195 ', func195(true), typeof func195(true)); // true boolean
