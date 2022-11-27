@@ -1576,3 +1576,76 @@ console.log('task 195 ', func195('1'), typeof func195('1')); // 1 string
 console.log('task 195 ', func195('abc')); // NaN
 console.log('task 195 ', func195(1)); // 1
 console.log('task 195 ', func195(true), typeof func195(true)); // true boolean
+
+// 196- Что выведет консоль
+// Метод join() объединяет все элементы массива (или массивоподобного объекта) в строку.
+// Метод call() это предопределенный метод JavaScript. Он может использоваться для вызова любого метода с любым владельцем объекта в качестве аргумента (параметра)
+function f196(a, b, c) {
+  const s = Array.prototype.join.call(arguments);
+  console.log('task ', s, typeof s); // 1,a,true string
+}
+f196(1, 'a', true);
+
+// 197- Что выведет консоль
+const animals197 = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+const result197 = animals197.slice(1, 5);
+console.log('task 197 ', result197); // [ 'bison', 'camel', 'duck', 'elephant' ]
+
+// 198- Что выведет консоль
+// Метод every() проверяет, удовлетворяют ли все элементы массива условию, заданному в передаваемой функции. Метод every() не изменяет массив, для которого он был вызван.
+function isBigEnough(element, inde, array) {
+  return element >= 10;
+}
+console.log('task 198 ', [12, 5, 8, 130, 44].every(isBigEnough)); // false
+console.log('task 198 ', [12, 55, 85, 130, 44].every(isBigEnough)); // true
+
+// 199- Что выведет консоль
+let arr199 = [1, 2, 3];
+for (i = 0; i < arr199.length; arr199[i++] = 0);
+console.log('task 199 ', arr199); // [ 0, 0, 0 ]
+
+// 200- Что выведет консоль
+// Функция Math.trunc() возвращает целую часть числа путём удаления всех дробных знаков.
+console.log('task 200 ', Math.trunc(12.23)); // 12
+console.log('task 200 ', Math.trunc(0.123)); // 0
+console.log('task 200 ', Math.trunc(NaN)); // NaN
+console.log('task 200 ', Math.trunc('abc')); // NaN
+
+// 201- Что выведет консоль
+let js_tests201 = 10;
+const func201 = (x = 100) => {
+  js_tests201 = x;
+};
+func201(true);
+console.log('task 201 ', js_tests201); // true
+
+// 202- Что выведет консоль
+// Метод splice() изменяет содержимое массива, удаляя существующие элементы и/или добавляя новые.
+// Первым параметром метод принимает номер элемента массива, который нужно удалить. Вторым параметром - сколько элементов массива следует удалить. Если его поставить в 0 - то элементы удалены не будут (только добавлены новые).Дальше через запятую идут элементы, которые нужно добавить в массив (являются необязательными параметрами). Эти элементы добавятся вместо удаленных элементов массива.
+
+const nums202 = ['one', 'two', 'three', 'four']; // [ 'one', 'two', 'ten', 'four' ]
+const removed202 = nums202.splice(2, 1, 'ten'); // [ 'three' ] - номер элемента массива, который нужно удалить
+console.log('task 202, ', nums202, removed202);
+
+// 203- Что выведет консоль
+// JavaScript метод max() объекта Math позволяет найти и возвратить наибольшее из переданных чисел.
+const arr203 = [0, 15, 5];
+const result203 = Math.max.apply(20, arr203);
+console.log('task 203 ', result203, typeof result203); // 15 number
+
+// 204- Что выведет консоль
+const a204 = (c) => c;
+const b204 = (c) => c;
+console.log('task 204 ', a204 === b204); // false
+console.log('task 204 ', a204 == b204); // false
+console.log('task 204 ', a204(4) === b204(4)); // true
+console.log('task 204 ', a204(4) == b204(4)); // true
+
+// 205- Что выведет консоль
+const a205 = {
+  name: 'serge',
+};
+const b205 = {
+  name: 'serge',
+};
+console.log('task205 ', a205.name === b205.name); // true
