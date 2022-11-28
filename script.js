@@ -1649,3 +1649,15 @@ const b205 = {
   name: 'serge',
 };
 console.log('task205 ', a205.name === b205.name); // true
+
+// 206- Что выведет консоль
+var a206 = 5;
+function test206() {
+  a206 = 10;
+  console.log(a206); // 10
+  if (false) {
+    var a206 = 20;
+  }
+}
+test206();
+console.log('task 206 ', a206); // 5

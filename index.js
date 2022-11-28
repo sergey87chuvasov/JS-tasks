@@ -257,3 +257,73 @@ function solution(str) {
 console.log(solution('world')); // dlrow
 console.log(solution('InVaSiOn')); // nOiSaVnI
 // */
+
+// 15 - Задача. Найти сумму элементов массива - for
+const arr15 = [1, 2, 2, 4, 5, 66];
+let sum15 = 0;
+
+for (let i = 0; i < arr15.length; i++) {
+  sum15 += arr15[i];
+}
+
+console.log('task 15 ', sum15); // 80
+
+// 16 - Задача. Найти сумму элементов массива - reduce
+const arr16 = [1, 2, 2, 4, 5, 66, 88];
+let sum16 = arr16.reduce((acc, item) => acc + item, 0);
+
+console.log('task 16 ', sum16); // 168
+
+// 17 - Задача. Найти сумму элементов массива - eval()
+// Функция eval() выполняет код, переданный ей в виде строки
+const arr17 = [1, 2, 2, 4, 5, 66, 88, 145];
+console.log(arr17.join('+')); // 1+2+2+4+5+66+88+145
+console.log('task 17 ', eval(arr17.join('+'))); // 313
+
+// 18 - Задача. Найти макс элемент в массиве - for + if
+const arr18 = [1, 2, 2, 4, 5, 66, 88, 145];
+let max18 = arr18[0];
+
+for (let i = 1; i < arr18.length; i++) {
+  if (arr18[i] > max18) {
+    max18 = arr18[i];
+  }
+  // max18 = arr18[i] > max18 ? arr18[i] : max18
+}
+
+console.log('task 18 ', max18); // 145
+
+// 19 - Задача. Найти макс элемент в массиве - ternarn
+const arr19 = [1, 2, 2, 333, 4, 5, 66, 88, 145];
+let max19 = arr19[0];
+
+for (let i = 1; i < arr19.length; i++) {
+  max19 = arr19[i] > max19 ? arr19[i] : max19;
+}
+
+console.log('task 19 ', max19); // 333
+
+// 20 - Задача. Найти макс элемент в массиве - Math.max()
+// Метод Math.max() возвращает наибольшее из нуля или более чисел.
+const arr20 = [1, 2, 2, 333, 4, 454, 5, 66, 88, 145];
+let max20 = arr20[0];
+
+for (let i = 1; i < arr20.length; i++) {
+  max20 = Math.max(arr20[i], max20);
+}
+
+console.log('task 20 ', max20); // 454
+
+// 21 - Задача. Найти макс элемент в массиве - reduce
+const arr21 = [1, 2, 2, 333, 4, 454, 777, 5, 66, 88, 145];
+
+let max21 = arr21.reduce((acc, item) => Math.max(acc, item));
+console.log('task 21 ', max21); // 777
+
+// 22 - Задача. Найти макс элемент в массиве - sort()
+// Метод sort() на месте сортирует элементы массива и возвращает отсортированный массив.
+const arr22 = [1, 2, 2, 333, 4, 454, 5, 66, 881, 88, 145];
+arr22.sort((x1, x2) => x1 - x2);
+let max22 = arr22[arr22.length - 1];
+
+console.log('task 22 ', max22); // 881
