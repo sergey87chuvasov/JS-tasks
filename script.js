@@ -1661,3 +1661,24 @@ function test206() {
 }
 test206();
 console.log('task 206 ', a206); // 5
+
+// 207- Что выведет консоль
+// Вызов метода clear() удаляет все значения из коллекции Set.
+const numbers207 = new Set();
+numbers207.add(2).add(3).add(5);
+console.log('task 207 ', numbers207.size); // 3
+numbers207.clear();
+console.log('task 207_2 ', numbers207.size); // 0
+
+// 208- Что выведет консоль
+//Метод indexOf() возвращает первый индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет.
+const str208 = 'JavaScript';
+console.log('task 208 ', str208.indexOf('rip')); // 6
+
+// 209- Что выведет консоль
+// Оператор instanceof проверяет, принадлежит ли объект к определённому классу.
+class User209 {}
+class Admin209 extends User209 {}
+const admin209 = new Admin209();
+console.log('task 209_1 ', admin209 instanceof Admin209); // true
+console.log('task 209_2 ', admin209 instanceof User209); // true

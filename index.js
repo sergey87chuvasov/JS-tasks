@@ -327,3 +327,98 @@ arr22.sort((x1, x2) => x1 - x2);
 let max22 = arr22[arr22.length - 1];
 
 console.log('task 22 ', max22); // 881
+
+// 23- Задача. Найти макс элемент в массиве - pop()
+// Метод pop() удаляет последний элемент из массива и возвращает его значение.
+const arr23 = [1, 2, 2, 333, 4, 454, 5, 66, 881, 88, 145];
+arr23.sort((x1, x2) => x1 - x2);
+let max23 = arr23.pop();
+
+console.log('task 23 ', max23); // 881
+
+// 24- Задача. Найти макс элемент в массиве - ...spread
+// spread-оператор (оператор ...) позволяет разложить массив на отдельные значения. Для этого перед массивом ставится многоточие:
+
+const arr24 = [1, 2, 2, 333, 4, 454, 5, 66, 881, 88, 145, 999];
+
+console.log('task 24_1 ', Math.max(...arr24)); // 999
+console.log('task 24_2 ', Math.max.apply(null, arr24)); // 999
+
+// 25- Задача. Сортировка arr
+// Метод sort() на месте сортирует элементы массива и возвращает отсортированный массив.
+const arr25 = [1, 2, 2, 333, 4, 454, 5, 66, 881, 88, 145, 999];
+arr25.sort((x1, x2) => {
+  if (x1 < x2) {
+    return -1;
+  }
+  if (x1 === x2) {
+    return 0;
+  }
+  return 1;
+});
+
+// arr25.sort((x1,x2) => x1-x2)
+
+console.log('task 25 ', arr25); //  [ 1,   2,   2,   4,   5, 66,  88, 145, 333, 454, 881, 999]
+
+// 26- Задача. Сортировка {}
+const users26 = [
+  {
+    name: 'Serge',
+    age: 20,
+  },
+  {
+    name: 'Ivan',
+    age: 50,
+  },
+  {
+    name: 'Cloe',
+    age: 40,
+  },
+];
+
+users26.sort((u1, u2) => u1.age - u2.age);
+console.log('task 26 ', users26); // [{ name: 'Serge', age: 20 },{ name: 'Cloe', age: 40 },{ name: 'Ivan', age: 50 }]
+
+// 27- Задача. Сортировка {} по имени
+// Описание Метод localeCompare() сравнивает одну строку с другой и возвращает одно из трех значений (число)
+const users27 = [
+  {
+    name: 'Serge',
+    age: 20,
+  },
+  {
+    name: 'Ivan',
+    age: 50,
+  },
+  {
+    name: 'Cloe',
+    age: 40,
+  },
+];
+users27.sort((u1, u2) => {
+  return u1.name.localeCompare(u2.name);
+});
+console.log('task 27 ', users27); // [{ name: 'Cloe', age: 40 },{ name: 'Ivan', age: 50 },{ name: 'Serge', age: 20 }]
+
+// 28- Задача. Развернуть массив
+const arr28 = [1, 2, 3, 4, 5, 6, 7, 8];
+const revers28 = arr28.map((e, index, arr) => arr[arr.length - index - 1]);
+console.log('task 28 ', revers28); //  [8, 7, 6, 5,4, 3, 2, 1]
+
+// 29- Задача. Отфильтровать falsy значения в массиве
+const arr29 = [2, 'abc', 0, false, 99, NaN, ''];
+const notFalsy = [];
+
+for (let i = 0; i < arr29.length; i++) {
+  if (!!arr29[i]) {
+    notFalsy.push(arr29[i]);
+  }
+}
+console.log('task 29 ', notFalsy); // [ 2, 'abc', 99 ]
+
+// 30- Задача. Отфильтровать falsy ~ filter()
+const arr30 = [2, 'abc', 0, false, 99, NaN, ''];
+const notFalsy30 = arr30.filter((n) => !!n);
+// const notFalsy30 = arr30.filter(Boolean);
+console.log('task 30 ', notFalsy30); // [ 2, 'abc', 99 ]
