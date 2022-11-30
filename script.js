@@ -1682,3 +1682,26 @@ class Admin209 extends User209 {}
 const admin209 = new Admin209();
 console.log('task 209_1 ', admin209 instanceof Admin209); // true
 console.log('task 209_2 ', admin209 instanceof User209); // true
+
+// 210- Что выведет консоль
+console.log('task 210 ', Boolean('5') + 9); // 10 тк true + 1 = 10
+
+// 211- Что выведет консоль
+console.log('task 211 ', String('10') - 5 + Boolean('') + '1'); // 51
+
+// 212- Что выведет консоль
+// приоритетность операторов сначала + (14), потом присваение (2)
+let a212;
+let b212;
+b212 = a212 = 100 + 50;
+console.log('task 212_1 ', b212); // 100+50 = 150 и 150=a212 // 150
+console.log('task 212_2 ', a212); //  a212 = b121 // 150
+
+// 213- Что выведет консоль
+// Метод .push() возвращает длину нового массива!
+// Метод push изменяет исходный массив. Если вы хотите вернуть массив из функции, а не длину массива, вы должны были вернуть list после добавления в нее item.
+function addToList213(item, list) {
+  return list.push(item);
+}
+const result213 = addToList213('apple', ['banana']);
+console.log('task 213 ', result213); // 2

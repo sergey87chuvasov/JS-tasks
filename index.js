@@ -422,3 +422,46 @@ const arr30 = [2, 'abc', 0, false, 99, NaN, ''];
 const notFalsy30 = arr30.filter((n) => !!n);
 // const notFalsy30 = arr30.filter(Boolean);
 console.log('task 30 ', notFalsy30); // [ 2, 'abc', 99 ]
+
+// 31- Задача. Найти разницу между объемами кубов
+// Метод Math.abs возвращает модуль числа, то есть из отрицательного числа делает положительное.
+// V cube = a*b*c
+function findDifference(a, b) {
+  return Math.abs(a[0] * a[1] * a[2] - b[0] * b[1] * b[2]);
+}
+
+console.log('task 31_1 ', findDifference([3, 2, 5], [1, 4, 6])); // 6
+console.log('task 31_2 ', findDifference([7, 5, 5], [1, 2, 6])); // 163
+
+// 32- Задача. Персонализированное приветствие
+function greet(name, owner) {
+  // if (name === owner) {
+  //   return 'Hello Boss';
+  // } else {
+  //   return 'Hello guest';
+  // }
+
+  // return name === owner ? 'Hello boss' : 'Hello guest';
+
+  // return 'Hello ' + (name === owner ? 'boss' : 'guest');
+
+  return `Hello ${name === owner ? 'boss' : 'guest'}`;
+}
+
+// const greet = (name, owner) => `Hello ${(name === owner ? 'boss' : 'guest')}`
+
+console.log('task 32_1 ', greet('Serge', 'Serge')); // hello Boss
+console.log('task 32_2 ', greet('Serge', 'Petya')); // Hello guest
+
+// 33- Задача. Таблица умножения
+function multiTable(number) {
+  let res = '';
+  for (let i = 1; i <= 10; i++) {
+    res += `${i} * ${number} = ${i * number}`;
+    if (i < 10) res += '\n';
+  }
+  return res;
+}
+
+console.log('task 33_1 ', multiTable(5)); //
+console.log('task 33_2 ', multiTable(1)); //
