@@ -1705,3 +1705,72 @@ function addToList213(item, list) {
 }
 const result213 = addToList213('apple', ['banana']);
 console.log('task 213 ', result213); // 2
+
+// 214- Что выведет консоль
+const a214 = 5;
+if (a214 > 0) {
+  console.log('Yes!'); // Yes!
+} else if (a214 == 5) {
+  console.log('No!');
+}
+
+// 215- Что выведет консоль
+const a215 = '5';
+if (a215 == 5) {
+  console.log('equal'); // equal
+}
+if (a215 === 5) {
+  console.log('strict equal');
+}
+
+// 216- Что выведет консоль   a216=== строгое равенство в switch
+const a216 = 5;
+switch (a216) {
+  case '5':
+    console.log('1');
+  case 5:
+    console.log('2'); // 2
+  case 4:
+    console.log('2'); // 2 тк нет break
+}
+
+// 217- Что выведет консоль
+const a217 = 3;
+switch (a217) {
+  case 5:
+    console.log('1');
+    break;
+  case 4:
+    console.log('2');
+    break;
+  default:
+    console.log('3'); // 3
+  case 2:
+    console.log('4'); // 4 тк нет break
+}
+
+// 218- Что выведет консоль
+const a218 = 5;
+console.log(a218 > 6 ? a218 < 3 : a218 > 5); // false
+
+// 219- Что выведет консоль
+const a219 = 3;
+console.log(
+  'task 219 ',
+  a219 < 6 ? (a219 > 4 ? 'Yes' : a219 <= 4 ? 'No' : '!!!') : '???' // No
+);
+
+// 220- Что выведет консоль
+console.log(Number('10-1')); // NaN
+console.log(Boolean('5') + 9); // 10  ( true + 9 = 10)
+console.log(String('10') - 5 + Boolean('') + '1'); // 51 ( '10' - 5 + false + '1') => (5 + 0 + '1')
+
+// 221- Что выведет консоль
+console.log((true && false) || false); // false
+console.log(!(true && false) && !(false && true)); // true
+console.log((!'' && 'Yes') || !('No' && 'false')); // Yes
+console.log(!'' && true && 'Yes' && Boolean('true') && 'PS'); // 'PS'
+console.log('' ?? 'Yes'); // '' оператор нулевого слияния для 0 и ''
+// console.log(true && 'd' ?? ''); // error одновременно нельзя - нужны скобки
+console.log((true && 'd') ?? ''); // 'd'
+console.log('' ?? (true && 'd')); // ''
