@@ -1774,3 +1774,46 @@ console.log('' ?? 'Yes'); // '' оператор нулевого слияния
 // console.log(true && 'd' ?? ''); // error одновременно нельзя - нужны скобки
 console.log((true && 'd') ?? ''); // 'd'
 console.log('' ?? (true && 'd')); // ''
+
+// 222- Что выведет консоль
+// Когда мы распаковываем свойство name из правого объекта, мы присваиваем его значение "Lydia" переменной с именем myName.С помощью {name: myName} мы сообщаем JavaScript, что хотим создать новую переменную с именем myName со значением свойства name в правой части.Поскольку мы пытаемся зарегистрировать name, переменную, которая не определена, выдается ReferenceError.
+
+const { name: myName } = { name: 'Serge' };
+// console.log('task 222 ', name); // ReferenceError: name is not defined
+
+// 223- Что выведет консоль
+function getUser223(id = 1, name) {
+  console.log('task 223 ', id + ' ' + name);
+}
+getUser223('Антон'); // Антон undefined
+
+// 224- Что выведет консоль
+function isAdmin224(userId) {
+  if (userId === 10) {
+    return true;
+  } else {
+    return isAdmin224(10);
+  }
+}
+console.log('task 224 ', isAdmin224(5)); // true
+
+// 225- Что выведет консоль
+function start225() {
+  return 'start';
+}
+function run225() {
+  return start225() + ' finish ' + start225();
+}
+console.log('task 225 ', run225()); // start finish start
+
+// 226- Что выведет консоль
+function a226() {
+  return c226();
+}
+function b226() {
+  return 'Yes';
+}
+function c226() {
+  return b226;
+}
+console.log('task 226 ', a226()); // [Function: b226] - тк функция b без вызова
