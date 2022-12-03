@@ -1817,3 +1817,40 @@ function c226() {
   return b226;
 }
 console.log('task 226 ', a226()); // [Function: b226] - тк функция b без вызова
+
+// 227- Что выведет консоль
+// Как проверить существует ли свойство в объекте?
+const user227 = {
+  name: 'Serge',
+};
+console.log('task 227 ', 'name' in user227); // true
+console.log('task 227 ', 'age' in user227); // false
+console.log('task 227 ', !('age' in user227)); // true
+
+// hasOwnProperty
+console.log('task 227 ', user227.hasOwnProperty('name')); // true
+console.log('task 227 ', user227.hasOwnProperty('age')); // false
+
+// сравнение с undefined
+console.log('task 227 ', user227.name !== undefined); // true
+console.log('task 227 ', user227.name === undefined); // false
+
+// 228- Что выведет консоль
+const list228 = [1 + 2, 1 * 2, 1 / 2];
+console.log('task 228 ', list228); // [ 3, 2, 0.5 ]
+
+// 229- Что выведет консоль
+let hello229 = 'Hello';
+hello229 += ' world';
+console.log('task 229 ', hello229); // 'Hello world'
+
+// 230- Что выведет консоль
+let hello230 = ['Hello'];
+hello230.push(' world');
+console.log('task 230 ', hello230); // [ 'Hello', ' world' ]
+
+// 231- Что выведет консоль
+const arr231 = [1, 2, 3, 4, 5, 6];
+console.log('task 231 ', arr231.at(0)); // 1
+console.log('task 231 ', arr231.at(3)); // 4
+console.log('task 231 ', arr231.at(-1)); // 6
