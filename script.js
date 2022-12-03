@@ -1854,3 +1854,53 @@ const arr231 = [1, 2, 3, 4, 5, 6];
 console.log('task 231 ', arr231.at(0)); // 1
 console.log('task 231 ', arr231.at(3)); // 4
 console.log('task 231 ', arr231.at(-1)); // 6
+
+// 232- Что выведет консоль
+// Функция Array.from() создаёт новый массив на основе переданного объекта. Объект должен быть либо массивоподобным (как строка или объект arguments), либо итерируемым (как Set или Map).
+console.log('task 232 ', Array.from('foo')); // [ 'f', 'o', 'o' ]
+// с callback функцией Array.from( arr, function( currentValue, index ));
+console.log(
+  'task232_2 ',
+  Array.from([1, 2, 3], (x) => x + x) // [ 2, 4, 6 ]
+);
+
+// 233- Что выведет консоль
+const arr233 = [1, 2, 3, 4, 5, 6];
+const res233 = arr233.slice(2);
+console.log('task 233 ', arr233); // [ 1, 2, 3, 4, 5, 6 ] - массив не меняется
+console.log('task 233 ', res233); // [ 3, 4, 5, 6 ] - 2 инд включ отрезал кусок
+const res233_2 = arr233.slice(2, 4);
+console.log('task 233_2 ', arr233); // [ 1, 2, 3, 4, 5, 6 ]
+console.log('task 233_2 ', res233_2); //  [ 3, 4 ] - начальный и конечный индекс не включая последн элем
+const res233_3 = arr233.slice(-1);
+console.log('task 233_3 ', arr233); // [ 1, 2, 3, 4, 5, 6 ]
+console.log('task 233_3 ', res233_3); // [ 6 ] - послдений эл массива
+const res233_4 = arr233.slice(1, -2);
+console.log('task 233_4 ', arr233); // [ 1, 2, 3, 4, 5, 6 ]
+console.log('task 233_4 ', res233_4); // [ 2, 3, 4 ] когда минус отсчет идет с конца
+
+// 234- Что выведет консоль
+const arr234 = [1, 2, 3, 4, 5, 6];
+const res234 = arr234.splice(2);
+console.log('task 234 ', arr234); // [ 1, 2 ] - что осталось в массиве
+console.log('task 234 ', res234); // [ 3, 4, 5, 6 ]  - вырезанное
+const arr234_2 = [1, 2, 3, 4, 5, 6];
+const res234_2 = arr234_2.splice(2, 4); // 2 арг это длинна элементов котор нужно взять
+console.log('task 234_2 ', arr234_2); // [ 1, 2 ]
+console.log('task 234_2 ', res234_2); // [ 3, 4, 5, 6 ] - 4 элемента со второго эл
+const arr234_3 = [1, 2, 3, 4, 5, 6];
+const res234_3 = arr234_3.splice(-1); // удаляет с конца
+console.log('task 234_3 ', arr234_3); // [ 1, 2, 3, 4, 5 ]
+console.log('task 234_3 ', res234_3); // [ 6 ]
+
+// 235- Что выведет консоль
+const arr235 = [1, 2, 3, 4, 5, 6];
+const res235 = arr235.reverse(); // модифицирует исходный массив
+console.log('task 235 ', arr235); // [ 6, 5, 4, 3, 2, 1 ]
+console.log('task 235 ', res235); // [ 6, 5, 4, 3, 2, 1 ]
+
+// 236- Что выведет консоль
+const arr236 = [1, 2, 3, 4, 5, 6];
+const arr236_2 = [11, 22, 33, 44, 55, 66];
+const res236 = arr236.concat(arr236_2);
+console.log('task 236 ', res236); // [ 1,  2,  3,  4,  5, 6, 11, 22, 33, 44, 55, 66 ]
