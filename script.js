@@ -1971,3 +1971,72 @@ const mainStr247 = 'hello';
 const subStr247 = 'hel';
 console.log('task 247 ', mainStr247.indexOf(subStr247)); // 0
 console.log('task 247 ', mainStr247.indexOf(subStr247) !== -1); // true  0 !== -1
+
+// 248- Что выведет консоль
+var number248 = 10;
+var display248 = function () {
+  console.log('task 248 ', number248); // undefined
+  var number248 = 20;
+};
+display248();
+
+// 249- Что выведет консоль
+const arr249 = [1, 2, 3, 4];
+for (let i = 0; i < arr249.length; i++) {
+  if (arr249[i] === 2) {
+    continue; // переход к след итерации
+  }
+  console.log('task 249 ', arr249[i]); // 1 3 4
+}
+
+// 250- Что выведет консоль
+const arr250 = ['!', 'JS', 'люблю', 'Я'];
+const res250 = [];
+for (let i = arr250.length - 1; i >= 0; i--) {
+  res250.push(arr250[i]);
+}
+console.log('task 250 ', res250.join(' ')); // Я люблю JS !
+console.log('task 250_2 ', arr250.reverse().join(' ')); // Я люблю JS !
+
+// 251- Что выведет консоль
+// цикл while
+const arr251 = [1, 2, 3, 4, 8, 9, 10];
+let i251 = 0;
+while (arr251[i251] <= 5 && i251 < arr251.length) {
+  console.log('task 251 ', arr251[i251]); // 1 2 3 4
+  i251++;
+}
+
+// 252- Что выведет консоль
+for (let i = 1; i < 9; i++) {
+  console.log('task 252 ', i); // 1 2 3 4 5 6
+  if (i > 5) {
+    console.log('br', i); // 6
+    break;
+  }
+}
+
+// 253- Что выведет консоль
+for (let i = 1; i < 3; i++) {
+  for (let j = 1; j < 3; j++) {
+    console.log('task 253 ', i); // 1 1 2 2
+  }
+}
+
+// 254- Что выведет консоль
+// const a254 = 0;
+// while (a254 < 3) {
+//   // console.log('task 254 ', a254); // бесконечный цикл тк нет условия выхода из него
+// }
+
+// 255- Что выведет консоль
+const arr255 = [1, 2, 3];
+for (const el in arr255) {
+  console.log('task 255 ', el); // 0 1 2
+}
+
+// 256- Что выведет консоль
+const arr256 = [1, 2, 3];
+for (const el of arr) {
+  console.log('task 256 ', el); // 1 2 3
+}
