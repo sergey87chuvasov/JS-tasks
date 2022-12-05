@@ -2040,3 +2040,55 @@ const arr256 = [1, 2, 3];
 for (const el of arr) {
   console.log('task 256 ', el); // 1 2 3
 }
+
+// 257- Что выведет консоль
+// Метод Math.floor() - округление вниз. Округляет аргумент до ближайшего меньшего целого.
+console.log('task 257 ', Math.floor(5.99)); // 5
+console.log('task 257 ', Math.floor(5)); // 5
+console.log('task 257 ', Math.floor(-5)); // -5
+console.log('task 257 ', Math.floor(-5.05)); // -6
+console.log('task 257 ', Math.floor(0)); // 0
+console.log('task 257 ', Math.floor(0.2)); // 0
+
+// 258- Что выведет консоль
+function power250(pow) {
+  return function (num) {
+    return num ** pow;
+  };
+}
+const powerOfTwo = power250(2);
+const powerOfThree = power250(3);
+console.log('task 258 ', powerOfTwo(5)); // 25
+console.log('task 258 ', powerOfThree(5)); // 125
+// !!!
+console.log('task 258 ', power250(5)(4)); // 1024  --> 4 в 5 степени
+
+// 259- Что выведет консоль
+function a259(num, b) {
+  return b(num);
+}
+console.log(a259(1, (n) => n + 5)); // 6
+
+// 260- Что выведет консоль
+function tax260(percent) {
+  return function (sum) {
+    return percent * sum;
+  };
+}
+const taxUser260 = tax260(0.13);
+console.log(taxUser260(1000)); // 130
+
+// 261- Что выведет консоль
+let cube261 = (x) => (y) => (z) => x * y * z;
+console.log('task 261 ', cube261(2)(2)(2)); // 8
+
+// 262- Что выведет консоль
+// let sq262 = x => y + x => z + y
+// console.log('task 262 ', sq262(2)(2)(2)); // error
+
+// 263- Что выведет консоль
+var g263 = 0;
+g263 = 1 && g263++;
+console.log(typeof (g263 = 1 && g263++)); // number
+// console.log(g263 = 1 && g263++); // 0
+console.log('task 263 ', g263); // 0
