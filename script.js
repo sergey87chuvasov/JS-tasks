@@ -2092,3 +2092,60 @@ g263 = 1 && g263++;
 console.log(typeof (g263 = 1 && g263++)); // number
 // console.log(g263 = 1 && g263++); // 0
 console.log('task 263 ', g263); // 0
+
+// 264- Что выведет консоль
+var a264 = true;
+
+console.log(
+  (a264 = function () {
+    return a264;
+  })()
+); // [Function: a264]
+
+// 265- Что выведет консоль
+const fun265 = (val) => !--val;
+const a265 = 1;
+const b265 = 2;
+console.log('task 265 ', fun265(a265)); // true ( !0 => true)
+console.log('task 265 ', fun265(b265)); // false (!1 => false)
+
+// 266- Что выведет консоль
+// в третьей строке мы создаем новый объект и firtObj265 теперь ссылается на другой объект (мы изменили значение переменной firstObj265, теперь там ссылка на другой объект), а secondObj265 хранит ссылку на старый объект
+let firstObj265 = { name: 'Hello' };
+let secondObj265 = firstObj265;
+firstObj265 = { name: 'Bye' };
+console.log('task 266 ', secondObj265.name); // Hello
+
+// 267- Что выведет консоль
+const person267 = {
+  name: 'Serge',
+  age: 99,
+};
+let city267 = person267.city267;
+console.log(city267); // undefined
+console.log(person267); // { name: 'Serge', age: 99 }
+city267 = 'London';
+console.log(city267); // London
+console.log('task 267 ', person267); // { name: 'Serge', age: 99 }
+
+// 268- Что выведет консоль
+const str268 = 'redev';
+console.log('task 268 ', str268[0].toUpperCase() + str268.slice(1)); // Redev (R + edev)
+
+// 269- Что выведет консоль
+const str269 = '6e6';
+console.log('task 269 ', parseInt(str269)); // 6
+
+// 270- Что выведет консоль
+// Метод substring() возвращает подстроку строки между двумя индексами, или от одного индекса и до конца строки.
+const str270 = 'JavaScript';
+console.log('task 270 ', str270.slice(1, 4)); // ava
+console.log('task 270 ', str270.substring(4, 1)); // ava
+
+// 271- Что выведет консоль
+const arr271 = [1, 2, 3];
+Object.prototype.rev = function () {
+  console.log('task 271 ', this); // [ 1, 2, 3 ]
+  return this.reverse();
+};
+console.log(arr271.rev()); // [ 3, 2, 1 ]
