@@ -2149,3 +2149,74 @@ Object.prototype.rev = function () {
   return this.reverse();
 };
 console.log(arr271.rev()); // [ 3, 2, 1 ]
+
+// 272- Что выведет консоль
+// entries() возвращает массив, элементами которого являются массивы, соответствующие перечисляемому свойству пары [key, value], найденной прямо в object
+const score272 = [5, 10, 0, 15];
+for (const [ind, el] of score272.entries()) {
+  console.log(`task 272 - Раунд: ${ind + 1}: ${el}`); // Раунд: 1: 5 итд...
+}
+
+// 273- Что выведет консоль
+// Внутри функции создаётся локальная переменная x, в которую изначально попадет ссылка на obj, но позже эта переменная переписывается на числовое значение 1
+var obj273 = {};
+function func273(x) {
+  x = 1;
+  return x;
+}
+
+console.log(func273(obj273)); // 1
+console.log('task 273 ', obj273); // {}
+
+// 274- Что выведет консоль
+console.log('task 274 ', new Array(1, 2, 3, 4)); // [ 1, 2, 3, 4 ]
+console.log('task 274_2 ', new Array(4)); // [ <4 empty items> ]
+console.log(
+  'task 274_3 ',
+  new Array(4).map((el) => el + 1) // [ <4 empty items> ] - map не работает тк нужно заполнить его
+); // [ <4 empty items> ]
+console.log('task 274_4 ', new Array(4).fill(1)); // [ 1, 1, 1, 1 ]
+console.log('task 274_4 ', new Array(4).fill(1, 0, 3)); // [ 1, 1, 1, <1 empty item> ]
+console.log(
+  'task 274_5 ',
+  Array.from({ length: 5 }, () => 5)
+); // [ 5, 5, 5, 5, 5 ]
+console.log(
+  'task 274_6 ',
+  Array.from({ length: 5 }, (cur, i) => i + 1)
+); // [ 1, 2, 3, 4, 5 ]
+
+// 275- Что выведет консоль
+let arr275 = [1, 2];
+let agg275 = 0;
+arr275.forEach((el, i) => (agg275 += el + i));
+console.log('task 275 ', agg275); // 4  ( 1 + 0 и 2 + 1 итого 4)
+
+// 276- Что выведет консоль
+let arr276 = [1, 2];
+let res276 = arr276.map((e) => e * 2).filter((e) => e > 3);
+console.log('task 276 ', res276); // [ 4 ]
+
+// 277- Что выведет консоль
+let arr277 = [1, 2];
+// let res277 = arr277.reduce((acc, el) => (acc += el)).map((e) => e * 2);
+// console.log((res277 = arr277.reduce((acc, el) => (acc += el)))); // 3
+// console.log('task 277 ', res277); // 3.map() - error typeof number
+
+// 278- Что выведет консоль
+let arr278 = [1, 2, 3];
+let res278 = arr278.map((e) => e * 2).find((e) => e < 5);
+console.log('task 278 ', res278); // 2
+
+// 279- Что выведет консоль
+let arr279 = [1, 2, 3];
+let res279 = arr279
+  .map((e) => [e * 2])
+  .flat()
+  .reduce((acc, el) => (acc -= el), 0);
+console.log('task 279 ', res279); // -12
+
+// 280- Что выведет консоль
+let arr280 = [1, 2, 10, 15];
+arr280.sort();
+console.log('task 280 ', arr280); // [ 1, 10, 15, 2 ]
