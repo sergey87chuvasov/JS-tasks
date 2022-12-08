@@ -2220,3 +2220,25 @@ console.log('task 279 ', res279); // -12
 let arr280 = [1, 2, 10, 15];
 arr280.sort();
 console.log('task 280 ', arr280); // [ 1, 10, 15, 2 ]
+
+// 281- Что выведет консоль
+let str281 = 'Hi 😄! How are you?';
+console.log('task 281 ', str281[7]); // H
+
+// 282- Что выведет консоль
+let str282 = 'How are you?';
+console.log('task 282 ', str282.toUpperCase().indexOf('A')); // 4
+
+// 283- Что выведет консоль
+let str283 = 'How are you?';
+console.log('task 283 ', str283.split(' ')[1]); // are
+
+// 284- Что выведет консоль
+let str284 = 'How are you?';
+str284 = str284.padStart(1, '%');
+console.log('task 284 ', str284); // How are you?
+
+// 285- Что выведет консоль
+let str285 = 'How are you?';
+str285 = str285.padStart(15, '%');
+console.log('task 285 ', str285); //  %%%How are you?
