@@ -2242,3 +2242,66 @@ console.log('task 284 ', str284); // How are you?
 let str285 = 'How are you?';
 str285 = str285.padStart(15, '%');
 console.log('task 285 ', str285); //  %%%How are you?
+
+// 286- Что выведет консоль
+const card286 = '1234567812346789';
+console.log('task 286 ', card286.slice(-4).padStart(16, '*')); // ************6789
+
+// 287- Что выведет консоль
+const film287 = 'Звездные войны';
+console.log('task 287 ', film287.padStart(30)); //                 Звездные войны
+console.log('task 287_2 ', film287.padEnd(30, '*')); //  Звездные войны****************
+console.log('task 287_3 ', film287.repeat(7)); //  Звездные войныЗвездные войныЗвездные войныЗвездные войныЗвездные войныЗвездные войныЗвездные войны
+
+// 288- Что выведет консоль
+function Cars288(brand) {
+  this.brand = brand;
+  return 'BMW';
+}
+const auto288 = new Cars288('Tesla');
+console.log('task 288 ', auto288); //  { brand: 'Tesla' }
+
+// 289- Что выведет консоль
+const obj289 = {
+  1: 1,
+  2: 2,
+  3: 3,
+};
+console.log('task 289 ', Object.keys(obj289) === Object.values(obj289)); // false  // Object.value => false
+
+// 290- Что выведет консоль
+const myArray290 = ['a', 'b', 'c'];
+const myObj290 = { a: 1, b: 2, c: 3 };
+const result290 = myArray290.map((item) => myObj290[item]);
+console.log('task 290 ', result290); // [ 1, 2, 3 ]
+
+// 291- Что выведет консоль
+const nums291 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenOnly = nums291.filter(function (n) {
+  const remainder = n % 2;
+  return remainder === 0;
+});
+console.log('task 291 ', evenOnly); // [ 2, 4, 6, 8, 10 ]
+
+// 292- Что выведет консоль
+let isPrime292 = true;
+const startWatching292 = () => {
+  return 'Started Watching!';
+};
+
+console.log('task 292 ', isPrime292 && startWatching292()); // Started Watching!  // let isPrime292 = false => false
+
+// 293- Что выведет консоль
+let person293 = { name: 'Jack' };
+// если свойство "age" равно "undefined", устанавливает значение 35
+let age293 = person293.age || 35;
+console.log('task 293 ', `Age of ${person293.name} is ${age293}`); // Age of Jack is 35
+
+// 294- Что выведет консоль
+let newList294 = [1, 2, 3].push(4);
+// console.log('task 294 ', newList294.push(5)); // error 4.push(5)
+
+// 295- Что выведет консоль
+const name295 = 'Serge Ivanov';
+console.log('task 295 ', name295.replace(/e/g, 'j')); // Sjrgj Ivanov
+console.log('task 295_2 ', name295.replace(/e/, 'j')); // Sjrge Ivanov
