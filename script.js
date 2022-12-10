@@ -2305,3 +2305,91 @@ let newList294 = [1, 2, 3].push(4);
 const name295 = 'Serge Ivanov';
 console.log('task 295 ', name295.replace(/e/g, 'j')); // Sjrgj Ivanov
 console.log('task 295_2 ', name295.replace(/e/, 'j')); // Sjrge Ivanov
+
+// 296- Что выведет консоль
+const users296 = [
+  { name: 'Петя', age: 22 },
+  { name: 'Катя', age: 27 },
+  { name: 'Вова', age: 12 },
+  { name: 'Леха', age: 66 },
+];
+
+console.log(
+  'task 296 ',
+  users296.sort((a, b) => {
+    return a.age - b.age;
+  })
+); // 12 22 27 66
+
+// 297- Что выведет консоль
+let greetings297 = (name, message = 'Hello,') => {
+  return `${message} ${name}`;
+};
+
+console.log('task 297', greetings297('Jack')); // Hello, Jack
+console.log('task 297_2', greetings297('Jack', 'Hola!'));
+
+// 298- Что выведет консоль
+const user298 = {
+  name: 'Serge',
+  surname: 'Techno',
+  age: 77,
+  getFullName: function () {
+    console.log(this); // it's our object {}
+    return this.name + ' ' + this.surname;
+  },
+};
+console.log('task 298 ', user298.getFullName()); // Serge Techno
+
+// 299- Что выведет консоль
+let obj299 = {
+  a: {
+    b: 1,
+  },
+};
+console.log('task 299 ', obj299.a['b']); // 1
+
+// 300- Что выведет консоль
+let arr300 = [{ name: 'Вася' }, { name: 'Петя' }];
+console.log(
+  'task 300 ',
+  arr300.map((e) => e.name).reduce((acc, e) => (acc += e[0]), '') // ВП
+);
+
+// 301- Что выведет консоль
+let a301 = {
+  b: 1,
+  add: function (num) {
+    this.b += num;
+  },
+};
+a301.add(2);
+console.log('task 301 ', a301.b); // 3
+
+// 302- Что выведет консоль
+let a302 = {
+  b: 1,
+  add: function (num) {
+    a302.num += this.b;
+  },
+};
+a302.add(2);
+console.log('task 302 ', a302.num); // NaN
+
+// 303- Что выведет консоль
+let a303 = 'a';
+console.log(a303); // a
+a303 = { a303 };
+console.log(a303); // { a303: 'a' }
+console.log('task 303 ', a303.a303); // a
+
+// 304- Что выведет консоль
+let obj304 = {
+  a: {
+    b: {
+      d: 1,
+    },
+  },
+};
+console.log('task 303 ', obj304.a?.c?.d); // undefined
+// console.log('task 303 ', obj304.a?.c.d); // error
