@@ -2437,3 +2437,64 @@ newUser310.roles.push('leader');
 // тк ...spread
 console.log('task 310_1 ', user310); // { name: 'Serge', id: 1, roles: [ 'admin', 'leader' ] }
 console.log('task 310_2 ', newUser310); // task 310_2  { name: 'Petr', id: 1, roles: [ 'admin', 'leader' ] }
+
+// 311- Что выведет консоль
+// То, что объявили через let, появляется только на этапе исполнения, а к моменту вывода до переменной дело ещё не дошло.
+// alert(str311); // ?
+let str311 = 'Hello'; // str is not defined
+
+// 312- Что выведет консоль
+// let name312 = 'Вася';
+// function sayHi() {
+//   console.log('task 312 ', name312); // вася
+// }
+// setTimeout(function () {
+//   let name312 = 'Петя';
+//   sayHi();
+// }, 1000);
+
+// 313- Что выведет консоль
+let a313 = new Array(1, 2);
+console.log(a313); // [ 1, 2 ]
+let b313 = new Array(3);
+console.log(b313); // [ <3 empty items> ]
+console.log('task 313 ', a313[0] + b313[0]); // NaN
+
+// 314- Что выведет консоль
+// for (let i = 0; i < 10; i++) {
+//   setTimeout(function () {
+//     console.log('task 314 ', i); // 0 1 2 3 4 5 6 7 8 9
+//   }, 100);
+// }
+
+// 315- Что выведет консоль
+console.log('task 315 ', 2 && 1 && null && 0 && undefined); // null
+
+// 316- Что выведет консоль
+let a316 = (1, 5 - 1) * 2;
+console.log(1, 5 - 1);
+console.log('task 316 ', a316); // 8  тк ( 1, 5 - 1 => 1, 4 - берет последний элем  и => 4 * 2)
+
+// 317- Что выведет консоль
+console.log([] + 1, typeof ([] + 1)); // 1 string
+console.log('task 317 ', [] + 1 + 2); // 12
+
+// 318- Что выведет консоль
+[] == ''; // -> true
+[] == 0; // -> true
+[''] == ''; // -> true
+[0] == 0; // -> true
+[0] == ''; // -> false
+[''] == 0; // -> true
+[null] == ''; // true
+[null] == 0; // true
+[undefined] == ''; // true
+[undefined] == 0; // true
+[[]] == 0; // true
+[[]] == ''; // true
+Number(); // -> 0
+Number(undefined); // -> NaN
+
+// 319- Что выведет консоль
+// При таком способе сравнения JavaScript берёт первые символы каждой строки и сравнивает их коды между собой. Получается U+0451 против U+044F, то есть код буквы «ё» больше, чем код буквы «я».
+console.log('task 319 ', 'ёжик' > 'яблоко'); // true
