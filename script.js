@@ -2393,3 +2393,47 @@ let obj304 = {
 };
 console.log('task 303 ', obj304.a?.c?.d); // undefined
 // console.log('task 303 ', obj304.a?.c.d); // error
+
+// 305- Что выведет консоль
+// for (var i = 0; i < 10; i++) {
+//   setTimeout(() => {
+//     console.log(i);
+//   }, 1000); // 10 10 10 10 10 10 10 10 10 10 - сразу
+// }
+
+// 306- Что выведет консоль
+// В JavaScript оператор запятой используется для оценки каждого из операндов слева направо и возврата значения последнего операнда
+let val306 = (12, 32);
+console.log('task 306 ', val306); // 32
+
+// 307- Что выведет консоль
+let count307 = 1;
+let ret307 = (count307++, count307);
+console.log('task 307 ', ret307); // 2
+
+// 308- Что выведет консоль
+for (var i = 0, j = 5; i <= 5; i++, j--) {
+  console.log('task 308_1_i ', i); // 0 1 2 3 4 5
+  console.log('task 308_2_j ', j); // 5 4 3 2 1 0
+}
+
+// 309- Что выведет консоль
+let a309 = { name: 'Антон' };
+let b309 = a309;
+b309.id = 1;
+console.log(a309); // { name: 'Антон', id: 1 }
+
+// 310- Что выведет консоль
+const user310 = {
+  name: 'Serge',
+  id: 1,
+  roles: ['admin'],
+};
+const newUser310 = {
+  ...user310,
+};
+newUser310.name = 'Petr';
+newUser310.roles.push('leader');
+// тк ...spread
+console.log('task 310_1 ', user310); // { name: 'Serge', id: 1, roles: [ 'admin', 'leader' ] }
+console.log('task 310_2 ', newUser310); // task 310_2  { name: 'Petr', id: 1, roles: [ 'admin', 'leader' ] }
