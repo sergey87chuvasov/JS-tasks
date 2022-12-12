@@ -2498,3 +2498,78 @@ Number(undefined); // -> NaN
 // 319- Что выведет консоль
 // При таком способе сравнения JavaScript берёт первые символы каждой строки и сравнивает их коды между собой. Получается U+0451 против U+044F, то есть код буквы «ё» больше, чем код буквы «я».
 console.log('task 319 ', 'ёжик' > 'яблоко'); // true
+
+// 320- Что выведет консоль
+// Наборы — это новый тип объекта, который был представлен в JavaScript с ES6
+let text320 = 'Qwertye';
+let mySet320 = new Set(text320);
+console.log('task 320 ', mySet320); // { 'Q', 'w', 'e', 'r', 't', 'y' }
+
+// 321- Что выведет консоль
+arr321_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+arr321_2 = [1, 3, 5, 7, 9];
+
+let union321 = [...new Set([...arr321_1, ...arr321_2])];
+
+console.log('task 321', union321); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// 322- Что выведет консоль
+// В данном примере представлены разные операторы присваивания, все они представляют собой короткие записи для других выражений. Logical OR assignment (||=) присваивает значение если правый операнд ложный, это короткая запись для x || (x = y). Logical AND assignment (&&=) присваивает значение если правый операнд правдивый, это короткая запись для x && (x = y). Nullish coalescing assignment (??=) присваивает значение если правый операнд равен null или undefined, это короткая запись для x ?? (x = y).
+let a322 = 0;
+let b322 = 1;
+let c322 = null;
+
+a322 ||= 42;
+b322 &&= 22;
+c322 ??= 55;
+console.log('task 322 ', a322, b322, c322); //  42 22 55
+
+// 323- Что выведет консоль
+let fire323 = 1;
+let fruit323 = 2;
+
+[fruit323, fire323] = [fire323, fruit323];
+console.log(fire323, fruit323); // 2 1
+
+// 324- Что выведет консоль
+let obj324 = {
+  for: '1',
+  let: 2,
+  return: 3.2,
+};
+console.log('task 324 ', obj324.for + obj324.let + obj324.return); // 123.2
+
+// 325- Что выведет консоль
+function arrDiff325(a, b) {
+  return a.filter((e) => !b.includes(e));
+}
+console.log('task 325 ', arrDiff325([1, 2, 3, 5, 4, 6, -1, 9], [1, 5, 9])); // [ 2, 3, 4, 6, -1 ]
+
+// 326- Что выведет консоль
+Array.prototype.onlyStrings = function () {
+  return this.filter((item) => typeof item === 'string');
+};
+
+const items326 = ['Hello', 123, true, 'world'];
+console.log('task 326 ', items326.onlyStrings()); // [ 'Hello', 'world' ]
+
+// 327- Что выведет консоль
+const obj327 = { name: 'Serge', age: 25 };
+const result327 = Object.values(obj327);
+console.log('task 327 ', result327); // [ 'Serge', 25 ]
+
+// 328- Что выведет консоль
+const obj328 = { name: 'Serge', age: 25 };
+const result328 = Object.keys(obj328);
+console.log('task 328 ', result328); // [ 'name', 'age' ]
+
+// 329- Что выведет консоль
+const obj329 = { name: 'Serge', age: 25 };
+const result329 = JSON.stringify(obj329, ['age']);
+console.log('task 329 ', result329); // {"age":25}
+
+// 330- Что выведет консоль
+const arrDiff320 = (arr1, arr2) => {
+  return arr1.filter((item) => arr2.includes(item));
+};
+console.log('task 320 ', arrDiff320([1, 2, 3, 4], [2, 3])); // [ 2, 3 ]
