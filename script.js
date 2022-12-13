@@ -2573,3 +2573,135 @@ const arrDiff320 = (arr1, arr2) => {
   return arr1.filter((item) => arr2.includes(item));
 };
 console.log('task 320 ', arrDiff320([1, 2, 3, 4], [2, 3])); // [ 2, 3 ]
+
+// 331- Что выведет консоль
+// Метод unshift() добавляет один или несколько элементов в начало массива и возвращает новую длину массива.
+const arr331 = [5, 'Hello', true];
+const result331 = arr331.unshift(NaN);
+
+console.log(result331); // 4
+
+// 332- Что выведет консоль
+let emojis332 = ['', '️', '', ''];
+console.log(Array.isArray(emojis332)); // true
+
+let obj332 = {};
+console.log(Array.isArray(obj332)); // false
+
+// 333- Что выведет консоль
+function sumNum333(num1, num2) {
+  // console.log(this); // Object [global]
+  console.log(arguments); // [Arguments] { '0': 1, '1': 4 }
+  return num1 + num2;
+}
+console.log('task 333 ', sumNum333(1, 4)); // 5
+
+// 334- Что выведет консоль
+// arguments - это массиво подобный объект, содержащий переданные функцией аргументы
+function sum334() {
+  let total = 0;
+  for (const i of arguments) {
+    total += i;
+  }
+  return total;
+}
+
+console.log('task 334 ', sum334(1, 2, 3)); // 6
+
+// 335 Что выведет консоль
+// arguments - это массиво подобный объект, содержащий переданные функцией аргументы
+// Array. from() позволяет вам создавать массивы из: массивоподобных объектов
+function sum335() {
+  return Array.from(arguments).reduce((acc, cur) => acc + cur);
+}
+
+console.log('task 335 ', sum335(1, 2, 3, 4, 5)); // 15  ( 1нач + 2 + 3 ...)
+
+// 336- Что выведет консоль
+// arguments - это массиво подобный объект, содержащий переданные функцией аргументы
+function sum336() {
+  let total = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    total += arguments[i];
+  }
+  return total;
+}
+
+console.log('task 336 ', sum336(1, 2, 3, 4)); // 10
+
+// 337- Что выведет консоль
+// написать три метода для получения имени компании - сео - сотрудника
+const company337 = {
+  name: 'OOO BEST',
+  employess: [
+    {
+      name: 'Serge',
+      getName: function () {
+        return this.name;
+      },
+    },
+  ],
+  ceo: {
+    name: 'Peter',
+    getName: function () {
+      return this.name;
+    },
+  },
+  /// methods
+  getName: function () {
+    return this.name;
+  },
+};
+
+console.log('task 337 ', company337.getName()); // OOO BEST
+console.log('task 337 ', company337.ceo.getName()); // Peter
+console.log(
+  'task 337 ',
+  company337.employess.map((employee) => employee.getName())
+); // [ 'Serge' ]
+
+// 338- Что выведет консоль
+function a338() {
+  console.log(i338);
+}
+function b338() {
+  let i338 = 0;
+  a338();
+}
+// console.log('task 338 ', b338()); // i338 is not defined
+
+// 339- Что выведет консоль
+// console.log('task 339 ', a339(1)); // Cannot access 'a339' before initialization
+const a339 = () => b + 1;
+
+// 340- Что выведет консоль
+function a340() {
+  function b340() {
+    // console.log('task 340', this); // Object [global]
+  }
+  b340();
+}
+a340();
+
+// 341- Что выведет консоль
+let a341 = {
+  c341: 1,
+  getName: function () {
+    console.log('task 341 ', this.c341); // 1
+  },
+};
+a341.getName();
+
+// 342- Что выведет консоль
+let a342 = {
+  c: 1,
+  b: () => {
+    console.log('task 342 ', this.c); // undefined
+  },
+};
+
+// 343- Что выведет консоль
+function a343() {
+  console.log('task a343 ', arguments[0]); // 1
+}
+a343(1);
