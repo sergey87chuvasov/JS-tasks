@@ -2705,3 +2705,80 @@ function a343() {
   console.log('task a343 ', arguments[0]); // 1
 }
 a343(1);
+
+// 344- Что выведет консоль
+const b344 = 1;
+const a344 = {
+  b344,
+  // getB: function () {
+  //   return this.b344;
+  // },
+  getAltB() {
+    return this.b344;
+  },
+};
+
+// console.log('task 344 ', a344.getB()); // 1
+console.log('task 344 ', a344.getAltB()); // 1
+
+// 345- Что выведет консоль
+const sum345 = (x) => (y) => x + y;
+console.log('task 345 ', sum345(2)(5)); // 7
+
+// 346- Что выведет консоль
+// Object.entries()  метод возвращает массив собственных перечисляемых свойств указанного объекта в формате [key, value]
+const obj346 = {};
+console.log('task 346 ', Object.entries(obj346).length === 0); // true
+
+// 347- Что выведет консоль
+const array347 = [1, 1, 2, 3, 5, 5, 1];
+const uniqueArray347 = [...new Set(array347)];
+console.log('task 347 ', uniqueArray347); // [ 1, 2, 3, 5 ]
+
+// 348- Что выведет консоль
+let employee348 = {
+  firstname: 'Jon',
+  lastname: 'Snow',
+  datebirth: '1888',
+};
+let { firstname: fn, lastname: ln, datebirth: dob } = employee348;
+console.log('task 348 ', fn, ln, dob); // Jon Snow 1888
+
+// 349- Что выведет консоль
+let a349 = {
+  b: 1,
+};
+function c349() {
+  console.log(this.b);
+}
+
+console.log('task 349 ', c349.call(a349)); // 1
+
+// 350- Что выведет консоль
+function a350() {
+  let c = 1;
+  return function b() {
+    return c++;
+  };
+}
+a350()();
+console.log('task 350 ', a350()()); // 1
+
+// 351- Что выведет консоль
+(() => console.log('task 351 ', 'Yes'))(); // Yes
+
+// 352- Что выведет консоль
+(function () {
+  console.log('task 352 ', this);
+}.apply(0)); // [Number: 0]
+
+// 353- Что выведет консоль
+function a353() {
+  let c = 1;
+  return function b() {
+    return c++;
+  };
+}
+const d353 = a353();
+d353();
+console.log(d353());
