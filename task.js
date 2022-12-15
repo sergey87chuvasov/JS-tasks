@@ -78,3 +78,29 @@ newUser4_2().increse(25);
 newUser4_2().increse(175);
 newUser4_2().increse(45);
 console.log('task 4 ', newUser4_2()); // { balance: 245, operations: 3, increse: [Function: increse] }
+
+// 5 Оператор нулевого слияния
+// Nullish coalescing operator (??)
+const username = 'Serge';
+console.log('task 5 ', username || 'Default Username'); // Serge
+
+let username5_1;
+console.log('task 5_1 ', username5_1 || 'Default Username'); // Default Username
+
+let username5_2 = null;
+console.log('task 5_2 ', username5_2 || 'Default Username'); // Default Username
+console.log('task 5_2_2 ', username5_2 ?? 'Default Username'); // Default Username
+
+let username5_3 = undefined;
+console.log('task 5_3 ', username5_3 || 'Default Username'); // Default Username
+console.log('task 5_3_3 ', username5_3 ?? 'Default Username'); // Default Username
+
+let username5_4 = ''; // !!!
+console.log('task 5_4 ', username5_4 || 'Default Username'); // Default Username
+
+// Nullish coalescing operator (??) - это логический оператор, возвращающий значение правого операнда
+console.log('task 5_4_4 ', username5_4 ?? 'Default Username'); // ''
+
+let age5 = 0; // !!!
+console.log('task5_age ', age5 || 18); // 18
+console.log('task5_age ', age5 ?? 18); // 0

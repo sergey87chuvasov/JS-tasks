@@ -2782,3 +2782,30 @@ function a353() {
 const d353 = a353();
 d353();
 console.log(d353());
+
+// 353- Что выведет консоль
+const captLet353 = (str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
+console.log('task 353 ', captLet353('taddy')); // Taddy  ( t.T + addy)
+
+// 354- Что выведет консоль
+let arr354_1 = [55, 33, 2, 6, 87];
+let arr354_2 = arr354_1.map(myFunc354);
+
+function myFunc354(value, index, array) {
+  return value * 1.5;
+}
+
+console.log('task 354 ', arr354_2); // [ 82.5, 49.5, 3, 9, 130.5 ]
+
+// 355- Что выведет консоль
+function f355(arr) {
+  return arr.filter((item) => item !== null).map((item) => item * 2);
+}
+
+console.log('task 355 ', f355([1, 2, null, 35, null, 0, 4, undefined])); // [ 2, 4, 70, 0, 8, NaN ]
+
+// 356- Что выведет консоль
+// Что выведется в консоль, если ключа 'a' нет в localStorage?
+// console.log('task 356 ', localStorage.getItem('a')); // null
