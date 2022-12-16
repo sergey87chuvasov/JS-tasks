@@ -2809,3 +2809,39 @@ console.log('task 355 ', f355([1, 2, null, 35, null, 0, 4, undefined])); // [ 2,
 // 356- Что выведет консоль
 // Что выведется в консоль, если ключа 'a' нет в localStorage?
 // console.log('task 356 ', localStorage.getItem('a')); // null
+
+// 357- Что выведет консоль
+const capital357 = ([a, ...other]) => a.toUpperCase() + other.join('');
+let result357 = capital357('hello');
+// [a, ...other] = 'hello'  => a = h - other = e l l o
+console.log('task 357 ', result357); // Hello
+
+// 358- Что выведет консоль
+console.log('task 358 ', (isTrue = !0)); // true
+console.log('task 358_2 ', (isFalse = !1)); // false
+console.log('task 358_3 ', (alsoFalse = !!0)); // false
+
+// 359- Что выведет консоль
+const val359 = 1 + '';
+console.log(val359); // "1"
+console.log(typeof val359); // "string"
+
+// 360- Что выведет консоль
+//  __proto__ — это ссылка на prototype, а prototype — это собственно свойство
+const obj360_1 = { a: 1 };
+const obj360_2 = { a: 2, __proto__: obj360_1 };
+function sum360(a) {
+  console.log(a); // 2
+  return this.a + a;
+}
+console.log('task 360 ', sum360.call(obj360_2, 2)); // 4
+
+// 361- Что выведет консоль
+const arr361 = ['Tesla', 'Mercedes', 'BMW'];
+const result361 = arr361.map((item) => item[0]);
+console.log('task 361 ', result361); // [ 'T', 'M', 'B' ]
+
+// 362- Что выведет консоль
+const arr362 = ['Tesla', 'Mercedes', 'BMW'];
+const result362 = arr362.map((item) => item[0]).reverse();
+console.log('task 362 ', result362); // [ 'B', 'M', 'T' ]
