@@ -2845,3 +2845,32 @@ console.log('task 361 ', result361); // [ 'T', 'M', 'B' ]
 const arr362 = ['Tesla', 'Mercedes', 'BMW'];
 const result362 = arr362.map((item) => item[0]).reverse();
 console.log('task 362 ', result362); // [ 'B', 'M', 'T' ]
+
+// 363- Что выведет консоль
+const d363_1 = new Date();
+const d363_2 = new Date(d363_1);
+console.log('task 363 ', d363_1.getTime() === d363_2.getTime()); // true - возвращаемые значения
+console.log('task 363_2 ', d363_1 === d363_2); // false - сравниваем сами объекты
+
+// 364- Что выведет консоль
+const sum364 = (a, b, c) => +a + +b + +c;
+console.log('task 364 ', sum364(1, '1', true)); // 3
+console.log('task 364 ', sum364(0, '', [])); // 0   [] = 0
+console.log('task 364 ', sum364.length); // 3
+
+// 365- Что выведет консоль
+const country365 = ['canada', 'usa', 'denmark', 'belarus'];
+console.log(
+  'task 365 ',
+  country365.map((country) => country.length) // [ 6, 3, 7, 7 ]
+);
+
+// 366- Что выведет консоль
+const arr366 = [3, 14, 15.8, true, '', 0, false];
+const arr366_2 = arr366.filter(Boolean);
+console.log('task 366 ', arr366_2); // [ 3, 14, 15.8, true ]
+
+// 367- Что выведет консоль
+// более быстрый способ обрезать число с плавающей точкой до целого числа, используя | оператор побитового ИЛИ.
+console.log('task 367 ', 23.9 | 0); // 23
+console.log('task 367_2', -23.9 | 0); // -23
