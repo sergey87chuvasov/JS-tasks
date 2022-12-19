@@ -104,3 +104,77 @@ console.log('task 5_4_4 ', username5_4 ?? 'Default Username'); // ''
 let age5 = 0; // !!!
 console.log('task5_age ', age5 || 18); // 18
 console.log('task5_age ', age5 ?? 18); // 0
+
+// 6 Условия
+const x6 = 10;
+let isOdd6;
+
+if (x6 % 2 === 0) {
+  isOdd6 = false;
+} else {
+  isOdd6 = true;
+}
+
+console.log('task 6 ', isOdd6); // false тк 10/2 = 5.0
+
+// 7  цикл while
+// Дан массив чисел. В цикле while обойдите массив и значения всех элементов с нечетным индексом умножьте на 2.
+const numbers7 = [2, 7, 19, 22, 38, 9, 11, 10, 12];
+let i7 = 0;
+
+while (i7 < numbers7.length) {
+  if (i7 % 2 !== 0) {
+    numbers7[i7] *= 2;
+  }
+  i7++;
+}
+
+console.log('task 7 ', numbers7); //  [ 2, 14, 19, 44, 38, 18, 11, 20, 12 ]
+
+// 8  цикл for
+// Обойдите массив циклом for. Значение каждого элемента с четным индексом увеличьте на 3.
+const numbers8 = [1, 2, 3, 4, 5, 6];
+
+for (let i = 0; i < numbers8.length; i++) {
+  if (i % 2 === 0) {
+    numbers8[i] += 3;
+  }
+}
+
+console.log('task 8 ', numbers8); // [ 4, 2, 6, 4, 8, 6 ]
+
+// 9  цикл + условие
+const numbers9 = [1, 2, 2, 13, 11, 7, 18, 20, 22, 14, 15];
+
+const evenNumbers9 = [];
+
+for (let i = 0; i < numbers9.length; i++) {
+  if (numbers9[i] % 2 === 0) {
+    evenNumbers9.push(numbers9[i]);
+  }
+
+  if (evenNumbers9.length === 3) {
+    break;
+  }
+}
+
+console.log('task 9 ', evenNumbers9); // [ 2, 2, 18 ]
+
+// 10 объект
+// Дан объект person. Добавьте ему два метода:
+const person_10 = {
+  name: 'Anna',
+  surname: 'Dance',
+  age: 18,
+  greeting() {
+    console.log('Hello');
+  },
+  changeSurname(newName) {
+    this.surname = newName;
+  },
+};
+
+person_10.greeting(); // Hello
+person_10.changeSurname('Dog'); // surname: 'Dog'
+
+console.log('task 10 ', person_10);
