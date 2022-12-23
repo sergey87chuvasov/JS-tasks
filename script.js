@@ -2882,3 +2882,14 @@ console.log(
   'task 368_3 ',
   108 >= 110 || (1000 < 2000 && 3 !== 2) || 18 === '18' // true
 );
+
+// 369- Что выведет консоль
+const str369_1 = 'Hello';
+const str369_2 = 'World';
+console.log('task 369 ', str369_1.concat(' ', str369_2)); // Hello World
+console.log('task 369 ', str369_2.concat(', ', str369_1)); // World, Hello
+
+// 370- Что выведет консоль
+// те мы находим 'is' - убираем из строки и формируем массив из двух строк, а если передаем пустую строку то это массив из отдельных символов
+const str370 = 'Today is the best day of my life';
+console.log('task 370 ', str370.split('is')); //  [ 'Today ', ' the best day of my life' ]

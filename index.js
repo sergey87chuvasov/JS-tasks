@@ -465,3 +465,17 @@ function multiTable(number) {
 
 console.log('task 33_1 ', multiTable(5)); //
 console.log('task 33_2 ', multiTable(1)); //
+
+// 34- Задача. Суммирование разницы
+function sumOfDiff(arr) {
+  const sorted = arr.sort((a, b) => b - a);
+  let sum = 0;
+
+  for (let i = 1; i < sorted.length; i++) {
+    sum += sorted[i - 1] - sorted[i];
+  }
+
+  return sum;
+}
+
+console.log('task 34', sumOfDiff([1, 2, 10])); // 9 (10-2) + (2-1)
