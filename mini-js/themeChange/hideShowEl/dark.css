@@ -1,0 +1,14 @@
+body {
+  font-size: 20px;
+  background-color: rgb(70, 65, 65);
+  color: white;
+}
+
+h4 {
+  font-size: 40px;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}

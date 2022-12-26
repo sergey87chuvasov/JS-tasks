@@ -1,0 +1,13 @@
+body {
+  font-size: 20px;
+  background-color: rgb(177, 173, 173);
+}
+
+h4 {
+  font-size: 40px;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
