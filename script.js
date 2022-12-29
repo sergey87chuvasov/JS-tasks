@@ -2936,3 +2936,29 @@ const user376 = {
 
 let userDeepCopy376 = { ...user376, friends: [...user376.friends] };
 console.log('task 376 ', userDeepCopy376); // { name: 'Sonya', age: 28, friends: [ 'Vasilisa', 'Snow', 'Zlata' ] }
+
+// 377- Что выведет консоль
+console.log('task 377 ', typeof NaN); // number
+
+// 378- Что выведет консоль
+const obj378 = { id: 'e1fd960b', values: ['a', 'b'] };
+// const clone378 = structuredClone(obj378);
+// console.log('task 378 ', clone378); // { id: 'e1fd960b', values: ['a', 'b'] }; - пока не работает в Node ?
+
+// 379- Что выведет консоль
+function showMessage379(form, text) {
+  return form + ': ' + text;
+}
+console.log('task 379 ', showMessage379('Serge', 'Hi')); // Serge: Hi
+
+// 380- Что выведет консоль
+console.log('task 380_1 ', Math.max(1, 3, 2)); // 3
+console.log('task 380_2 ', Math.max(-1, -3, -2)); // -1
+const arr380 = [1, 2, 3];
+console.log('task 380_3 ', Math.max(...arr380)); // 3
+
+// 381- Что выведет консоль
+console.log('task 381_1 ', Math.min(1, 3, 2)); // 1
+console.log('task 381_2 ', Math.min(-1, -3, -2)); // -3
+const arr381 = [1, 2, 3];
+console.log('task 381_3 ', Math.min(...arr381)); // 1
