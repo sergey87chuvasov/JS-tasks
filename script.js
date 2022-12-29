@@ -2893,3 +2893,46 @@ console.log('task 369 ', str369_2.concat(', ', str369_1)); // World, Hello
 // те мы находим 'is' - убираем из строки и формируем массив из двух строк, а если передаем пустую строку то это массив из отдельных символов
 const str370 = 'Today is the best day of my life';
 console.log('task 370 ', str370.split('is')); //  [ 'Today ', ' the best day of my life' ]
+
+// 371- Что выведет консоль
+const a371 = 'js_tests';
+const b371 = new String(a371);
+console.log('task 371 ', a371 === b371); // false
+
+// 372- Что выведет консоль
+const arr372 = [1, 2, 3, 4, 5];
+console.log('task 372_1 ', arr372[arr372.length - 1]); // 5
+console.log('task 372_2 ', arr372.at(-1)); // 5
+
+// 373- Что выведет консоль
+for (let i = 0; i < 7; i += 2) {
+  console.log('task 273 ', 'Yo'); // 4 раза ( 0 2 4 6 - и потом отбой false)
+}
+
+// 374- Что выведет консоль
+let i374 = 0;
+do {
+  i374 += 1;
+  console.log('task 374 ', i374);
+} while (i374 < 3); // 1 2 3
+
+// 375- Что выведет консоль
+// создание массива
+console.log('task 375_1 ', new Array(1, 2, 3, 4)); // [ 1, 2, 3, 4 ]
+console.log('task 375_2 ', Array.of(1, 2, 4, 5, 6, 7)); // [ 1, 2, 4, 5, 6, 7 ]
+const array375_1 = [1, 2, 3];
+const array375_2 = array375_1.slice();
+console.log('task 375 ', array375_2); // [ 1, 2, 3 ]
+const arr375_3 = Array.from('дока');
+console.log('task 375_3 ', arr375_3); // [ 'д', 'о', 'к', 'а' ]
+
+// 376- Что выведет консоль
+// Как можно сделать глубокую копию этого объекта?
+const user376 = {
+  name: 'Sonya',
+  age: 28,
+  friends: ['Vasilisa', 'Snow', 'Zlata'],
+};
+
+let userDeepCopy376 = { ...user376, friends: [...user376.friends] };
+console.log('task 376 ', userDeepCopy376); // { name: 'Sonya', age: 28, friends: [ 'Vasilisa', 'Snow', 'Zlata' ] }
