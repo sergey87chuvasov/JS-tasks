@@ -1,0 +1,17 @@
+td {
+  height: 50px;
+  width: 150px;
+  border: 1px solid;
+  text-align: center;
+  cursor: pointer;
+}
+
+th {
+  height: 50px;
+  width: 100px;
+  border: 1px solid;
+  text-align: center;
+  background-color: rgb(169, 169, 100);
+  font-size: 25px;
+  color: blue;
+}
