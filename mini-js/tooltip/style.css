@@ -1,0 +1,27 @@
+#clock {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+li {
+  padding: 7px 14px;
+  color: white;
+  background-color: rgb(126, 126, 214);
+}
+
+.tooltip {
+  position: fixed;
+  padding: 15px;
+  border: 2px dashed #b3c9ce;
+  text-align: center;
+  border-radius: 4px;
+  color: black;
+  background-color: white;
+}
+
+button {
+  padding: 20px;
+  width: 200px;
+  font-size: 35px;
+  cursor: pointer;
+}
