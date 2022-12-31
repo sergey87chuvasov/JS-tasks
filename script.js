@@ -2962,3 +2962,30 @@ console.log('task 381_1 ', Math.min(1, 3, 2)); // 1
 console.log('task 381_2 ', Math.min(-1, -3, -2)); // -3
 const arr381 = [1, 2, 3];
 console.log('task 381_3 ', Math.min(...arr381)); // 1
+
+// 382- Что выведет консоль
+console.log('task 382_1', [] + false, typeof ([] + false), typeof []); // false string object
+console.log('task 382_2', 'false' - null, typeof (false - null)); // NaN number
+console.log('task 382_3', [] + false - null + true); // NaN
+
+// 383- Что выведет консоль
+let a383 = 2;
+let x383 = 1 + (a383 *= 2); // a383 = a383 * 2
+console.log('task 383 ', a383, x383); // 4 5
+
+// 384- Что выведет консоль
+let arr384_1 = [1, 2];
+let arr384_2 = [3, 4];
+let arr384_3 = [5, 6];
+let nums384 = arr384_1.concat(arr384_2, arr384_3);
+console.log('task 384 ', nums384); // [ 1, 2, 3, 4, 5, 6 ]
+
+// 385- Что выведет консоль
+console.log('task 385 ', null || (2 && 3) || 4); // 3  // null  || 2 (first true = 2) 2 && 3 (last true 3) 3  || 4 (first true 3)
+
+// 386- Что выведет консоль
+let map386 = new Map();
+// Maps позволяют нам устанавливать, получать и искать значения (и многое другое).
+map386.set('name', 'david');
+console.log('task 386_1 ', map386.get('name')); // david
+console.log('task 386_2 ', map386.has('name')); // true
