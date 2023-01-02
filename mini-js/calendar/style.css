@@ -1,0 +1,24 @@
+caption {
+  width: 400px;
+  height: 60px;
+  background-color: rgb(245, 232, 205);
+  font-size: 55px;
+  padding: 15px;
+}
+
+th {
+  width: 55px;
+  height: 55px;
+  background-color: rgb(194, 183, 183);
+  font-weight: 800;
+  font-size: 30px;
+}
+
+td {
+  width: 55px;
+  height: 55px;
+  background-color: rgb(242, 233, 242);
+  font-weight: 800;
+  font-size: 30px;
+  text-align: center;
+}
