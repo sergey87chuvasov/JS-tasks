@@ -1,0 +1,30 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  gap: 15px;
+  padding: 10px;
+}
+
+#result {
+  width: 90px;
+  height: 90px;
+  background-color: rgb(218, 168, 108);
+}
+
+textarea {
+  resize: none;
+  height: 70px;
+}
+
+#color {
+  width: 40px;
+  height: 40px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+#opacity {
+  margin-bottom: 30px;
+}
