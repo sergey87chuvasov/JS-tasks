@@ -2989,3 +2989,11 @@ let map386 = new Map();
 map386.set('name', 'david');
 console.log('task 386_1 ', map386.get('name')); // david
 console.log('task 386_2 ', map386.has('name')); // true
+
+// 387- Что выведет консоль
+// Переменная как таковая существует, вот только на момент запуска функции она равна undefined.
+say387('Вася');
+var phrase387 = 'Hello';
+function say387(name) {
+  console.log(name + ', ' + phrase387); // Вася, undefined
+}
