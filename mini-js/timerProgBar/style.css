@@ -1,0 +1,15 @@
+.timer-progressbar {
+  display: flex;
+}
+
+.timer-progressbar > div {
+  padding: 35px;
+}
+
+.timer-progressbar__fill {
+  background-color: rgb(71, 195, 153);
+}
+
+.timer-progressbar__empty {
+  background-color: rgb(208, 96, 76);
+}
