@@ -2997,3 +2997,62 @@ var phrase387 = 'Hello';
 function say387(name) {
   console.log(name + ', ' + phrase387); // Вася, undefined
 }
+
+// 388- Что выведет консоль
+let bool388 = new Boolean(false);
+console.log('task 388 ', typeof bool388); // object
+// выполнется несмотря на false тк {} всегда true
+if (bool388) {
+  console.log(
+    'task 388 ',
+    'В объекте фалс но он выведется тк объект всегд тру'
+  );
+}
+
+// 389- Что выведет консоль
+// как проверить что строка начинается с другой строки?
+console.log('task 389_1 ', 'Good Morning'.startsWith('Good')); // true
+console.log('task 389_2 ', 'Good Morning'.startsWith('morning')); // false
+
+// 390- Что выведет консоль
+// Оператор delete удаляет свойство из объекта.
+// Если результат вычисления выражения не является свойством (объекта), delete ничего не делает.
+console.log(
+  'task 390 ',
+  (function (x) {
+    delete x;
+    return x;
+  })(1)
+); // 1
+
+// 391- Что выведет консоль
+// with создает новую область видимости «scope» и представляет свойства объекта «object» как локальные переменные выражения «statement»
+var a391 = 1;
+var obj391 = {
+  b: 2,
+};
+with (obj391) {
+  var b;
+  console.log('task 391 ', a391 + b); // 3
+}
+
+// 392- Что выведет консоль
+let name392 = 'Ilya';
+console.log('task 392_1', `hello ${1}`); // hello 1
+console.log('task 392_2', `hello ${'name392'}`); // hello name392
+console.log('task 392_3', `hello ${name392}`); // hello Ilya
+
+// 393- Что выведет консоль
+// SET
+const setExample = new Set();
+setExample.add(123);
+setExample.add(456);
+setExample.add(111);
+setExample.add(123);
+
+console.log('task 393_1 ', setExample.size); // 3
+console.log('task 393_2 ', setExample.has(111)); // true
+console.log('task 393_3 ', setExample.delete(111)); // true
+console.log('task 393_4 ', setExample.size); // 2
+console.log('task 393_5 ', setExample.clear()); // undefined
+console.log('task 393_6 ', setExample.size); // 0
