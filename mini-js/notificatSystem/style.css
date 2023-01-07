@@ -58,6 +58,21 @@ img {
   height: 70px;
 }
 
+.notification__form > button,
+.notification__list > button {
+  cursor: pointer;
+  margin: 0;
+  text-transform: uppercase;
+  border: none;
+  padding: 10px 15px;
+  background-color: rgb(199, 217, 233);
+}
+
+.notification__form > button:hover,
+.notification__list > button:hover {
+  opacity: 0.9;
+}
+
 .notification__list {
   padding: 15px;
 }
@@ -68,4 +83,25 @@ img {
   padding: 10px;
   margin-bottom: 10px;
   background-color: #eee;
+  width: 485px;
+}
+
+.notification__warning {
+  background-color: rgb(159, 151, 151);
+}
+
+button[data-time] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3;
+  background-color: rgb(157, 66, 66);
+}
+
+button[data-time] {
+  background-color: rgb(189, 89, 89);
 }
