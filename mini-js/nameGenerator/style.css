@@ -1,0 +1,13 @@
+.menu_link {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  background-color: aquamarine;
+  transition: 0.5s;
+}
+
+.menu_link:hover {
+  opacity: 0.8;
+}
