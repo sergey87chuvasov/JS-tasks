@@ -1,0 +1,14 @@
+tr {
+  height: 70px;
+  background-color: rgb(200, 186, 212);
+}
+
+th {
+  width: 170px;
+}
+
+td {
+  text-align: center;
+  background-color: rgb(229, 228, 231);
+  width: 190px;
+}
