@@ -3056,3 +3056,12 @@ console.log('task 393_3 ', setExample.delete(111)); // true
 console.log('task 393_4 ', setExample.size); // 2
 console.log('task 393_5 ', setExample.clear()); // undefined
 console.log('task 393_6 ', setExample.size); // 0
+
+// 394- Что выведет консоль
+// оператор break обрывает цикл и продолжает выполнять код после цикла
+for (let i = 0; i < 10; i++) {
+  if (i === 3) {
+    break;
+  }
+  console.log('task 394 ', i); // 0 1 2
+}
