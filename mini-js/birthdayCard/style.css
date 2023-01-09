@@ -1,0 +1,11 @@
+.item {
+  margin-bottom: 10px;
+  padding: 25px;
+  font-size: 22px;
+  border-radius: 10px;
+  background-color: rgb(177, 178, 179);
+  width: 450px;
+}
+h4 {
+  text-transform: uppercase;
+}
