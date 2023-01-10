@@ -3139,3 +3139,5 @@ console.log(
   Number('-12.34')
 ); // NaN 12 -12.34 - all number
 console.log('task 397_25 ', Number('\n'), Number(' 12s ')); //  0 NaN - all number
+console.log('task 397_26 ', 30 * '5', 30 - '5', true + 10); //  150 number 25 number 11 number
+console.log('task 397_26 ', Number([1, 2, 3])); //  NaN number
