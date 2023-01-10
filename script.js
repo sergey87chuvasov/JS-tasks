@@ -3072,3 +3072,70 @@ console.log('task 395 ', (568).toString(2)); // 1000111000
 
 // 396- Что выведет консоль
 console.log('task 396 ', 'foo' + +'bar'); // 'fooNaN'
+console.log('task 396_1 ', [] + []); // '' - пустая строка
+console.log('task 396_2 ', [] + [1]); // '1'
+console.log('task 396_3 ', 1 - [1]); // 0 number
+console.log('task 396_4 ', [1] + [1], typeof ([1] + [1])); // '11' string
+console.log(
+  'task 396_5 ',
+  {} + {},
+  {} - {},
+  typeof ({} + {}),
+  typeof ({} - {})
+); // [object Object][object Object] NaN string number
+
+// 397- Что выведет консоль
+console.log('task 397_1 ', 123 + '', typeof (123 + '')); // 123 string
+console.log('task 397_2 ', String(123), typeof String(123)); // 123 string
+console.log('task 397_3 ', String(undefined), typeof String(undefined)); // undefined string
+console.log('task 397_4 ', String(false), typeof String(false)); // false string
+console.log(
+  'task 397_5 ',
+  String(Symbol('my symbol')),
+  typeof String(Symbol('my symbol'))
+); // Symbol(my symbol) string
+// console.log('task 397_6 ', '' + Symbol('my symbol')); // TypeError is thrown
+console.log('task 397_6 ', (2018).toString(), typeof (2018).toString()); // 2018 string
+console.log('task 397_7 ', Boolean(2), typeof Boolean(2)); // true boolean
+console.log('task 397_8 ', !!2, typeof !!2); // true boolean
+console.log(
+  'task 397_9 ',
+  Boolean(''),
+  Boolean(0),
+  Boolean(-0),
+  typeof (Boolean(''), Boolean(0), Boolean(-0))
+); // false false false boolean
+console.log(
+  'task 397_10 ',
+  Boolean(NaN),
+  Boolean(null),
+  Boolean(undefined),
+  Boolean(false)
+); // false false false false
+console.log(
+  'task 397_11 ',
+  Boolean({}),
+  Boolean([]),
+  Boolean(Symbol()),
+  !!Symbol(),
+  Boolean(function () {})
+); // true true true true true
+console.log('task 397_12 ', '12' > 2, typeof ('12' > 2)); // true boolean
+console.log('task 397_13 ', true < 2, typeof (true < 2)); // true boolean
+console.log('task 397_14 ', false == 0, typeof (false == 0)); // true boolean
+console.log('task 397_15 ', undefined == false, typeof (undefined == false)); // false boolean
+console.log('task 397_16 ', null == false, typeof (null == false)); // false boolean
+console.log('task 397_17 ', 2 || 'hello', typeof (2 || 'hello')); // 2 number
+console.log('task 397_18 ', 123 != '456', typeof (123 != '456')); // true boolean
+console.log('task 397_19 ', Number('123'), +'123'); // 123 123 number number
+console.log('task 397_20 ', 4 > '5', typeof (4 > '5')); // false boolean
+console.log('task 397_21 ', 5 / null, typeof (5 / null)); // Infinity number
+console.log('task 397_22 ', true | 0, typeof (true | 0)); // 1 number - бинарные операторы (| & ^ ~)
+console.log('task 397_23 ', null == 0, typeof (null == 0)); // false boolean - null is not converted to 0
+console.log(
+  'task 397_24 ',
+  Number(undefined),
+  Number(' 12 '),
+  Number('-12.34')
+); // NaN 12 -12.34 - all number
+console.log('task 397_25 ', Number('\n'), Number(' 12s ')); //  0 NaN - all number
