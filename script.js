@@ -3210,3 +3210,9 @@ console.log('task 403_5', isFinite('abc')); // false
 console.log('task 404 ', parseInt('200.5px')); // 200
 console.log('task 404_2 ', parseFloat('200.5%')); // 200.5
 console.log('task 404_3 ', parseFloat('abc200.5%')); // NaN
+
+// 405- Что выведет консоль
+console.log('task 405 ', parseFloat(Math.PI.toFixed(2))); // 3.14 number
+console.log('task 405_1 ', Math.max(15, 11, 16, 12, 51, 12, 13, 51)); // 51
+console.log('task 405_2 ', Math.min(15, 11, 16, 12, 51, 12, 13, 51)); // 11
+console.log('task 405_3 ', parseFloat(Math.random().toFixed(2))); // any x.xx

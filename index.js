@@ -479,3 +479,5 @@ function sumOfDiff(arr) {
 }
 
 console.log('task 34', sumOfDiff([1, 2, 10])); // 9 (10-2) + (2-1)
+
+

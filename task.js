@@ -178,3 +178,35 @@ person_10.greeting(); // Hello
 person_10.changeSurname('Dog'); // surname: 'Dog'
 
 console.log('task 10 ', person_10);
+
+// 11 -  5 однострочных функций в JavaScript, которые упростят разработку
+// 5.1 - перемешка массива в случайном порядке не меняя основной массив
+const mixArr = (arr) => arr.sort(() => Math.random() - 0.5);
+const arr11 = [1, 2, 3, 4, 5, 6, 7];
+console.log('task 11_2', mixArr([...arr11]));
+console.log('task 11_1 ', arr11);
+// 5.1.2
+const arr11_2 = [1, 2, 3, 4, 5, 6, 7];
+const mixArr11_2 = (arr) => arr.slice().sort(() => Math.random() - 0.5);
+console.log('task 11_2-2', mixArr11_2([...arr11_2]));
+console.log('task 11_1-1 ', arr11_2);
+
+// 5.2 - Рандомное число в диапазоне
+const randomInRange = (from, to) =>
+  Math.floor(from + Math.random() * (to - from + 1));
+console.log('task 11_5-2 ', randomInRange(10, 25));
+
+// 5.3 - Трансформаация массива с разными значениями в уникальные
+const arr5_3 = [1, 2, 3, 4, 5, 6, 7];
+const unic = (arr) => [...new Set(arr)];
+const arrRepeat = arr5_3.concat(1, 2, 2, 6, 7);
+console.log('task 11_5-3 ', arrRepeat);
+console.log('task 11_5-3arr ', unic(arrRepeat));
+
+// 5.4 - Делаем первую ббукыу в строке заглавной
+const ucfirst = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+console.log('task 11_5-4 ', ucfirst('hello there')); // Hello there
+
+// 5.5 - Создание уникальных id
+const uniqueId = () => Math.random().toString(36).slice(2);
+console.log('task 11_5-5 ', uniqueId()); // mxqw1n9ddvp итд ...
