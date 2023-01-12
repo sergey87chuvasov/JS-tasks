@@ -3141,3 +3141,72 @@ console.log(
 console.log('task 397_25 ', Number('\n'), Number(' 12s ')); //  0 NaN - all number
 console.log('task 397_26 ', 30 * '5', 30 - '5', true + 10); //  150 number 25 number 11 number
 console.log('task 397_26 ', Number([1, 2, 3])); //  NaN number
+
+// 398- Что выведет консоль
+console.log('task 398_1 ', 5 && 4 && 3); // 3
+console.log('task 398_2 ', 0 && 4 && 3); // 0
+console.log('task 398_3 ', 5 && 0 && 3); // 0
+
+// 399- Что выведет консоль
+const arr399 = [1, 2, 3];
+Object.prototype.rev = function () {
+  return this.reverse();
+};
+
+console.log('task 399 ', arr399.rev()); // [ 3, 2, 1 ]
+
+// 400- Что выведет консоль
+const obj400 = {
+  name: 'Serge',
+  adress: {
+    city: 'Minsk',
+  },
+};
+
+const obj400_2 = { ...obj400 };
+obj400_2.name = 'Anna';
+obj400_2.adress.city = 'Brest';
+
+console.log('task 400_1 ', obj400.name); // Serge
+console.log('task 400_2 ', obj400.adress.city); // Brest
+console.log('task 400_3', obj400_2.name); // Anna
+console.log('task 400_4', obj400_2.adress.city); // Brest
+
+// 401- Что выведет консоль
+// основы числа
+// Метод Math.round() возвращает число, округлённое к ближайшему целому.
+// Метод Math.floor() - округление вниз. Округляет аргумент до ближайшего меньшего целого.
+// Метод Math.ceil() - округление вверх. Округляет аргумент до ближайшего большего целого.
+// Метод toFixed() форматирует число, используя запись с фиксированной запятой.
+console.log('task 401_1 ', Math.round(5.5)); // 6
+console.log('task 401_2 ', Math.round(5.1)); // 5
+console.log('task 401_3 ', Math.floor(20.1)); // 20
+console.log('task 401_4 ', Math.floor(20.6)); // 20
+console.log('task 401_5 ', Math.ceil(11.5)); // 12
+console.log('task 401_6 ', Math.ceil(11.2)); // 12
+console.log(
+  'task 401_7 ',
+  (100.1235678).toFixed(2),
+  typeof (100.1235678).toFixed(2)
+); // 100.12 string
+
+// 402- Что выведет консоль
+console.log('task 402 ', +(0.6 + 0.7).toFixed(4)); // 1.3 number
+console.log('task 402_2 ', (0.6 + 0.7).toFixed(4)); // 1.3000 string
+
+// 403- Что выведет консоль
+// Функция isNaN проверяет, является ли переданный параметр числом или нет. Вернет true, если параметр не является числом и false, если является.
+// Функция isFinite для проверки параметра на то, что он является конечным числом (то есть не строкой, массивом и т.п. и не плюс или минус бесконечностью).
+console.log('task 403 ', 1 / 0); // Infinity
+console.log('task 403_1 ', 0 / 0, 2 * '10px', 1 - 'string'); // NaN NaN NaN
+console.log('task 403_2', isNaN('string')); // true
+console.log('task 403_3', isFinite(123)); // true
+console.log('task 403_4', isFinite('123')); // true
+console.log('task 403_5', isFinite('abc')); // false
+
+// 404- Что выведет консоль
+// Функция parseInt() принимает строку в качестве аргумента и возвращает целое число
+// Функция parseFloat() принимает строку в качестве аргумента и возвращает десятичное число (число с плавающей точкой)
+console.log('task 404 ', parseInt('200.5px')); // 200
+console.log('task 404_2 ', parseFloat('200.5%')); // 200.5
+console.log('task 404_3 ', parseFloat('abc200.5%')); // NaN
