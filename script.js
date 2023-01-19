@@ -3216,3 +3216,87 @@ console.log('task 405 ', parseFloat(Math.PI.toFixed(2))); // 3.14 number
 console.log('task 405_1 ', Math.max(15, 11, 16, 12, 51, 12, 13, 51)); // 51
 console.log('task 405_2 ', Math.min(15, 11, 16, 12, 51, 12, 13, 51)); // 11
 console.log('task 405_3 ', parseFloat(Math.random().toFixed(2))); // any x.xx
+
+// 406- Что выведет консоль
+let string406 = 'some test string';
+console.log('task 406-1 ', string406[0], string406[string406.length - 1]); // s g - Получить первую и последнюю буквы строки
+console.log(
+  'task 406-2 ',
+  `${string406[0].toUpperCase()}${string406.slice(1, -1)}${string406[
+    string406.length - 1
+  ].toUpperCase()}`
+); //  - Сделать первую и последнюю буквы в верхнем регистре
+console.log('task 406-3 ', string406.indexOf('string')); // 10 - Найти положение слова ‘string’ в строке
+console.log('task 406-4 ', string406.lastIndexOf(' ')); // 9 - Найти положение второго пробела (
+// Метод substring() возвращает подстроку строки между двумя индексами, или от одного индекса и до конца строки. Первый параметр задает номер символа, с которого метод начинает отрезать (учтите, что нумерация с нуля), а второй параметр - номер символа, на котором следует закончить вырезание (символ с этим номером не включается в вырезанную часть).
+console.log('task 406-5 ', string406.substr(5, 4)); // test - Получить строку с 5-го символа длиной 4 буквы
+console.log('task 406-6 ', string406.substring(5, 10)); // test
+let string406_1 = 'some test string';
+console.log('task 406_7 ', string406_1.slice(0, -6)); // some test - Получить новую строку из исходной путем удаления последних 6-и символов (то есть исходная строка без последних 6и символов)
+
+// 407- Что выведет консоль
+const obj407 = {
+  product: 'iphone',
+};
+obj407.price = 1000;
+obj407['currency'] = 'dollar';
+console.log('task 407_1 ', obj407); // { product: 'iphone', price: 1000, currency: 'dollar' }
+obj407.details = { model: 13, color: 'red' };
+console.log('task 407_2 ', obj407);
+
+// 408- Что выведет консоль
+console.log('task 408_1 ', 0 || 'string'); // 'string'
+console.log('task 408_2 ', 1 && 'string'); // 'string'
+console.log('task 408_3 ', null || 25); // 25
+console.log('task 408_4 ', null && 25); // null
+console.log('task 408_5 ', null || 0 || 35); // 35
+console.log('task 408_6 ', null && 0 && 35); // null
+console.log('task 408_7 ', 12 + 14 + '12'); // '2612'
+console.log('task 408_8 ', 3 + 2 - '1'); // 4
+console.log('task 408_9 ', '3' + 2 - 1); // 31
+console.log('task 408_10 ', true + 2); // 3
+console.log('task 408_11 ', +'10' + 1); // 11
+console.log('task 408_12 ', undefined + 2); // NaN
+console.log('task 408_13 ', null + 5); // 5
+console.log('task 408_14 ', true + undefined); // NaN
+
+// 409- Что выведет консоль
+let car409 = { name: 'Lexus', age: 10, create: 2008, needRepair: false };
+if (car409.age > 5) {
+  console.log('Need Repair');
+  car409.needRepair = true;
+} else {
+  car409.needRepair = false;
+}
+
+console.log('task 409 ', car409);
+
+// 410- Что выведет консоль
+let item410 = { name: 'Intel core i7', price: '100$', discount: '15%' };
+if (item410.discount && item410.discount != NaN) {
+  item410.priceWithDiscount =
+    parseInt(item410.price) -
+    parseInt(item410.price) * (parseInt(item410.discount) / 100);
+} else {
+  console.log('task 410 ', item410.price);
+}
+console.log(item410.priceWithDiscount);
+console.log(item410);
+
+// 411- Что выведет консоль
+let product411 = {
+  name: 'Яблоко',
+  price: '10$',
+};
+
+let min411 = 10; // минимальная цена
+let max411 = 20; // максимальная цена
+
+if (
+  parseInt(product411.price) >= min411 ||
+  parseInt(product411.price) <= max411
+) {
+  console.log('task 411 ', product411.name);
+} else {
+  console.log('task 411-2 ', 'ТОВАРОВ НЕ НАЙДЕНО');
+}
