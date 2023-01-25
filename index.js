@@ -480,4 +480,48 @@ function sumOfDiff(arr) {
 
 console.log('task 34', sumOfDiff([1, 2, 10])); // 9 (10-2) + (2-1)
 
+// 35- Задача. Дана строка слов, верните длину самого короткого слова.
 
+function findShort(s) {
+  const arr = s.split(' ');
+  console.log(arr); // [ "Let's", 'travel', 'abroad', 'shall', 'we' ]
+
+  const lengths = arr.map((word) => word.length);
+  console.log(lengths); // [ 5, 6, 6, 5, 2 ]
+  console.log(...lengths); // 5 6 6 5 2
+
+  // Метод Math.min() возвращает наименьшее из нуля или более чисел.
+  return Math.min(...lengths); // 2
+}
+
+console.log('task 35', findShort("Let's travel abroad shall we"));
+
+// 36 - Задача. Учитывая не пустой массив целых чисел, верните результат умножения этих значений.
+function grow(arr) {
+  return arr.reduce((prev, curr) => prev * curr, 1);
+}
+
+console.log('task 36 ', grow([2, 3, 4, 5])); // 2*3*4*5 = 120
+
+// 37 - Задача. Учитывая набор чисел, верните аддитивную инверсию каждого из них.
+function invert(arr) {
+  return arr.map((item) => -item);
+}
+
+console.log('task 37 ', invert([1, 2, 3, 4, 5])); // [-1,-2,-3,-4,-5]
+
+// 38 - Задача. написать функцию, которая принимает строку и возвращает массив/список с длиной каждого слова, добавленной к каждому элементу.Строка будет иметь хотя бы один элемент; слова всегда будут разделены пробелом.
+function addLength(str) {
+  const output = [];
+  const strArr = str.split(' ');
+  console.log(strArr); // [ 'you', 'will', 'win' ]
+
+  for (const value of strArr) {
+    output.push(value, value.length); // [ 'you', 3, 'will', 4, 'win', 3 ]
+    // output.push(${value} ${value.length})
+  }
+
+  return output;
+}
+
+console.log('task 38 ', addLength('you will win')); // ["you 3", "will 4", "win 3"]

@@ -210,3 +210,38 @@ console.log('task 11_5-4 ', ucfirst('hello there')); // Hello there
 // 5.5 - Создание уникальных id
 const uniqueId = () => Math.random().toString(36).slice(2);
 console.log('task 11_5-5 ', uniqueId()); // mxqw1n9ddvp итд ...
+
+// 12 -  Тернарный оператор. Switch case
+let a12 = 'test';
+switch (a12) {
+  case 'block':
+    console.log('block');
+    break;
+  case 'none':
+    console.log('none');
+    break;
+  case 'inline':
+    console.log('inline');
+    break;
+  default: // other
+    console.log('other');
+    break;
+}
+
+let a12_1 = 'test2';
+
+a12_1 === 'block'
+  ? console.log('block')
+  : a12_1 === 'none'
+  ? console.log('none')
+  : a12_1 === 'inline'
+  ? console.log('inline')
+  : console.log('other2'); // other2
+
+let b12 = 'hidden';
+b12 === 'hidden' ? (b12 = 'visible') : (b12 = 'hidden');
+console.log('task 12 ', b12); // task 12  visible
+
+let c12 = 0;
+c12 === 0 ? (c12 = 1) : c12 < 0 ? (c12 = 'less then zero') : (c12 *= 10);
+console.log('task 12_3 ', c12); // 1
