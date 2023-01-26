@@ -3344,12 +3344,42 @@ let keys417 = Array.from(map417.keys());
 keys417.push('more');
 console.log('task 417 ', keys417); // [ 'name', 'more' ]
 
-// 417- Что выведет консоль
-const arr417 = [4, 3, 3, 2, 1, 2];
-const newArr417 = arr417.reduce(
+// 418- Что выведет консоль
+const arr418 = [4, 3, 3, 2, 1, 2];
+const newArr418 = arr418.reduce(
   (obj, item) =>
     obj[item] ? { ...obj, [item]: obj[item] + 1 } : { ...obj, [item]: 1 },
   {}
 );
 
-console.log('task 417 ', newArr417); // { '1': 1, '2': 2, '3': 2, '4': 1 }
+console.log('task 417 ', newArr418); // { '1': 1, '2': 2, '3': 2, '4': 1 }
+
+// 419- Что выведет консоль
+function sayHi419() {
+  console.log(name);
+  console.log(age);
+  var name = 'Lydia';
+  let age = 21;
+}
+
+// console.log('task 419 ', sayHi419()); // undefined и ReferenceError
+
+// 420- Что выведет консоль
+// assign() - Этот метод используется для копирования свойств объекта в другой объект.
+const person420 = {
+  name: 'John',
+  age: 20,
+};
+const obj420 = {
+  ishuman: true,
+};
+Object.assign(person420, obj420);
+console.log('task 420 ', person420); // { name: 'John', age: 20, ishuman: true }
+
+// 421- Что выведет консоль
+// Object.freeze делает невозможным добавление, удаление или изменение свойств объекта (если только значение свойства не является другим объектом).
+const box421 = { x: 10, y: 20 };
+Object.freeze(box421);
+const shape421 = box421;
+shape421.x = 100;
+console.log('task 421 ', shape421); // { x: 10, y: 20 }

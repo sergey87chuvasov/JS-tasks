@@ -525,3 +525,62 @@ function addLength(str) {
 }
 
 console.log('task 38 ', addLength('you will win')); // ["you 3", "will 4", "win 3"]
+
+// 39 - Задача. Вам дано время в часах, и вам нужно вернуть количество литров, которое выпьет User, округлив его до наименьшего значения. User выпивает 0,5 литра воды за час езды на велосипеде
+// Метод Math.floor() - округление вниз. Округляет аргумент до ближайшего меньшего целого.
+
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
+
+console.log('task 39_1 ', litres(6)); // 3
+console.log('task 39_2 ', litres(4.3)); // 2
+
+// 40 - Задача. Функция принимает 1 параметр: n, n — это количество хот-догов, которые купит клиент, за покупку нескольких штук предусмотрены скидки. Сколько денег потратит клиент, чтобы купить указанное количество хот-догов?
+
+function saleHotDogs(n) {
+  return n < 5 ? n * 100 : n >= 5 && n < 10 ? n * 95 : n * 90;
+}
+
+console.log('task 40_1 ', saleHotDogs(4)); // 400
+console.log('task 40_2 ', saleHotDogs(8)); // 760
+console.log('task 40_3 ', saleHotDogs(12)); // 1080
+
+// 41 - Задача. Напишите функцию, которая удаляет все восклицательные знаки из заданной строки
+function removeExclamatMarks(s) {
+  return s.replaceAll('!', '');
+  // return s.split('').filter(s => s !== '!').join('');
+}
+
+console.log('task 41_1 ', removeExclamatMarks('Hello World!')); // Hello World
+console.log('task 41_2 ', removeExclamatMarks('!Hello! !World!')); // Hello World
+
+// 42 - Задача. На основе строки “i am in the easycode” сделать новую строку где первые буквы каждого слова будут в верхнем регистре. Использовать for или while.
+let str42 = 'i am in the easycode';
+let newStr42 = str42.split(' ');
+let new42 = '';
+console.log(newStr42); // [ 'i', 'am', 'in', 'the', 'easycode' ]
+for (let i = 0; i < newStr42.length; i++) {
+  new42 += newStr42[i][0].toUpperCase() + newStr42[i].slice(1) + ' ';
+}
+
+console.log('task 42 ', new42); // I Am In The Easycode
+
+// 43 - Задача. Дана строка “tseb eht ma i”. Используя циклы, сделать строку-перевертыш (то есть последняя буква становится первой, предпоследняя - второй итд).
+let str43 = 'tseb eht ma i';
+let res43 = '';
+
+for (let i = str43.length; i--; ) {
+  res43 += str43[i];
+}
+
+console.log('task 43 ', res43); // i am the best
+
+// 44 - Задача. Факториал числа - произведение всех натуральных чисел от 1 до n
+let res44 = 1;
+
+for (let i = 1; i <= 5; i++) {
+  res44 *= i;
+}
+
+console.log('task 44 ', res44); // 120 1*2*3*4*5
