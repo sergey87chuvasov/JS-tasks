@@ -584,3 +584,58 @@ for (let i = 1; i <= 5; i++) {
 }
 
 console.log('task 44 ', res44); // 120 1*2*3*4*5
+
+// 45 - Задача. Создать функцию, которая удаляет первый и последний символы строки
+
+function removeChar(str) {
+  // console.log(str.slice(1)); // erge
+  // console.log(str.slice(-1)); // e
+  return str.slice(1, -1);
+}
+
+console.log('task 45_1 ', removeChar('serge')); // erg
+console.log('task 45_2 ', removeChar('Lorem Ipsun')); // orem Ipsu
+
+// 46 - Задача. В этом небольшом задании вам дается строка чисел, разделенных пробелами, и вы должны вернуть наибольшее и наименьшее число.
+// Метод split() разбивает объект String на массив строк путём разделения строки указанной подстрокой.
+function highAndLow(numbers) {
+  const splitedNums = numbers.split(' ');
+  // console.log(splitedNums); // [ '1', '2', '3', '4', '5' ]
+  // console.log(...splitedNums); // 1 2 3 4 5
+  return `${Math.max(...splitedNums)} ${Math.min(...splitedNums)}`;
+}
+console.log('task 46_1 ', highAndLow('1 2 3 4 5')); // 5 1
+console.log('task 46_2 ', highAndLow('1 2 -3 4 5')); // 5 -3
+console.log('task 46_3 ', highAndLow('1 9 3 4 -5')); // 9 -5
+
+// 47 - Задача
+// Переменная, объявленная с помощью let имеет блочную область видимости, то есть является локальной. Это значит, что переменная value, объявленная внутри блока if, видна только в его пределах.
+let value47 = 5;
+
+if (value47 > 10) {
+  let value = 15;
+}
+const result47 = value47;
+
+console.log('task 47 ', result47); // 5
+
+// 48 - Задача Создайте функцию args_count, которая возвращает количество предоставленных аргументов.
+
+function args_count() {
+  return arguments.length;
+}
+
+console.log('task 48 ', args_count(1, 2, 4, 5, 7)); // 5
+
+// 49 - Задача. Напишите функцию, которая принимает массив из 10 целых чисел (от 0 до 9) и возвращает строку из этих чисел в виде номера телефона
+function createPhoneNumbers(numbers) {
+  const codeСity = numbers.slice(0, 3).join('');
+  console.log(codeСity, typeof codeСity); // '123' - string - Метод join() объединяет все элементы массива в строку
+  const phone = `${numbers.slice(3, 6).join('')}-${numbers
+    .slice(6, 10)
+    .join('')}`;
+
+  return `(${codeСity}) ${phone}`;
+}
+
+console.log('task 49 ', createPhoneNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // (123) 456-7890
