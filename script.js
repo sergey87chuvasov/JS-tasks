@@ -3452,3 +3452,58 @@ console.log(Number(x429_2)); // 999
 let fruits430 = ['Банан', 'Апельсин', 'Яблоко', 'Манго'];
 let result430 = fruits430.splice(2, 0, 'Лимон', 'Киви');
 console.log('task 430 ', fruits430); // [ 'Банан', 'Апельсин', 'Лимон', 'Киви', 'Яблоко', 'Манго' ]
+
+// 431- Что выведет консоль
+let user431 = { name: 'Smith', age: 30 };
+console.log('task 431 ', user431['name'] == user431.name); // true
+
+// 432- Что выведет консоль
+// плюс перед "-" является унарным оператором и пытается привести строку к числу но так как "-" не может быть приведен к числу мы получаем NaN
+console.log('task 432 ', +'-' + 2, typeof (+'-' + 2)); // NaN number
+
+// 433- Что выведет консоль
+let str433 = '123';
+let result433 = +str433;
+console.log('task 433 ', typeof result433, result433); // number 123
+
+// 434- Что выведет консоль
+let foo434 = { str: 'test' };
+console.log('task 434 ', foo434 && foo434.str); // 'test'
+
+// 435- Что выведет консоль
+let arr435 = [];
+arr435[500] = 1;
+console.log('task 435 ', arr435.length); // 501
+
+// 436- Что выведет консоль
+// var не имеет блочной облости видимости поэтому определяя вторую var x мы фактически переопределяем переменную выше
+var x436 = 1;
+if (x436) {
+  var x436 = 2;
+  console.log('task 436_if_', x436); // 2
+}
+console.log('task 436 ', x436); // 2
+
+// 437- Что выведет консоль
+let y437;
+if (y437) {
+  let y437 = 2;
+  console.log(y437);
+} else {
+  let y437 = 10;
+  console.log(y437); // 10
+}
+console.log('task 437 ', y437); // undef
+
+// 438- Что выведет консоль
+// Будет ошибка так как переопределять константу нельзя.
+const z438 = 1;
+// z438 = 20;
+// z438++;
+// console.log('task 438 ', z438); TypeError: Assignment to constant variable.
+
+// 439- Что выведет консоль
+// Запрет у констант распространяется только на переопределние но если в них сожержаться объекты то мы можем изменять их содержание, это называется мутацией.
+const obj439 = { brand: 'EasyCode' };
+obj439.country = 'Ukraine';
+console.log('task 439 ', obj439); // { brand: 'EasyCode', country: 'Ukraine' }

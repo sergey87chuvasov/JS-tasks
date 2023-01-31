@@ -639,3 +639,50 @@ function createPhoneNumbers(numbers) {
 }
 
 console.log('task 49 ', createPhoneNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])); // (123) 456-7890
+
+// 50 - Задача. На основе строки “JavaScript is a pretty good language” сделать новую строку,где каждое слово начинается с большой буквы, а пробелы удалены. Использовать for.
+let str50 = 'JavaScript is a pretty good language';
+str50 = str50.split(' ');
+console.log(str50); // [ 'JavaScript', 'is', 'a', 'pretty', 'good', 'language' ]
+console.log(str50.length); // 6
+
+for (let i = 0; i < str50.length; i++) {
+  str50[i] = str50[i].charAt(0).toUpperCase() + str50[i].slice(1);
+  // console.log(
+  //   (str50[i] = str50[i].charAt(0).toUpperCase() + str50[i].slice(1))
+  // );
+  // console.log(
+  //   (str50[2] = str50[i].charAt(0).toUpperCase() + str50[i].slice(1))
+  // );
+}
+
+let res50 = str50.join('');
+console.log('task 50 ', res50); // JavaScriptIsAPrettyGoodLanguage
+
+// 51 - Задача. Найти все нечетные числа в массиве от 1 до 15 включительно и вывести их в консоль. Массив [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] Использовать for of.
+let arr51 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+let newArr51 = [];
+for (let i of arr51) {
+  if (i % 2 !== 0) {
+    newArr51.push(i);
+  }
+}
+console.log('task 51 ', newArr51); // task 51  [ 1,  3,  5,  7, 9, 11, 13, 15 ]
+
+// 52 - Задача. Перебрать объект и если значение в свойстве это строка то переписать ее всю в верхнем регистре. Использовать for in.
+let list52 = {
+  name: 'denis',
+  work: 'easycode',
+  age: 29,
+};
+
+for (let key in list52) {
+  console.log(key);
+  console.log(list52[key]);
+  if (typeof list52[key] === 'string') {
+    list52[key] = list52[key].toUpperCase();
+    console.log(list52[key]);
+  }
+}
+
+console.log('task 52 ', list52); // { name: 'DENIS', work: 'EASYCODE', age: 29 }
