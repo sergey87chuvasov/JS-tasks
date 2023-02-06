@@ -3507,3 +3507,75 @@ const z438 = 1;
 const obj439 = { brand: 'EasyCode' };
 obj439.country = 'Ukraine';
 console.log('task 439 ', obj439); // { brand: 'EasyCode', country: 'Ukraine' }
+
+// 440- Что выведет консоль
+const obj440 = {
+  name: 'James',
+};
+const name440 = obj440.name || 'Jane';
+console.log('task 440 ', name440); // James
+
+// 441- Что выведет консоль
+const obj441 = {
+  name: 'James',
+};
+
+const name441 = obj441.name && obj441.name !== '' ? obj441.name : 'Jane';
+console.log('task 441 ', name441); // James
+
+// 442- Что выведет консоль
+// new Number() это встроенный конструктор функции. И хотя он выглядит как число, это не настоящее число: у него есть ряд дополнительных фич и это объект.
+let a442 = 3;
+let b442 = new Number(3);
+let c442 = 3;
+
+console.log('task 442 ', a442 == b442); // true
+console.log('task 442 ', a442 === b442); // false
+console.log('task 442 ', b442 === c442); // false
+
+// 443- Что выведет консоль
+let greeting443;
+greeting443 = {};
+console.log('task 443 ', greeting443); // {}
+
+// 444- Что выведет консоль
+var a444 = 1;
+var b444 = ++a444 + 1;
+console.log('task 444 ', b444); // 3
+
+// 445- Что выведет консоль
+// Метод forEach()  не будет вызвана для удалённых или пропущенных элементов массива.
+const arr445 = [1, 2, , 7];
+arr445.forEach((element) => {
+  console.log('task 445 ', element); // 1 2 7
+});
+
+// 446- Что выведет консоль
+// Этот метод создает новый массив из всех элементов, соответствующих заданному условию.
+
+const ages446 = [33, 32, 16];
+console.log(
+  'task 446 ',
+  ages446.filter((age) => age > 20)
+); // [ 33, 32 ]
+
+// 447- Что выведет консоль
+// Spread-оператор принимает массив и расширяет его на отдельные элементы. На применение этого оператора указывает троеточие.
+const ages447 = [33, 32, 16];
+console.log('task 447 ', ...ages447); // 33 32 16
+
+// 448- Что выведет консоль
+// Этот оператор выполняет цикл обхода итерируемых объекто
+const ages448 = [33, 32, 16];
+for (const element of ages448) {
+  console.log('task 448 ', element + 'b'); // 33b 32b 16b
+}
+
+// 449- Что выведет консоль
+let x449 = 20;
+function foo449() {
+  x449 = 30;
+  console.log('task 449_1 ', x449); // 30
+}
+foo449();
+console.log('task 449_2 ', x449); // 30

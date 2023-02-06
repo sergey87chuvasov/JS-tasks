@@ -686,3 +686,16 @@ for (let key in list52) {
 }
 
 console.log('task 52 ', list52); // { name: 'DENIS', work: 'EASYCODE', age: 29 }
+
+// 53 - Задача. Дается число, нужно сделать его отрицательным
+// Метод Math.abs() возвращает абсолютное значение числа. то есть
+function makeNegative53(num) {
+  return -Math.abs(num);
+}
+
+console.log(
+  'task 53 ',
+  makeNegative53(1),
+  makeNegative53(-5),
+  makeNegative53(0.12)
+); // -1, -5, -0.12
