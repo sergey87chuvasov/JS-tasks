@@ -3579,3 +3579,33 @@ function foo449() {
 }
 foo449();
 console.log('task 449_2 ', x449); // 30
+
+// 450- Что выведет консоль
+let x450 = 20;
+function foo450(x450) {
+  x450 = 30;
+  console.log('task 450_1 ', x450); // 30
+}
+foo450();
+console.log('task 450_2 ', x450); // 20 тк мы в аргументе фактически объявили переменн
+
+// 451- Что выведет консоль
+function foo500(x) {
+  console.log('task 451 ', x); // 1
+  console.log('task 451_2', arguments); // 1, 2, 3, 4, 5, 6, 7, 8, 9
+}
+foo500(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+// 452- Что выведет консоль
+console.log('task 452_1 ', parseFloat('$101.2')); // NaN
+console.log('task 452_2 ', parseFloat('101.2usd')); // 101.2
+
+// 453- Что выведет консоль
+// Метод find() возвращает значение первого найденного в массиве элемента, которое удовлетворяет условию переданному в callback функции. В противном случае возвращается undefined.
+// Метод findIndex() возвращает индекс в массиве, если элемент удовлетворяет условию проверяющей функции. В противном случае возвращается -1.
+const nums453 = [7, 14, 3, 8, 10, 9];
+const lastEven453 = nums453.find((value) => value % 2 === 0);
+const lastEvenEndex453 = nums453.findIndex((value) => value % 2 === 0);
+
+console.log('task 453 ', lastEven453); // 14
+console.log('task 453 ', lastEvenEndex453); // 1

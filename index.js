@@ -699,3 +699,112 @@ console.log(
   makeNegative53(-5),
   makeNegative53(0.12)
 ); // -1, -5, -0.12
+
+// 54 - Задача. Первый век охватывает период с 1-го года до 100-го года включительно, второй век — с 101-го года до 200-го года включительно и т.д.Задав год, верните век, в котором он находится.
+// Метод Math.ceil() - округление вверх. Округляет аргумент до ближайшего большего целого.
+function century54(year) {
+  return Math.ceil(year / 100);
+}
+console.log('task 54 ', century54(1986)); // 20
+console.log('task 54 ', century54(1555) + ' century'); // 16 century
+
+// 55 - Задача. Напишите функцию, которая преобразует любое предложение в строку где все буквы заглавные и есть 2 пробела между каждой буквой (или специальным символом).
+// Метод split() разбивает объект String на массив строк путём разделения строки указанной подстрокой.
+// Метод filter() создаёт новый массив со всеми элементами, прошедшими проверку, задаваемую в передаваемой функции.
+// Метод join() объединяет все элементы массива (или массивоподобного объекта) в строку
+
+function stringToUpper55(string) {
+  let firstStage = string.split('');
+  console.log(firstStage); // [ 'h', 'e', 'r', 'e', ' ', 'a', 'r', 'e', ' ', 'w', 'e', ' ','g', 'o']
+  let secondStage = firstStage.filter((s) => s !== ' ');
+  let thirdStage = secondStage.map((item) => item.toUpperCase());
+  return thirdStage.join(' ');
+
+  // return string
+  //   .split('')
+  //   .filter((s) => s !== ' ')
+  //   .map((item) => item.toUpperCase())
+  //   .join(' ');
+}
+
+console.log('task 55 ', stringToUpper55('here are we go')); // H E R E A R E W E G O
+
+// 56 - Задача. Создать функцию multiply, которая будет принимать любое количество чисел и возвращать их произведение
+
+function multiply56() {
+  // console.log(arguments); // { '0': 2, '1': 4, '2': 5, '3': 6 } объект
+
+  if (arguments.length === 0) return 0;
+
+  let result = 1;
+
+  for (let i = 0; i < arguments.length; i++) {
+    console.log(arguments[i]); // 2 4 5 6
+    result *= arguments[i];
+  }
+
+  return result;
+}
+
+console.log('task 56', multiply56());
+console.log('task 56_2', multiply56(2, 4, 5, 6)); // 240
+
+// 57 - Задача. Создать функцию, которая принимает строку и возвращает строку-перевертыш:
+
+function reverseString57(str) {
+  if (typeof str != 'string') {
+    // console.log(str, typeof str);
+    str = String(str);
+  }
+  console.log(str, typeof str);
+
+  return str.split('').reverse().join('');
+}
+
+console.log('task 57_1', reverseString57('test')); // tset
+console.log('task 57_2', reverseString57('')); // ''
+console.log('task 57_3', reverseString57(null)); // llun
+console.log('task 57_4', reverseString57(undefined)); // denifednu
+console.log('task 57_4', reverseString57()); // denifednu
+
+// 58 - Задача. Создать функцию, которая в качестве аргумента может принять строку, числа, null или undefined и возвращает строку, где каждый символ разделен пробелом и заменен на юникод-значение символа:
+
+// Метод charCodeAt() возвращает числовое значение Юникода для символа по указанному индексу
+// Метод trim() удаляет пробельные символы с начала и конца строки
+
+function getCodeStringFromText58(str) {
+  let result = '';
+  let firstStage = String(str).split('');
+  // console.log(firstStage); // [ '4', '5' ]
+  for (let i = 0; i < firstStage.length; i++) {
+    result += firstStage[i].charCodeAt() + ' ';
+  }
+
+  // console.log(typeof result); // string
+  return result.trim();
+}
+console.log('task 58', getCodeStringFromText58('hello world')); //
+console.log('task 58', getCodeStringFromText58(45));
+console.log('task 58', getCodeStringFromText58(null));
+
+// 59 - Задача. Создать функцию угадай число. Она принимает число от 1-10 (обязательно проверить что число не больше 10 и не меньше 0).
+function guessTheNumber59(num) {
+  if (num <= 0 || num >= 11) {
+    return new Error('Please provide number in range 0 - 10');
+  }
+
+  if (typeof num !== 'number') {
+    return new Error('Please provide a valid number');
+  }
+
+  let guessNum = Math.floor(Math.random() * 10) + 1;
+  // console.log(guessNum);
+
+  if (guessNum === num) {
+    return 'You win!';
+  } else {
+    return `You are lose, your number is ${num}, the random number is ${guessNum}`;
+  }
+}
+
+console.log('task 59', guessTheNumber59(2));
