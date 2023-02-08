@@ -152,7 +152,6 @@ const result16 = [...segment, [1, 8]];
 console.log('16 task ', result16); // [ [ 1, 3 ], [ 5, 5 ], [ 1, 8 ] ]
 
 // 17- Что выведет в консоль?
-
 let n17 = 3;
 let b17 = true;
 // n17 = n17.toString(2);
@@ -3609,3 +3608,18 @@ const lastEvenEndex453 = nums453.findIndex((value) => value % 2 === 0);
 
 console.log('task 453 ', lastEven453); // 14
 console.log('task 453 ', lastEvenEndex453); // 1
+
+// 454- Что выведет консоль
+var a454 = 1;
+var b454 = a454++ + 1;
+console.log('task 454 ', b454); // 2
+
+// 455- Что выведет консоль
+// Решение:  result up to 1 line
+function mystery455() {
+  var results = {
+    sanity: 'Hello',
+  };
+  return results;
+}
+console.log('task 455 ', mystery455()); // { sanity: 'Hello' } - обратить внимание на именно одну строку return results;

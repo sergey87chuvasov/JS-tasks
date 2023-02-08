@@ -808,3 +808,152 @@ function guessTheNumber59(num) {
 }
 
 console.log('task 59', guessTheNumber59(2));
+
+// 60 - Задача. Создать функцию, которая принимает число n и возвращает массив, заполненный числами от 1 до n:
+
+function getArray60(num) {
+  let arr = [];
+  for (let i = 1; i <= num; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
+
+console.log('task 60 ', getArray60(10));
+
+// 61 - Задача. Cоздать функцию, которая принимает массив, а возвращает новый массив с дублированными элементами входного массива.
+
+function doubleArray61(arr) {
+  return arr.concat(arr);
+}
+
+console.log('task 61 ', doubleArray61([1, 2, 3]));
+
+// 62 - Задача. Создать функцию, которая принимает произвольное (любое) число массивов и удаляет из каждого массива первый элемент, а возвращает массив из оставшихся значений. (те массив из массивов)
+
+function changeCollection62() {
+  // console.log(arguments); // { '0': [ 1, 2, 3 ], '1': [ 'a', 'b', 'c' ] }  // { '0': [ 1, 2, 3 ] }
+
+  let newArr = [];
+
+  for (let i = 0; i < arguments.length; i++) {
+    newArr.push(arguments[i]);
+  }
+
+  for (let i = 0; i < newArr.length; i++) {
+    newArr[i].shift();
+  }
+
+  return newArr;
+}
+
+console.log('task 62_1 ', changeCollection62([1, 2, 3], [5, 6, 7])); // [ [ 2, 3 ], [ 6, 7 ] ]
+console.log('task 62_2 ', changeCollection62([1, 2, 3])); // [ [ 2, 3 ] ]
+
+// 63 - Задача. Создать функцию которая принимает массив пользователей, поле которое хочу проверить и значение на которое хочу проверять указанное поле. Проверять что все аргументы переданы. Если что то не переданно то возвращать объект ошибки return new Error('Error message'). Возвращать новый массив с пользователями соответсвующие указанным параметрам.
+
+const users63 = [
+  {
+    _id: '5e36b779dc76fe3db02adc32',
+    balance: '$1,955.65',
+    picture: 'http://placehold.it/32x32',
+    age: 33,
+    name: 'Berg Zimmerman',
+    gender: 'male',
+  },
+  {
+    _id: '5e36b779d117774176f90e0b',
+    balance: '$3,776.14',
+    picture: 'http://placehold.it/32x32',
+    age: 37,
+    name: 'Deann Winters',
+    gender: 'female',
+  },
+  {
+    _id: '5e36b779daf6e455ec54cf45',
+    balance: '$3,424.84',
+    picture: 'http://placehold.it/32x32',
+    age: 36,
+    name: 'Kari Waters',
+    gender: 'female',
+  },
+];
+
+function filterUsers63(arr, key, value) {
+  let newArr = [];
+  if (!arr || !key || !value) return new Error('Error message');
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]['age'] === 36) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+console.log('task 63 ', filterUsers63(users63, 'age', 36));
+
+// 64 - Задача. Написать функцию, которая принимает массив чисел и возвращает сумму чисел. Если массив не содержит чисел, вы должны вернуть 0.
+
+function sum64(numbers) {
+  return numbers.length > 0 ? numbers.reduce((acc, el) => acc + el, 0) : 0;
+}
+
+console.log('task 64_1 ', sum64([1, 4, 7, 9, 0, 22])); // 43
+console.log('task 64_1 ', sum64([])); // 0
+
+// 65 - Задача
+/*
+Создать функции:
+- первая функция принимает массив и колбэк (одна для всех вызовов)
+- вторая функция (колбэк) обрабатывает каждый элемент массива (для каждого вызова свой callback)
+Первая функция возвращает строку “New value: ” и результат обработки:
+ */
+function firstFunc65(arr, fn) {
+  let result = '';
+
+  for (let i = 0; i < arr.length; i++) {
+    // console.log(arr[i]);
+    result += fn(arr[i]);
+    // console.log(result);
+  }
+  return `New value: ${result}`.trim();
+}
+
+function handler1_65(el) {
+  return el.charAt(0).toUpperCase() + el.substr(1);
+}
+
+console.log(
+  'task 65_1 ',
+  firstFunc65(['my', 'name', 'is', 'Trinity'], handler1_65)
+);
+console.log(typeof firstFunc65(['my', 'name', 'is', 'Trinity'], handler1_65));
+
+//////////////////////
+function handler2_65(el) {
+  return Number(el) * 10 + ', ';
+}
+
+console.log('task 65_2 ', firstFunc65([10, 20, 30], handler2_65));
+
+////////////////////////
+function handler3_65(el) {
+  return `${el.name} is ${el.age}, `;
+}
+
+console.log(
+  firstFunc65(
+    [
+      { age: 45, name: 'Jhon' },
+      { age: 20, name: 'Aaron' },
+    ],
+    handler3_65
+  )
+);
+
+//////////////////////////////////
+function handler4_65(el) {
+  return el.split('').reverse().join('') + ', ';
+}
+
+console.log('task 65_4 ', firstFunc65(['abs', '123'], handler4_65));
