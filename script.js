@@ -3623,3 +3623,26 @@ function mystery455() {
   return results;
 }
 console.log('task 455 ', mystery455()); // { sanity: 'Hello' } - обратить внимание на именно одну строку return results;
+
+// 456- Что выведет консоль
+// неявное преобразование - когда js пытается привести неожиданный тип значения к ожидаемому
+console.log('task 456_1 ', true + true); // 2
+console.log('task 456_2 ', 10 - true); // 9
+console.log('task 456_3 ', 4 * []); // 0
+console.log('task 456_4 ', 4 * [2]); // 8
+console.log('task 456_5 ', 4 + [2]); // '42'
+console.log('task 456_5 ', 4 + [1, 2]); // '41,2'
+console.log('task 456_5 ', 4 * [1, 2]); // NaN
+
+// 457- Что выведет консоль
+const foo457 = {
+  valueOf: () => 2,
+};
+console.log('task 457 ', 3 + foo457); // 5
+console.log('task 457 ', 4 * foo457); // 8
+
+// 458- Что выведет консоль
+const foo458 = {
+  toString: () => 'Hello there',
+};
+console.log('task 458 ', 1 + foo458); // '1Hello there'

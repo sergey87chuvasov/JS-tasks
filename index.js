@@ -957,3 +957,151 @@ function handler4_65(el) {
 }
 
 console.log('task 65_4 ', firstFunc65(['abs', '123'], handler4_65));
+
+// 66 - Задача. Заданы длина и ширина 4-стороннего многоугольника. Многоугольник может быть либо прямоугольником, либо квадратом.Если это квадрат, верните его площадь. Если это прямоугольник, верните его периметр.
+
+function areaOrPerimeter(l, w) {
+  return l === w ? l * w : l * 2 + w * 2;
+}
+
+console.log('task 66 ', areaOrPerimeter(4, 4)); // 16
+console.log('task 66 ', areaOrPerimeter(3, 9)); // 24  (P = a + b + c + d)
+
+// 67 - Задача Написать аналог метода every. Создайте функцию every, она должна принимать первым аргументом массив чисел (обязательно проверьте что передан массив) вторым аргументом callback (обязательно проверьте что передана функция). Если передан один из аргументов не удовлетворяет условию то функция должна вернуть new Error("с произвольным сообщением.") функция должна возвращать true или false в зависимости от результата вызова callback (проверить число больше 5). Callback должен принимать один элемент массива, его индекс в массиве и весь массив.
+// Метод every() проверяет, удовлетворяют ли все элементы массива условию, заданному в передаваемой функции.
+
+function every(arr, fn) {
+  if (typeof fn !== 'function' || !fn) return new Error('need a function!!!');
+  if (!Array.isArray(arr)) return new Error('need an array!!!');
+
+  for (let i = 0; i < arr.length; i++) {
+    if (!fn(arr[i], i, arr)) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function func67(el) {
+  return el > 5;
+}
+
+console.log('task 67 ', every([111, 4, 44, 58, 77], func67)); // false
+console.log('task 67 ', every([111, 444, 44, 58, 77], func67)); // true
+
+// 68 - Задача Преобразование хэша в массив. Примечание: выходной массив должен быть отсортирован в алфавитном порядке по имени ключа.
+// Object.entries() метод возвращает массив собственных перечисляемых свойств указанного объекта в формате [key, value]
+
+const convertHashToArray = (hash) => Object.entries(hash).sort();
+console.log(
+  'task 68 ',
+  convertHashToArray({ name: 'Jeremy', age: 24, role: 'Software Engineer' })
+); // [ [ 'age', 24 ], [ 'name', 'Jeremy' ], [ 'role', 'Software Engineer' ]]
+
+// 69 - Задача Создать объект, который описывает ширину и высоту прямоугольника, а также может посчитать площадь фигуры:
+const rectangle69 = {
+  width: 3,
+  height: 12,
+  getSquare: function () {
+    return this.width * this.height;
+  },
+};
+
+console.log('task 69 ', rectangle69.getSquare()); // 36
+
+// 70 - Задача. Создать объект, у которого будет цена товара и его скидка, а также два метода: для получения цены и для расчета цены с учетом скидки:
+const price70 = {
+  price: 10,
+  discount: '15%',
+  getPrice: function () {
+    return this.price;
+  },
+  getPriceWithDiscount: function () {
+    return this.price - this.price * (parseInt(this.discount) / 100);
+  },
+};
+
+console.log('task 70_1 ', price70.getPrice()); // 10
+console.log('task 70_2 ', price70.getPriceWithDiscount()); // 8.5
+
+// 71 - Задача. Создать объект, у которого будет поле высота и метод “увеличить высоту на один”. Метод должен возвращать новую высоту:
+const object71 = {
+  height: 0,
+  inc: function () {
+    return this.height++;
+  },
+};
+
+object71.height = 10;
+object71.inc();
+console.log('task 71 ', object71.height); // 11;
+
+// 72 - Задача. Создать объект “вычислитель”, у которого есть числовое свойство “значение” и методы “удвоить”, “прибавить один”, “отнять один”. Методы можно вызывать через точку, образуя цепочку методов:
+
+const numerator72 = {
+  value: 1,
+  double: function () {
+    this.value *= 2;
+    return this;
+  },
+  plusOne: function () {
+    this.value += 1;
+    return this;
+  },
+  minusOne: function () {
+    this.value -= 1;
+    return this;
+  },
+};
+numerator72.double().plusOne().plusOne().minusOne();
+console.log('task 72 ', numerator72.value); // 3
+
+// 73 - Задача. Создать объект с розничной ценой и количеством продуктов. Этот объект должен содержать метод для получения общей стоимости всех товаров (цена * количество продуктов)
+
+const price73 = {
+  price: 15,
+  count: 10,
+  getFullPrice: function () {
+    return this.price * this.count;
+  },
+};
+
+console.log('task 73 ', price73.getFullPrice()); // 150
+
+// 74 - Задача. Создать объект из предыдущей задачи. Создать второй объект, который описывает количество деталей и цену за одну деталь. Для второго объекта нужно узнать общую стоимость всех деталей, но нельзя создавать новые функции и методы. Для этого “позаимствуйте” метод из предыдущего объекта.
+const price74 = {
+  price: 15,
+  count: 10,
+  getFullPrice: function () {
+    return this.price * this.count;
+  },
+};
+
+const anotherPrice74 = {
+  price: 2,
+  count: 18,
+};
+
+console.log('task 74 ', price74.getFullPrice.call(anotherPrice74)); // 36
+
+// 75 - Задача. Даны объект и функция: Не изменяя функцию или объект, получить результат функции getSquare для объекта sizes
+let sizes75 = { width: 5, height: 10 };
+const getSquare75 = function () {
+  return this.width * this.height;
+};
+
+console.log('task 75 ', getSquare75.apply(sizes75, [5, 10])); // 50
+console.log('task 75_2 ', getSquare75.call(sizes75)); // 50
+
+// 76 - Задача. Измените функцию getElementHeight таким образом, чтобы можно было вызвать getElementHeight() и получить 25.
+// Метод bind() создаёт новую функцию, которая при вызове устанавливает в качестве контекста выполнения this предоставленное значение. Bind также позволяет привязывать к функции аргументы
+let element76 = {
+  height: 25,
+  getHeight: function () {
+    return this.height;
+  },
+};
+let getElementHeight76 = element76.getHeight.bind(element76);
+
+console.log('task 76 ', getElementHeight76()); // 25
