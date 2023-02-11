@@ -3646,3 +3646,54 @@ const foo458 = {
   toString: () => 'Hello there',
 };
 console.log('task 458 ', 1 + foo458); // '1Hello there'
+
+// 459- Что выведет консоль
+// Найти количество пропсов в объекте
+// Описание Метод Object. keys возвращает массив строковых элементов, соответствующих именам перечисляемых свойств, найденных непосредственно в самом объекте
+const user459 = {
+  name: 'David',
+  age: 30,
+  city: 'NY',
+};
+
+console.log(Object.keys(user459).length); // 3
+console.log(Object.keys(user459)); // [ 'name', 'age', 'city' ]
+
+// 460- Что выведет консоль
+function test460(value) {
+  console.log(
+    'task 460 ',
+    value === true ? 'true' : value === false ? 'false' : 'hello world'
+  );
+}
+
+test460(); // `hello world`
+test460(5); // `hello world`
+test460(0); // `hello world`
+test460(-1); // `hello world`
+test460('true'); // `hello world`
+test460('false'); // `hello world`
+test460(true); // 'true'
+test460(false); // 'false'
+
+// 461- Что выведет консоль
+// Метод eval() выполняет JavaScript-код, представленный строкой.
+console.log('task 461 ', eval('3 + 1')); // 4 number
+console.log('task 461 ', eval(new String('3 + 1'))); // [String: '3 + 1']
+console.log('task 461 ', eval('3 + 1') === eval('4')); // true
+console.log('task 461 ', eval('3 + 1') === eval(new String('3 + 1'))); // false
+
+// 462- Что выведет консоль
+const arr462 = [2, 4];
+const result462 = arr462.reduce((acc, item) => acc + item) / arr462.length;
+
+console.log('task 462 ', result462); // 3
+
+// 463- Что выведет консоль
+// Метод Object.keys() возвращает массив из собственных перечисляемых свойств переданного объекта, в том же порядке
+const obj463 = { a: 1, b: 2, c: 3 };
+Object.prototype.keys = function () {
+  return Object.values(this).reverse();
+};
+
+console.log('task 463 ', obj463.keys()); // [ 3, 2, 1 ]

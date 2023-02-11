@@ -1105,3 +1105,170 @@ let element76 = {
 let getElementHeight76 = element76.getHeight.bind(element76);
 
 console.log('task 76 ', getElementHeight76()); // 25
+
+// 77 - Задача. Отбросьте пробелы в начале и конце строки, при этом оставьте ровно один пробел между каждым словом. Знаки препинания должны рассматриваться как часть слова.
+
+function reverse77(str) {
+  return (
+    str
+      .split(' ')
+      // console
+      //   .log(str.split(' ')) // [ 'Reverse', 'this', 'string,', 'please!' ] // 0 1 2 3
+      .map((word, index) =>
+        index % 2 !== 0 ? word.split('').reverse().join('') : word
+      )
+      .join(' ')
+      .trim()
+  );
+}
+console.log('task 77 ', reverse77('Reverse this string, please!')); // Reverse siht string, !esaelp
+
+// 78 - Задача Переделать функцию с использованием функции-стрелки (в методе reduce тоже использовать arrow function):
+const sum78 = (...params) => {
+  console.log(...params, typeof params); // 1 2 3 4 object
+
+  if (!params.length) return 0;
+
+  return params.reduce((prev, next) => prev + next);
+};
+
+console.log('task 78_1 ', sum78(1, 2, 3, 4)); // 10
+console.log('task 78_2 ', sum78()); // 0
+
+// 79 - Задача Переделать функцию с использованием функции-стрелки
+const convertToObject79 = (num) => ({
+  value: num,
+  isOdd: Boolean(num % 2),
+});
+
+console.log('task 79 ', convertToObject79(8)); // { value: 8, isOdd: false }
+
+// 80 - Задача На основе массива [1,2,3,5,8,9,10] сформировать новый массив,каждый элемент которого будет хранить информацию о числе и его четности
+
+const arr80 = [1, 2, 3, 5, 8, 9, 10];
+const newArr80 = arr80.map((num) => ({
+  digit: num,
+  odd: num % 2 === 0 ? true : false,
+}));
+
+console.log('task 80 ', newArr80); // task 80  [{ digit: 1, odd: false },{ digit: 2, odd: true },{ digit: 3, odd: false },{ digit: 5, odd: false },{ digit: 8, odd: true },{ digit: 9, odd: false },{ digit: 10, odd: true }]
+
+// 81 - Задача Проверить, содержит ли массив [12, 4, 50, 1, 0, 18, 40] элементы, равные нулю. Если да - вернуть true.
+const arr81 = [12, 4, 50, 1, 0, 18, 40];
+const newArr81 = arr81.some((num) => num === 0);
+
+console.log('task 81 ', newArr81); // true
+
+// 82 - Задача Проверить, все элементы массива имеют длину более 3х символов ['yes', 'hello', 'no', 'easycode', 'what']. Если да - вернуть true
+const arr82 = ['yes', 'hello', 'no', 'easycode', 'what'];
+const newArr82 = arr82.every((num) => num.length > 3);
+console.log('task 82 ', newArr82); // false
+
+// 83 - Задача Дан массив объектов, где каждый объект содержит информацию о букве и месте её положения в строке {буква: “a”, позиция_в_предложении: 1}: Напишите функцию, которая из элементов массива соберет и вернёт строку, основываясь на index каждой буквы. Например: [{char:"H",index:0}, {char:"i",index: 1}, {char:"!",index:2}] → “Hi!”
+
+const arr83 = [
+  { char: 'a', index: 12 },
+  { char: 'w', index: 8 },
+  { char: 'Y', index: 10 },
+  { char: 'p', index: 3 },
+  { char: 'p', index: 2 },
+
+  { char: 'N', index: 6 },
+  { char: ' ', index: 5 },
+  { char: 'y', index: 4 },
+  { char: 'r', index: 13 },
+  { char: 'H', index: 0 },
+
+  { char: 'e', index: 11 },
+  { char: 'a', index: 1 },
+  { char: ' ', index: 9 },
+  { char: '!', index: 14 },
+  { char: 'e', index: 7 },
+];
+
+const newFunc83 = () => {
+  const cloned = arr83.slice();
+  // console.log(cloned); // copy arr
+
+  return (
+    cloned
+      .sort((prev, next) => prev.index - next.index)
+      // console.log(cloned.sort((prev, next) => prev.index - next.index)); //
+      /* 
+  [
+  { char: 'H', index: 0 },
+  { char: 'a', index: 1 },
+  { char: 'p', index: 2 },
+  { char: 'p', index: 3 },
+  { char: 'y', index: 4 },
+  { char: ' ', index: 5 },
+  { char: 'N', index: 6 },
+  { char: 'e', index: 7 },
+  { char: 'w', index: 8 },
+  { char: ' ', index: 9 },
+  { char: 'Y', index: 10 },
+  { char: 'e', index: 11 },
+  { char: 'a', index: 12 },
+  { char: 'r', index: 13 },
+  { char: '!', index: 14 }
+]
+*/
+      .reduce((acc, { char }) => acc + char, '')
+  );
+};
+console.log('task 83 ', newFunc83(arr83)); // Happy New Year!
+
+// 84 - Задача Отсортируйте массив массивов так, чтобы вначале располагались наименьшие массивы (размер массива определяется его длиной): [ [14, 45], [1], ['a', 'c', 'd'] ] → [ [1], [14, 45], ['a', 'c', 'd'] ]
+
+const arr84 = [[14, 45], [1], ['a', 'c', 'd']];
+const newArr84 = arr84.sort((prev, next) => prev.length - next.length);
+console.log('task 84 ', newArr84); // [ [ 1 ], [ 14, 45 ], [ 'a', 'c', 'd' ] ]
+
+// 85 - Задача Есть массив объектов: Отсортировать их по возрастающему количеству ядер (cores).
+
+const arr85 = [
+  {
+    cpu: 'intel',
+    info: { cores: 2, сache: 3 },
+  },
+  {
+    cpu: 'intel',
+    info: { cores: 4, сache: 4 },
+  },
+  {
+    cpu: 'amd',
+    info: { cores: 1, сache: 1 },
+  },
+  {
+    cpu: 'intel',
+    info: { cores: 3, сache: 2 },
+  },
+  {
+    cpu: 'amd',
+    info: { cores: 4, сache: 2 },
+  },
+];
+
+const newArr85 = arr85.sort((prev, next) => prev.info.cores - next.info.cores);
+console.log('task 85 ', newArr85);
+
+// 86 - Задача  - Создать функцию, которая будет принимать массив продуктов и две цены. Функция должна вернуть все продукты, цена которых находится в указанном диапазоне, и сортировать от дешевых к дорогим:
+
+let products86 = [
+  { title: 'prod1', price: 5.2 },
+  { title: 'prod2', price: 0.18 },
+  { title: 'prod3', price: 15 },
+  { title: 'prod4', price: 25 },
+  { title: 'prod5', price: 18.9 },
+  { title: 'prod6', price: 8 },
+  { title: 'prod7', price: 19 },
+  { title: 'prod8', price: 63 },
+];
+
+const func86 = (arr, num1, num2) => {
+  return arr
+    .filter((item) => item.price >= num1 && item.price <= num2)
+    .sort((prev, next) => prev.price - next.price);
+};
+
+console.log('task 86 ', func86(products86, 15, 30));
