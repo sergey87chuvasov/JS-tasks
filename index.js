@@ -1272,3 +1272,106 @@ const func86 = (arr, num1, num2) => {
 };
 
 console.log('task 86 ', func86(products86, 15, 30));
+
+// 87 - Задача - Создайте функцию которая бы умела делать: minus(10)(6); // 4
+
+function minus87(num1 = 0) {
+  return function (num2 = 0) {
+    return num1 - num2;
+  };
+}
+
+console.log('task 87 ', minus87(10)(6)); // 4
+console.log('task 87 ', minus87(5)(6)); // -1
+console.log('task 87 ', minus87(10)()); // 10
+console.log('task 87 ', minus87()(6)); // -6
+console.log('task 87 ', minus87()()); // 0
+
+// 88 - Задача Реализовать функцию, которая умножает и умеет запоминать возвращаемый результат между вызовами:
+
+function multiplyMaker88(num1 = 2) {
+  return function (num2 = 1) {
+    return (num1 *= num2);
+  };
+}
+
+const multiply88 = multiplyMaker88(2);
+
+console.log('task 88 ', multiply88(2)); //  2 * 2 = 4
+console.log('task 88 ', multiply88(1)); //  4 * 1 = 4
+console.log('task 88 ', multiply88(3)); //  4 * 3 = 12
+console.log('task 88 ', multiply88(10)); // 12 * 10 = 120
+
+// 89 - Задача Реализовать модуль, который работает со строкой и имеет методы: a. установить строку i. если передано пустое значение, то установить пустую строкуii. если передано число, число привести к строкеb. получить строкуc. получить длину строки d. получить строку-перевертыш
+
+function strModule89() {
+  let str = '';
+
+  function setStr(val = '') {
+    str = String(val);
+  }
+
+  function getStr() {
+    return str;
+  }
+
+  function getStrLength() {
+    return str.length;
+  }
+
+  function getReverseStr() {
+    return str.split('').reverse().join('');
+  }
+
+  return {
+    setStr,
+    getStr,
+    getStrLength,
+    getReverseStr,
+  };
+}
+
+const firstString89 = strModule89();
+firstString89.setStr('Test');
+console.log(firstString89.getStr()); // Test
+console.log(firstString89.getStrLength()); // 4
+console.log(firstString89.getReverseStr()); // tseT
+
+// 90 - Задача - Создайте модуль “калькулятор”, который умеет складывать, умножать, вычитать, делить и возводить в степень. Конечное значение округлить до двух знаков после точки (значение должно храниться в обычной переменной, не в this).
+function calc90() {
+  let number = 0;
+
+  return {
+    setNumber: function (value = 0) {
+      number = value;
+      return this;
+    },
+    add: function (value = 0) {
+      number += value;
+      return this;
+    },
+    sub: function (value = 0) {
+      number -= value;
+      return this;
+    },
+    mult: function (value = 1) {
+      number *= value;
+      return this;
+    },
+    div: function (value = 1) {
+      number /= value;
+      return this;
+    },
+    exp: function (value = 1) {
+      number = Math.pow(number, value);
+      return this;
+    },
+    getNumber: function (value = 0) {
+      return number.toFixed(2);
+    },
+  };
+}
+
+const calculator = calc90();
+
+console.log(calculator.setNumber(11).exp(2).add(14).getNumber()); // 135.00

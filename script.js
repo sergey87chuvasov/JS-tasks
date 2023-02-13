@@ -3697,3 +3697,106 @@ Object.prototype.keys = function () {
 };
 
 console.log('task 463 ', obj463.keys()); // [ 3, 2, 1 ]
+
+// 464- Что выведет консоль
+// Три способа проверить, является ли объект массивом
+const arr464 = [1, 2, 3, 4];
+
+console.log('task 464_1', arr464.constructor.toString().indexOf('Array') > -1); // true
+console.log('task 464_2', arr464 instanceof Array); // true
+console.log('task 464_3', Array.isArray(arr464)); // true
+
+// 465- Что выведет консоль
+function sum465() {
+  var retval = 0;
+  for (var i = 0, len = arguments.length; i < len; ++i) {
+    retval += arguments[i];
+  }
+  return retval;
+}
+
+console.log('task 465 ', sum465(1, 2, 3)); // 6
+
+// 466- Что выведет консоль
+let a466 = 8;
+function one466() {
+  let a = 5;
+  return a * 12;
+}
+console.log(a466); // 8
+console.log('task 466 ', one466()); // 60
+console.log(a466); // 8
+
+// 467- Что выведет консоль
+let a467 = 10;
+
+function one467() {
+  a467 = a467 + 1;
+  return a467;
+}
+
+console.log('task 467 ', one467()); // 11
+console.log('task 467 ', one467()); // 12
+console.log('task 467 ', one467()); // 13
+
+// 468- Что выведет консоль
+let obj468_1 = {
+  name: 'Serge',
+};
+let obj468_2 = {
+  age: 35,
+};
+
+let newObj468 = Object.assign({}, obj468_1, obj468_2);
+console.log('task 468 ', newObj468); //  { name: 'Serge', age: 35 } ! не глубокое копирование
+
+// 469- Что выведет консоль
+let obj469_1 = {
+  name: 'Serge',
+  info: {
+    skills: ['html', 'css'],
+  },
+};
+
+let newObj469 = Object.assign({}, obj469_1);
+console.log(newObj469); // { name: 'Serge', info: { skills: [ 'html', 'css' ] } }
+
+let objJSON = JSON.stringify(obj469_1);
+console.log(objJSON); // {"name":"Serge","info":{"skills":["html","css"]}}
+// ГЛУБОКОЕ КОПИРОВАНИЕ
+newObj469 = JSON.parse(objJSON);
+console.log('task 469 ', newObj469.info === obj469_1.info); // false
+
+// 470- Что выведет консоль
+let obj470 = {
+  name: 'Serge',
+  skills: ['html', 'css'],
+};
+
+console.log('task 470 ', Object.keys(obj470)); // [ 'name', 'skills' ]
+
+// 471- Что выведет консоль
+let obj471 = {
+  name: 'Serge',
+  skills: ['html', 'css'],
+};
+
+console.log('task 471 ', Object.values(obj471)); // [ 'Serge', [ 'html', 'css' ] ]
+
+// 472- Что выведет консоль
+let obj472 = {
+  name: 'Serge',
+  skills: ['html', 'css'],
+};
+
+console.log('task 472 ', Object.entries(obj472)); // [ [ 'name', 'Serge' ], [ 'skills', [ 'html', 'css' ] ] ]
+
+// 473- Что выведет консоль
+const entries473 = [
+  ['foo', 'bar'],
+  ['baz', 42],
+];
+
+const obj473 = Object.fromEntries(entries473);
+
+console.log('task 473 ', obj473); // { foo: "bar", baz: 42 }
