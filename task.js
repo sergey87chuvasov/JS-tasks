@@ -245,3 +245,151 @@ console.log('task 12 ', b12); // task 12  visible
 let c12 = 0;
 c12 === 0 ? (c12 = 1) : c12 < 0 ? (c12 = 'less then zero') : (c12 *= 10);
 console.log('task 12_3 ', c12); // 1
+
+// 13 - Деструктуризация
+
+const student13 = {
+  name: 'John Doe',
+  age: 16,
+  scores: {
+    maths: 74,
+    english: 63,
+    science: 85,
+  },
+};
+
+function displaySummary({
+  name,
+  scores: { maths = 0, english = 0, science = 0 },
+}) {
+  console.log('Hello, ' + name); // Hello, John Doe
+  console.log('Your Maths score is ' + maths); // Hello, John Doe
+  console.log('Your English score is ' + english); // Your English score is 63
+  console.log('Your Science score is ' + science); // Your Science score is 85
+}
+
+displaySummary(student13);
+////////////////////////////////////////////
+
+const student13_1 = {
+  firstname: 'Glad',
+  lastname: 'Chinda',
+  country: 'Nigeria',
+};
+
+const { firstname, lastname, country } = student13_1;
+console.log(firstname, lastname, country); // Glad Chinda Nigeria
+////////////////////////////////////////////////
+
+const person13 = {
+  name: 'John Doe',
+  country: 'Canada',
+};
+const { name, country, age = 25 } = person13;
+console.log(`I am ${name} from ${country} and I am ${age} years old.`); // I am John Doe from Canada and I am 25 years old.
+
+/////////////////////////////////////////////////
+const person13_2 = {
+  name: 'John Doe',
+  country: 'Canada',
+};
+
+const { name: fullname, country: place, age: years = 25 } = person13_2;
+console.log(`I am ${fullname} from ${place} and I am ${years} years old.`); // I am John Doe from Canada and I am 25 years old.
+
+//////////////////////////////////////
+const student13_2 = {
+  name: 'John Doe',
+  age: 16,
+  scores: {
+    maths: 74,
+    english: 63,
+  },
+};
+
+const {
+  name,
+  scores: { maths, science = 50 },
+} = student13_2;
+
+console.log(
+  `${name} scored ${maths} in Maths and ${science} in Elementary Science.`
+); // John Doe scored 74 in Maths and 50 in Elementary Science.
+
+///////////// МАССИВЫ //////////////////////////
+
+const rgb13 = [255, 200, 0];
+const [red, green, blue] = rgb13;
+console.log(`R: ${red}, G: ${green}, B: ${blue}`); // R: 255, G: 200, B: 0
+
+////////////////////////////
+const rgb13_1 = [200];
+const [red = 255, green, blue = 255] = rgb13_1;
+console.log(`R: ${red}, G: ${green}, B: ${blue}`); // R: 200, G: undefined, B: 255
+
+//////////////////////
+const rgb13_2 = [200, 255, 100];
+const [, , blue] = rgb13_2;
+console.log(`Blue: ${blue}`); // Blue: 100
+
+///////////////////////////////
+let width13 = 300;
+let height13 = 400;
+const landscape13 = true;
+console.log(`${width13} x ${height13}`); // 300 x 400
+if (landscape13) {
+  // Меняем значения переменных
+  [width13, height13] = [height13, width13];
+  console.log(`${width} x ${height}`); // 400 x 300
+}
+
+///////////////////////////////
+const color13 = ['#FF00FF', [255, 0, 255], 'rgb(255, 0, 255)'];
+// Используем вложенную деструктуризацию назначая red, green и blue
+const [hex, [red, green, blue]] = color13;
+console.log(hex, red, green, blue); // #FF00FF 255 0 255
+
+////////////Новый оператор расширения (…) был добавлен в ES6,/////////////////////
+const rainbow13 = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'indigo',
+  'violet',
+];
+const [red, , yellow, ...otherColors13] = rainbow13;
+console.log(otherColors13); // ['green', 'blue', 'indigo', 'violet']
+
+/////////////////////////кЛОНИРОВАНИЕ///////////////////////
+const rainbow13_1 = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'indigo',
+  'violet',
+];
+const rainbowClone13 = rainbow13_1.slice();
+console.log(rainbow13_1 === rainbowClone13); // false
+console.log(rainbowClone13); // ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+
+////////////////////////
+const rainbowClone13_1 = rainbow13_1.concat();
+console.log(rainbow13_1 === 13_1); // false
+
+/////////////////////////
+// Клонируем с деструктуризацией и оператором расширения
+const rainbow13_3 = [
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'indigo',
+  'violet',
+];
+const [...rainbowClone13_3] = rainbow13_3;
+console.log(rainbow13_3 === rainbowClone13_3); // false

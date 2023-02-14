@@ -3800,3 +3800,41 @@ const entries473 = [
 const obj473 = Object.fromEntries(entries473);
 
 console.log('task 473 ', obj473); // { foo: "bar", baz: 42 }
+
+// 474- Что выведет консоль
+console.log('task 474 ', 'foo' + +'bar'); // fooNaN
+
+// 475- Что выведет консоль
+var str475 = 'JS is nice';
+var newStr475 = str475.charCodeAt(str475[1]);
+console.log('task 475 ', newStr475); // 74 // возвр значение юникода
+
+// 476- Что выведет консоль
+// Метод findLast()перебирает массив в обратном порядке и возвращает значение первого элемента, удовлетворяющего предоставленной функции тестирования
+// Метод findLastIndex()выполняет итерацию массива в обратном порядке и возвращает индекс первого элемента, который удовлетворяет предоставленной функции тестирования.
+
+const letters476 = [
+  { value: 'v' },
+  { value: 'w' },
+  { value: 'x' },
+  { value: 'y' },
+  { value: 'z' },
+];
+
+const found476 = letters476.findLast((item) => item.value === 'y');
+console.log(letters476);
+console.log('task 476 ', found476); // {value: 'y'}
+const foundIndex476 = letters476.findLastIndex((item) => item.value === 'y');
+console.log('task 476 ', foundIndex476); // 3
+
+// 477- Что выведет консоль
+const element477 = {
+  name: 'div',
+  children: [{ name: 'span' }, { name: 'em' }],
+};
+
+const {
+  children: [{ name }],
+} = element477;
+
+console.log('task 477 ', name); // 'span'

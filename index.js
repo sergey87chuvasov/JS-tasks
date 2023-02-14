@@ -1375,3 +1375,113 @@ function calc90() {
 const calculator = calc90();
 
 console.log(calculator.setNumber(11).exp(2).add(14).getNumber()); // 135.00
+
+// 91 - Задача - Чтобы быть Senior, представителю должно быть не менее 55 лет и иметь гандикап больше, чем 7. В этом крокетном клубе, гандикапы варьируются от -2 до +26; тем лучше игрок ниже гандикап. Вывод будет состоять из списка строковых значений (Open или Senior), указывающих, должен ли соответствующий член быть помещен в категорию Senior или Open уровня.
+/**
+input =  [[61, 12], [37, 6], [21, 21], [78, 9]]
+output = ["Senior", "Open", "Open", "Senior"]
+ */
+const input91 = [
+  [61, 12],
+  [37, 6],
+  [21, 21],
+  [78, 9],
+];
+
+const openOrSenior91 = (data) =>
+  data.map((el) => (el[0] >= 55 && el[1] > 7 ? 'Senior' : 'Open'));
+
+console.log('task 91 ', openOrSenior91(input91)); // [ 'Senior', 'Open', 'Open', 'Senior' ]
+
+// 92 - Задача - Вам дана строка. Вы должны заменить любое вхождение последовательности coverage на covfefe, однако, если вы не найдете слово coverage в строке, вы должны добавить covfefe в конец строки с пробелом.
+function covfefe92(str) {
+  if (!str.includes('coverage')) {
+    return `${str} covfefe`;
+  }
+  return str.replaceAll('coverage', 'covfefe');
+}
+
+console.log('task 92 ', covfefe92('coverage')); // 'covfefe'
+console.log('task 92 ', covfefe92('nothing')); // 'nothing covfefe'
+
+// 93 - Задача - Создайте функцию, которая принимает 2 строковых аргумента и возвращает целое число числа повторений 2го аргумента в первом. Если повторений не обнаружено, нужно вернуть 0.
+
+// Метод split осуществляет разбиение строки в массив по указанному разделителю.
+
+const strCounter93 = (str, letter) => {
+  console.log(str.split(letter));
+  str.split(letter).length - 1;
+};
+
+console.log('task 93 ', strCounter93('Hello', 'o')); // 1
+console.log('task 93 ', strCounter93('Hello', 'l')); // 2
+console.log('task 93 ', strCounter93('', 'z')); // 0
+
+// 94 - Задача - Если ваше имя начинается с буквы "R" или "r", вы играете на банджо! Функция принимает имя в качестве единственного аргумента и возвращает одну из следующих строк:
+// Метод startsWith() помогает определить, начинается ли строка с символов указанных в скобках, возвращая, соответственно, true или false.
+
+const areYouPlayingBanjo94 = (name) =>
+  name.startsWith('R') || name.startsWith('r')
+    ? name + ' plays banjo'
+    : name + ' does not play banjo';
+
+console.log('task 94 ', areYouPlayingBanjo94('Roma')); //  Roma plays banjo
+console.log('task 94 ', areYouPlayingBanjo94('Serge')); // Serge does not play banjo
+
+// 95 - Задача -  Купон больше не действителен на следующий день после даты истечения срока действия. Все даты будут передаваться как строки в этом формате: «MONTH DATE, YEAR».
+
+const checkCoupon95 = (
+  enteredCode,
+  correctCode,
+  currentDate,
+  expirationDate
+) => {
+  const date = new Date(currentDate).getTime();
+  console.log(date); // 1436389200000
+  const expDate = new Date(expirationDate).getTime();
+  console.log(expDate); // 1436389200000
+  return date - expDate > 0 || enteredCode !== correctCode ? false : true;
+};
+
+console.log(
+  'task 95 ',
+  checkCoupon95('123', '123', 'July 9, 2015', 'July 9, 2015') // true
+);
+console.log(
+  'task 95 ',
+  checkCoupon95('123', '123', 'July 9, 2015', 'July 2, 2015') // false
+);
+
+// 96 - Задача -  Следует исключить из списка а все значения, которые присутствуют в списке Ь, сохраняя их порядок.
+// Метод массива .filter() позволяет получить новый массив, отфильтровав элементы с помощью переданной колбэк-функции
+
+const arrayDiff96 = (a, b) => a.filter((num) => !b.includes(num));
+
+console.log('task 96 ', arrayDiff96([1, 2], [1])); // [2]
+console.log('task 96 ', arrayDiff96([1, 2, 2, 2, 3], [2])); // [1,3]
+
+// 97 - Задача - Дан массив чисел. Отсортировать нечетные числа в порядке возрастания а четные числа в иходном положениии
+
+function sortArray97(array) {
+  const odd = array.filter((x) => x % 2).sort((a, b) => a - b);
+  // console.log(odd); // нечетные [ 1, 7 ] , [ 3, 5 ], [ 1, 3, 5, 7, 9 ]
+  // console.log(array); массив не изменялся
+  return array.map((x) => (x % 2 ? odd.shift() : x));
+}
+
+console.log('task 97 ', sortArray97([7, 1])); // [ 1, 7 ]
+console.log('task 97 ', sortArray97([5, 8, 6, 3, 4])); // [ 3, 8, 6, 5, 4 ]
+console.log('task 97 ', sortArray97([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])); // [ 1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
+
+// 98 - Задача - Создайте функцию, возвращающую сумму двух наименьших положительных чисел, если задан массив из 4 положительных целых чисел.
+function sumTwoSmallestNumbers98(numbers) {
+  let numSort = numbers.sort(function (a, b) {
+    return a - b;
+  });
+  console.log(numSort); // [ 2, 5, 19, 42, 77 ] ------- [ 1, 2, 3, 4 ]
+
+  return numSort[0] + numSort[1];
+}
+
+console.log('task 98 ', sumTwoSmallestNumbers98([19, 5, 42, 2, 77])); // 7
+console.log('task 98 ', sumTwoSmallestNumbers98([1, 2, 4, 3])); // 3
