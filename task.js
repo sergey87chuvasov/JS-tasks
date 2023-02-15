@@ -346,8 +346,8 @@ if (landscape13) {
 ///////////////////////////////
 const color13 = ['#FF00FF', [255, 0, 255], 'rgb(255, 0, 255)'];
 // Используем вложенную деструктуризацию назначая red, green и blue
-const [hex, [red, green, blue]] = color13;
-console.log(hex, red, green, blue); // #FF00FF 255 0 255
+const [hex13, [red13, green13, blue13]] = color13;
+console.log(hex13, red13, green13, blue13); // #FF00FF 255 0 255
 
 ////////////Новый оператор расширения (…) был добавлен в ES6,/////////////////////
 const rainbow13 = [
@@ -393,3 +393,27 @@ const rainbow13_3 = [
 ];
 const [...rainbowClone13_3] = rainbow13_3;
 console.log(rainbow13_3 === rainbowClone13_3); // false
+
+// 14 - Object descriptor
+const car14 = {
+  brand: 'Audi',
+  year: 2019,
+  get age() {
+    return `Машина выпущена в ${this.year}`;
+  },
+  set age(value) {
+    this.year = value;
+  },
+};
+
+Object.defineProperty(car14, 'age', {
+  // configurable: false, // не можем удалть св-во year
+  // enumerable: false, // делает не перебираемый год
+  // writable: false, // запрещает запись этого св-ва те year мы не перезапишем
+  //////////// геттеры и сеттеры //////////////
+  // get: function () {
+  //   return `Машина выпущена в ${this.year}`;
+  // },
+});
+
+console.log(car14.age); // Машина выпущена в 2019

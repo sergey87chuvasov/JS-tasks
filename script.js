@@ -3838,3 +3838,8 @@ const {
 } = element477;
 
 console.log('task 477 ', name); // 'span'
+
+// 478- Что выведет консоль
+let str478 = 'Hello World';
+const strObj478 = new String(str478);
+console.log('task 478 ', strObj478); // String {'Hello World'}

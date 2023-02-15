@@ -1485,3 +1485,99 @@ function sumTwoSmallestNumbers98(numbers) {
 
 console.log('task 98 ', sumTwoSmallestNumbers98([19, 5, 42, 2, 77])); // 7
 console.log('task 98 ', sumTwoSmallestNumbers98([1, 2, 4, 3])); // 3
+
+// 99 - Задача - Используя rest оператор и деструктуризацию, создать функцию, которая принимает любое количество аргументов и возвращает объект, содержащий первый аргумент и массив из остатка:
+
+function func99(el1, ...rest) {
+  return {
+    el1,
+    rest,
+  };
+}
+
+const func99 = (el1, ...other) => ({ el1, other });
+
+console.log('task 99, ', func99('a', 'b', 'c', 'd')); // { el1: 'a', other: [ 'b', 'c', 'd' ] }
+
+// 100 - Задача - Организовать функцию getInfo, которая принимает объект вида { name: ..., info: { employees: [...], partners: [ … ] } } и выводит в консоль имя (если имени нет, показывать ‘Unknown’) и первые две компании из массива partners:
+// Для того, чтобы ошибка не возникала, нужно указать функции, что если ничего не передано, то использовать по умолчанию пустой объект:
+
+const organisation100 = {
+  name: 'Google',
+  info: {
+    employees: ['Vlad', 'Olga'],
+    partners: ['Microsoft', 'Facebook', 'Xing'],
+  },
+};
+
+function getInfo100({
+  name = 'Unknow',
+  info: { partners: [company1 = 'none', company2 = 'none'] = [] } = {},
+} = {}) {
+  return { name, company1, company2 };
+}
+
+console.log('task 100 ', getInfo100(organisation100)); // { name: 'Google', company1: 'Microsoft', company2: 'Facebook' }
+console.log('task 100 ', getInfo100()); // { name: 'Unknow', company1: 'none', company2: 'none' }
+
+// 101 - Задача. Используя деструктуризацию получить значения из следующих полей 1. name, balance, email 2. из массива tags получить первый и последний элемент 3. из массива friends получить значение поле name из первого элемента массива Если какое то из полей не имеет значения то подставить значение по умолчанию.
+let user101 = {
+  guid: 'dd969d30-841d-436e-9550-3b0c649e4d34',
+  isActive: false,
+  balance: '$2,474.46',
+  age: 30,
+  eyeColor: 'blue',
+  name: 'Tameka Maxwell',
+  gender: 'female',
+  company: 'ENOMEN',
+  email: 'tamekamaxwell@enomen.com',
+  phone: '+1 (902) 557-3898',
+  tags: ['aliquip', 'anim', 'exercitation', 'non'],
+  friends: [
+    {
+      id: 0,
+      name: 'Barber Hicks',
+    },
+    {
+      id: 1,
+      name: 'Santana Cruz',
+    },
+    {
+      id: 2,
+      name: 'Leola Cabrera',
+    },
+  ],
+};
+
+const {
+  name,
+  email,
+  balance,
+  tags: [firstTag, , , lastTag] = [],
+  friends: [{ name: friendName }] = [],
+} = user101;
+
+console.log('task 101 ', name, email, balance, firstTag, lastTag, friendName); // Tameka Maxwell tamekamaxwell@enomen.com $2,474.46 aliquip non Barber Hicks
+
+// 102 - Задача. С помощью оператора rest, из объекта user (из предыдущей задачи) скопировать в новый массив значение следующих полей tags и friends.
+const newArr102 = [...user101.tags, ...user101.friends];
+console.log('task 102 ', newArr102);
+/*
+[
+  'aliquip',
+  'anim',
+  'exercitation',
+  'non',
+  { id: 0, name: 'Barber Hicks' },
+  { id: 1, name: 'Santana Cruz' },
+  { id: 2, name: 'Leola Cabrera' },
+];
+*/
+
+// 103 - Задача. Создать функцию, которая конвертирует доллары США (USD) в китайский юань (CNY). Входом является USD как целое число, и вывод должен быть строкой, которая указывает количество юаней, за которой следует 'китайский юань'
+
+function usdcny103(usd) {
+  return (usd * 6.75).toFixed(2) + ' Chinese Yuan';
+}
+
+console.log('task 103 ', usdcny103(100)); // 675.00 Chinese Yuan
