@@ -1581,3 +1581,29 @@ function usdcny103(usd) {
 }
 
 console.log('task 103 ', usdcny103(100)); // 675.00 Chinese Yuan
+
+// 104 - Задача. - Создайте функцию, которая проверяет, делится ли число n на два числа x И y. Все входные данные — положительные ненулевые числа.
+
+function isDivisible104(num, a, b) {
+  if (num % a === 0 && num % b === 0) return true;
+
+  return false;
+}
+
+console.log('task 104 ', isDivisible104(3, 3, 4)); // false
+console.log('task 104 ', isDivisible104(12, 3, 4)); // true
+console.log('task 104 ', isDivisible104(8, 3, 4)); // false
+
+// 105 - Задача. - Если задан ввод массива цифр, верните массив с кажой цифрой инкрементир по ее положению в массиве, первая цифра на 1 вторая на 2 - подсчет начать с единицы. Результат может содержать только однозначные числа, так что если добавление цифры с её позицией дает вам многозначное число, то должна быть возвращена только последняя цифра. (массивы будут содержать только числа)
+
+function incrementer105(arr) {
+  const newArr = arr.map((item, index) =>
+    item + (index + 1) < 9
+      ? item + (index + 1)
+      : +String(item + (index + 1)).slice(1)
+  );
+  return newArr;
+}
+
+console.log('task 105 ', incrementer105([1, 2, 4])); // [2, 4, 7]   ---> #[1+1, 2+2, 4+3]
+console.log('task 105 ', incrementer105([4, 6, 9, 1, 3])); // [5, 8, 2, 5, 8]   ---> # [4+1, 6+2, 9+3, 1+4, 3+5] # 9+3 = 12  -->  2

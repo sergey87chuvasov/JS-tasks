@@ -3843,3 +3843,121 @@ console.log('task 477 ', name); // 'span'
 let str478 = 'Hello World';
 const strObj478 = new String(str478);
 console.log('task 478 ', strObj478); // String {'Hello World'}
+
+// 479- Что выведет консоль
+let func479 = function () {
+  var y = true;
+  if (y) {
+    var x = 10;
+  }
+  console.log(x);
+};
+
+console.log('task 479 ', func479()); // undefined
+
+// 480- Что выведет консоль
+var name1_480 = { name: 'Denis' };
+var name2_480 = { name: 'Denis' };
+console.log('task 480 ', name1_480 == name2_480); // false
+
+// 481- Что выведет консоль
+// Оператор delete удаляет свойство из объекта.
+var x481 = 1;
+var obj481 = { x: 10 };
+
+delete x481;
+delete obj481.x;
+
+console.log('task 481 ', x481, obj481.x); // 1 undefined
+
+// 482- Что выведет консоль
+// Метод indexOf() возвращает первый индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет.
+var arr482 = [0, 1, 2, 4];
+console.log('task 482 ', arr482.indexOf(3)); // -1 тк элемента 3 нет в массиве и мы не выведем его индекс
+
+// 483- Что выведет консоль
+let a483,
+  x483,
+  c483 = [1, 2, 3, 4, 5];
+console.log('task 483 ', a483, c483); // undefined [ 1, 2, 3, 4, 5 ]
+
+// 484- Что выведет консоль
+// массивы JavaScript не имеют метода max(), Первый аргумент (null) не имеет особого значения
+let arr484 = [2, 15, 20, 40, 9];
+console.log('task 484 ', Math.max.apply(null, arr484)); // 40
+
+// 485- Что выведет консоль
+// перменная объявленные через var всплывают вверх поэтому первым делом мы получаем undefined, функция c() также всплывает вверх и может быть вызвана до ее фактического объявления поэтому мы видим "Hello world!" и в конце мы получаем ошибку так как переменная b не была объявлена
+(function () {
+  console.log(a);
+  c();
+  console.log(b);
+  function c() {
+    console.log('Hello world!');
+  }
+  var a = 10;
+  b = 25;
+})(); // undefined // Hello world! // Ref Error
+
+// 486- Что выведет консоль
+// первая у нас идет самовызывающаяся функция которая вызовет код и вернет функцию которая в последствии будет вызвана два раза.
+var highFive486 = (function () {
+  var x = 0;
+  return function () {
+    return (x += 5);
+  };
+})();
+console.log('task 486 ', highFive486()); // 5
+console.log('task 486 ', highFive486()); // 10
+
+// 487- Что выведет консоль
+(function greetNewUser487() {
+  console.log('Hello ' + this.name);
+}.bind({
+  name: 'John',
+})()); // Hello John
+
+// 488- Что выведет консоль
+console.log('task 488 ', '3' + -' ' + -+-'1'); // '301'
+console.log('3' + -' '); // 30
+console.log(-+-'1'); // 1
+
+// 489- Что выведет консоль
+const obj1_489 = { type: 'processor' };
+const obj2_489 = obj1_489;
+
+obj2_489.type = 'RAM';
+obj2_489.capacity = '2Gb';
+
+console.log(obj1_489, obj2_489); // { type: 'RAM', capacity: '2Gb' } { type: 'RAM', capacity: '2Gb' }
+
+// 490- Что выведет консоль
+// сравнения выполняются с лева направо и получается что выражение x === y вернет true а true не равно 1
+var x490 = 1;
+var y490 = 1,
+  z490 = 1;
+console.log('task 490 ', (x490 === y490) === z490); // false
+
+// 491- Что выведет консоль
+console.log('task 491 ', typeof typeof 1); // string
+
+// 492- Что выведет консоль
+// Будет undefined так как мы теряем контекст вызова функции. Внутри само вызывающейся функции this будет указывать на window в котором нет свойства baz
+var foo492 = {
+  bar: function () {
+    return this.baz;
+  },
+  baz: 1,
+};
+(function () {
+  return typeof arguments[0]();
+})(foo492.bar);
+
+console.log(foo492.bar); // [Function: bar]
+
+// 493- Что выведет консоль
+//Будет ошибка так как хоть у функции и есть имя g, но это имя доступно только внутри самой функции, снаружи она доступна по имени f493.
+let f493 = function g() {
+  return 23;
+};
+console.log('task 493 ', typeof g());
