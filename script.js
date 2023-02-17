@@ -3961,3 +3961,57 @@ let f493 = function g() {
   return 23;
 };
 console.log('task 493 ', typeof g());
+
+// 494- Что выведет консоль
+// Оператор rest (версия ES6) конвертирует разделённые запятой значения в массив, таким образом параметр numbers в функции add становится массивом.
+
+function add494(...numbers) {
+  return numbers.reduce((acc, value) => {
+    return acc + value;
+  }, 0);
+}
+const sum494 = add494(1, 2, 3, 4, 5);
+console.log('task 494 ', sum494); // 15
+
+// 495- Что выведет консоль
+var num495 = 8;
+var num495 = 10;
+console.log('task 495 ', num495); // 10
+
+// 495- Что выведет консоль
+console.log(document.head);
+console.log(document.body);
+console.log(document.body.childNodes); // все дочерние элементы body и вывести их в консоль.
+console.log(document.body.children); // все дочерние элементы body и вывести их в консоль.
+console.log(document.body.firstElementChild); // первый div и все его дочерние узлы
+console.log(document.body.firstElementChild.children); // html coll - вывести все дочерние узлы в консоль
+console.log(document.querySelector('div')); // первый div и все его дочерние узлы
+console.log(document.querySelector('div').childNodes); // node list - вывести все дочерние узлы в консоль
+/* 2,3 not 1,4  - вывести в консоль все дочерние узлы кроме первого и последнего */
+if (document.body.firstElementChild) {
+  // наш первый див
+  const children = document.body.firstElementChild.children; // его все дети nodelist
+  for (var i = 1; i < children.length - 1; i++) {
+    console.log(children[i]);
+  }
+}
+
+//При помощи оператора ... мы получаем из коллекции массив который фильтруем сравнивая каждый элемент с первым и последним элементом в div.
+const filteredArticles = [...div.children].filter(
+  (p) => p !== div.firstElementChild && p !== div.lastElementChild
+);
+console.log(filteredArticles);
+
+// Найти элемент, который находится перед и после списка ul.
+let parent2 = document.body.children[1]; // находим ul
+console.log(parent2);
+console.log(parent2.previousElementSibling);
+console.log(parent2.nextElementSibling);
+
+// Получить список всех ссылок, которые не находятся внутри списка ul.
+// Метод Element.closest() возвращает ближайший родительский элемент (или сам элемент), который соответствует заданному CSS-селектору или null, если таковых элементов вообще нет.
+
+var links = Array.from(document.querySelectorAll('body a')).filter(
+  (link) => !link.closest('ul')
+);
+console.log(links);

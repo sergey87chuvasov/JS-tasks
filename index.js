@@ -1607,3 +1607,50 @@ function incrementer105(arr) {
 
 console.log('task 105 ', incrementer105([1, 2, 4])); // [2, 4, 7]   ---> #[1+1, 2+2, 4+3]
 console.log('task 105 ', incrementer105([4, 6, 9, 1, 3])); // [5, 8, 2, 5, 8]   ---> # [4+1, 6+2, 9+3, 1+4, 3+5] # 9+3 = 12  -->  2
+
+// 106 - Задача. Вам будет дана строка, и вашей задачей будет вернуть список ints, содержащий количество заглавных букв, строчных, цифр и специальных символов.
+
+// Метод match() возвращает получившиеся совпадения при сопоставлении строки с регулярным выражением.
+
+function solve106(str) {
+  let uppercase = 0;
+  let lowercase = 0;
+  let number = 0;
+  let other = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i].match(/[A-Z]/)) {
+      uppercase++;
+    } else if (str[i].match(/[a-z]/)) {
+      lowercase++;
+    } else if (str[i].match(/[0-9]/)) {
+      number++;
+    } else {
+      other++;
+    }
+  }
+
+  return [uppercase, lowercase, number, other];
+}
+
+console.log('task 106 ', solve106('aAbBcC')); // [3,3,0,0]
+console.log('task 106 ', solve106('bgA5<1d-tOwUZTS8yQ')); // [7,6,3,2]
+
+// 107 - Задача - Создать функцию которая берет список неотриц целых чисел и строк и возвращанет новый список с отфильтрованн строками
+
+function filter_list107(arr) {
+  return arr.filter((item) => typeof item === 'number');
+}
+
+console.log('task 107 ', filter_list107([1, 2, 'a', 'b'])); // [1,2]
+console.log('task 107 ', filter_list107([1, 'a', 'b', 0, 15])); // [1,0,15]
+console.log('task 107 ', filter_list107([1, 2, 'aasf', '1', '123', 123])); // [1,2,123]
+
+// 108 - Задача - Функция преобразовывает строку в число - все входные данные будут строками, и каждая строка будет совершенно верным представлением интегрального числа
+
+const strToNumber108 = function (str) {
+  return parseInt(str);
+};
+
+console.log('task 108 ', strToNumber108('1234')); // 1234
+console.log('task 108 ', strToNumber108('-888')); // -888
