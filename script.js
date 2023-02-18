@@ -922,7 +922,7 @@ const obj113 = { 1: 'a', 2: 'b', 3: 'c' };
 const set113 = new Set([1, 2, 3, 4]);
 
 console.log('task 113 ', obj113.hasOwnProperty('1')); // true
-console.log('task 113 ', obj113.hasOwnProperty('1')); // true
+console.log('task 113 ', obj113.hasOwnProperty(1)); // true
 console.log('task 113 ', set113.has('1')); // false
 console.log('task 113 ', set113.has(1)); // true
 
@@ -4015,3 +4015,25 @@ var links = Array.from(document.querySelectorAll('body a')).filter(
   (link) => !link.closest('ul')
 );
 console.log(links);
+
+// 496- Что выведет консоль
+console.log('task 496 ', 'one');
+
+setTimeout(function () {
+  console.log('task 496 ', 'two');
+}, 0);
+
+Promise.resolve().then(function () {
+  console.log('task 496 ', 'three');
+});
+
+console.log('task 496 ', 'four');
+//one four three two
+//Обьяснение: Синхронные операции выполняются быстрее асинхронных, поэтому сначала будет выведено 'one' и 'four'. Вызов Promise создают так называемую микро таску (микро задачу), а setTimeout создаёт макро таску. Микро таска будет выполнена быстрее, поэтому выведется 'three', а уже после 'two'.
+
+// 497- Что выведет
+// Создать новый массив с помощью spread-оператора
+const first497 = ['two', 'three', 'four'];
+const second497 = ['six', 'seven', 'eight'];
+const combined497 = ['one', ...first497, 'five', ...second497];
+console.log('task 497 ', combined497); // ["one", "two", "three", "four", "five", "six", "seven", "eight"]
