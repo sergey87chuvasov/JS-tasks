@@ -4037,3 +4037,11 @@ const first497 = ['two', 'three', 'four'];
 const second497 = ['six', 'seven', 'eight'];
 const combined497 = ['one', ...first497, 'five', ...second497];
 console.log('task 497 ', combined497); // ["one", "two", "three", "four", "five", "six", "seven", "eight"]
+
+// 498- Что выведет
+// Метод fill() заполняет все элементы массива от начального до конечного индексов одним значением.
+// Метод keys() возвращает новый итератор массива Array Iterator, содержащий ключи каждого индекса в массиве.
+const array498 = Array(5).fill(false);
+const array498_1 = [...Array(5).keys()];
+console.log('task 498 ', array498); // [false, false, false, false, false]
+console.log('task 498 ', array498_1); // [0, 1, 2, 3, 4];

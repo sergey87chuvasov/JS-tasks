@@ -125,3 +125,55 @@ console.log('i love you'.replace(/love/, 'like')); // 'i like you'
 //str.test()
 console.log(/love/.test('i love you')); // true
 console.log(/love/.test('i like you')); // false
+
+// 4. Буквенные классы
+// \d - любая цифра
+// \w - латинская буква - цифра или _
+// \s - пробел
+// \D - любой символ но не цифра (\d)
+// \W - любой символ кроме \w
+// \S - любой символ но не пробел (\s)
+// . - абсолюнто любой символ кроме \n (перенос строки)
+console.log(/\d\d/.test('22 January')); // регулярка на 2 цифры подряд // true
+console.log(/\d\d\d/.test('22 January')); // false
+console.log(/\d/.test('22 January')); // true - тк есть хотя бы 1 цифра
+console.log(/\w/.test('22 January')); // true - тк есть хотя бы 1 латин буква
+console.log(/./.test('\n')); // false тк именно есть перенос строки
+
+// 5. Якоря
+// ^ - начало строки
+// $ - конец
+// \b - граница слова
+console.log(/^\d\d/.test('22 January')); // true - идет начало с двух цифр
+console.log(/^\d\d$/.test('22 January')); // false - идет начало с двух цифр и конец с двух цифр
+console.log(/^\d\d$/.test('22')); // true- идет начало с двух цифр и конец с двух цифр
+console.log(/\d\d$/.test('test 22')); // true- идет конец с двух цифр
+console.log(/\bJava\b/i.test('Javascript')); // false - тк нет границы слова
+console.log(/\bJava\b/i.test('Java!')); // true - тк есть границы слова (пробел - воскл знак итд)
+
+// 6. Пропуск специальных символов - \
+// [ \ ^ $ ( ) . | ? * + /
+// console.log(/[/i.test('Java!'));  SyntaxError
+// console.log(/*/i.test('Java!')); SyntaxError
+console.log(/\^\$\./.test('^$.')); // true - экранируем такие спец символы
+// НО!
+const str6 = new RegExp('\\^\\$\\.', 'i');
+console.log(str6.test('^$.')); // true
+
+// 7. Наборы и диапазоны
+// [sdr] - нам нужно совпадение любого символа из скобок
+console.log(/[sfr]/.test('ggggg')); // false
+console.log(/[sfr]/.test('gggggr')); // true
+// [0-9] - различные диапазоны цифр \d
+// [A-Z] или [a-z]
+// [0-9A-Za-z]
+// киррилица [а-яё] кроме ё
+console.log(/[а-я0-9]/.test('fsfsfsф')); // true
+// добавления исключения в диапазон
+//[^a-n] - галочка в начале диапазона - ЛЮБОЕ КРОМЕ a-n
+// 1. . + () - пишутся без экранирования в []
+// 2. - не экранир вначале [-]
+// 3. ^ экран в начале []
+// 4. ] -доллжно экранир в []
+
+// 7. Квантификаторы
