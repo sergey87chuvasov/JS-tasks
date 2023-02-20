@@ -177,3 +177,45 @@ console.log(/[а-я0-9]/.test('fsfsfsф')); // true
 // 4. ] -доллжно экранир в []
 
 // 7. Квантификаторы
+// {n} - точное количество
+// {n1, n2} - точное количетсов цифр от 3 до 5 например
+// {n1,} - от 4х и до бесконечности например (больше лтюо равно n)
+
+console.log(/\d{3}/.test('123')); // true
+console.log(/\d{3}/.test('13')); // false
+console.log(/\d{3,}/.test('133')); // true
+console.log(/\d{3,}/.test('133535324234')); //
+console.log(/\d{3,}/.test('1')); // false (тк у условии >=3)
+
+// сокращение квантификаторов
+// + {1,} - от одного до бесконечности
+// ? {0,1} - от 0 до 1
+// * {0,} - от 0 и выше
+console.log(/\d+/.test('12345')); // true  - тк цифра от одного и выше
+console.log(/\d+/.test('аыаывавыаыув')); // false
+console.log(/\d+/.test('аыаывавыаыув 12')); // true
+
+// 8. Жадность и лень - алгоритмы
+console.log('i "love" or "like" you'.match(/".+"/g)); // ['"love" or "like"']
+// ? - будь ленивой
+console.log('i "love" or "like" you'.match(/".+?"/g)); // ['"love"', '"like"']
+
+// 9. Группы захвата
+console.log(/(go)+/.test('gogogogog')); // true
+console.log(/(go){3,}/.test('gogo')); // false
+console.log('i love you'.match(/(lo)/)); //  ['lo', 'lo', index: 2, input: 'i love you', groups: undefined]
+console.log('Serge Wis'.replace(/(\w+) (\w+)/, '$2 $1')); // Wis Serge
+console.log('Serge Wis'.replace(/(?:\w+) (\w+)/, '$2 $1')); // $2 Wis
+
+// 10. Оператор 0R (или)
+console.log(/html|js|css/.test('i love js')); // true
+console.log(/html|js|css/.test('i love react')); // false
+
+// практика
+const input = '    erwr     ';
+console.log(/\S/.test(input)); //
+const input2 = '  I LoVE You  ';
+console.log(input2.replace(/^\s+|\s+$/g, '')); // I LoVE You
+console.log(input2.replace(/^\s+|\s+$/g, '').length); // 10
+const input3 = 'i   love   you!';
+console.log(input3.replace(/\s+/g, ' ')); //i love you!

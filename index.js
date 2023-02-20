@@ -1654,3 +1654,28 @@ const strToNumber108 = function (str) {
 
 console.log('task 108 ', strToNumber108('1234')); // 1234
 console.log('task 108 ', strToNumber108('-888')); // -888
+
+// 109 - Задача - Выполните функцию, которая берет два целых числа a,b (a < b) и верните массив всех целых чисел между входными параметрами включая их.
+
+function between(a, b) {
+  let newArr = [];
+
+  for (let i = a; i < b; i++) {
+    newArr.push(i);
+  }
+
+  return newArr;
+}
+
+console.log('task 109 ', between(1, 5)); // [ 1, 2, 3, 4 ]
+console.log('task 109 ', between(-3, 4)); // [ -3, -2, -1, 0, 1, 2, 3 ]
+
+// 110 - Задача - Взять любое неотриц число в качестве аргумента и и вренуть его с цифрами в пордяке убывания
+
+function reverse110(num) {
+  return +String(num).split('').sort().reverse().join('');
+}
+
+console.log('task 110 ', reverse110(424667)); // 766442
+console.log('task 110 ', reverse110(12447)); // 74421
+console.log('task 110 ', reverse110(284769)); // 987642
