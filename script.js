@@ -4070,3 +4070,41 @@ const foo500 = () => {
 };
 
 console.log('task 500 ', foo500()); // 42
+
+// 501- Что выведет консоль
+// Метод indexOf() возвращает первый индекс, по которому данный элемент может быть найден в массиве или -1, если такого индекса нет.
+const array501 = [1, 2, 2, 3, 1, 5];
+const unique501 = array501.filter((value, index) => {
+  console.log(index, value); // 01-12-22-33-41-55
+  array501.indexOf(value) === index;
+});
+console.log('task 501 ', unique501); // [1, 2, 3, 5]
+
+// 502- Что выведет консоль
+function func502(x, n) {
+  if (n == 1) {
+    return 1;
+  } else {
+    return x * func502(x, n - 1);
+  }
+}
+
+console.log('task 502 ', func502(2, 7)); // 64 = 2*2*2*2*2*2*1 РЕКУРСИЯ
+
+// 503- Что выведет консоль
+// each выведется в конце, т.к. вы сами задали это поле.
+let arr503 = [10, 20, 30, 40];
+Array.prototype.each = function () {};
+for (let i in arr503) {
+  console.log('task 503 ', i); // 0 1 2 3 each
+}
+
+// 504- Что выведет консоль
+// Вы можете использовать оператор in для того чтобы проверить есть ли такой ключ у объекта:
+var x504 = 1;
+var y504 = 3;
+var list504 = { 0: 0, 1: 0, 2: 0 };
+x504 in list504; //true
+y504 in list504; //false
+1 in list504; //true
+y504 in { 3: 0, 4: 0, 5: 0 }; //true

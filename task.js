@@ -417,3 +417,39 @@ Object.defineProperty(car14, 'age', {
 });
 
 console.log(car14.age); // Машина выпущена в 2019
+
+// 15 - DOM
+
+// Найти в коде список ul и добавить класс “list”
+const ul = document.querySelector('ul');
+ul.classList.add('list');
+
+// Найти в коде ссылку, находящуюся после списка ul, и добавить id=link
+const link = document.querySelector('ul ~ a');
+link.id = 'link';
+console.log(link);
+
+// На li через один (начиная с самого первого) установить класс “item”
+const [...liItems] = document.querySelectorAll('li:nth-child(odd)');
+liItems.forEach((li) => li.classList.add('item'));
+
+// На все ссылки в примере установить класс “custom-link”
+const [...links] = document.links;
+links.forEach((link) => link.classList.add('custom-link'));
+
+// В каждую ссылку, которая находятся внутри списка ul добавить по тегу strong (в каждую ссылку один - strong).
+const [...links] = document.querySelectorAll('ul a');
+links.forEach((link) =>
+  link.insertAdjacentHTML('beforeend', '<strong>Strong</strong>')
+);
+
+// В начало документа (в начало body) добавить картинку img с атрибутами src и alt (текст придумайте сами). В src добавьте реальный url к картинке. Для создания элемента используйте метод createElement.
+const img = document.createElement('img');
+img.setAttribute('src', 'https://via.placeholder.com/150/92c952');
+img.setAttribute('alt', 'some image');
+document.body.insertAdjacentElement('afterbegin', img);
+
+// Найти на странице элемент mark, добавить в конец содержимого текст “green” и на элемент установить класс green
+const mark = document.querySelector('mark');
+mark.insertAdjacentText('beforeend', 'green');
+mark.classList.add('green');
