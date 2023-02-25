@@ -4109,3 +4109,69 @@ x504 in list504; //true
 y504 in list504; //false
 1 in list504; //true
 y504 in { 3: 0, 4: 0, 5: 0 }; //true
+
+// 505- Что выведет консоль
+const number505 = '20';
+const converted505 = +number505;
+console.log('task 505 ', converted505, typeof converted505); // 20 number
+
+// 506- Что выведет консоль
+let number506_1;
+console.log('task 506_1 ', !!number506_1); // false
+const number506_2 = 10;
+console.log('task 506_2 ', !!number506_2); // true
+const number506_3 = 'Serge';
+console.log('task 506_3 ', !!number506_3); // true
+const number506_4 = '';
+console.log('task 506_4 ', !!number506_4); // false
+const number506_5 = 'null';
+console.log('task 506_5 ', !!number506_5); // false
+
+// 507- Что выведет консоль
+var e507;
+e507 = 'a0ff' - 2; // NaN
+if (e507 != e507) {
+  console.log(true);
+} else {
+  console.log(false);
+}
+// Далее идёт проверка: если NaN != NaN, то выводим true. А NaN не равен NaN.
+
+// 508- Что выведет консоль
+const arr508 = [3, 8, 14];
+const [elem, ...rest508] = arr508;
+
+const javascript_tests508 = rest508[0];
+
+console.log('task 508 ', javascript_tests508); // 8
+
+// 509- Что выведет консоль
+var value509_1 = 20;
+(function JustForFun() {
+  console.log('Value of the first variable ' + value509_1); // Value of the first variable 20.
+  var value509_2 = 12345;
+})();
+console.log('Value of the first variable ' + value509_1); // Value of the first variable 20
+// console.log('Value of the second variable ' + value509_2); // ReferenceError: value509_2 is not defined
+
+// 510- Что выведет консоль
+// Переменные с ключевым словом const и let имеют блочную область видимости. В нашем случае внутри фигурных скобок операторов if/else. return message не видит переменную message, поэтому и возвращается undefine
+function check510(num) {
+  if (num > 50) {
+    const message = 'Число > 50';
+  } else {
+    const message = 'Число <= 50';
+  }
+
+  return message;
+}
+
+console.log('task 510 ', check510(80)); // ReferenceError: message is not defined
+
+// 511- Что выведет консоль
+// String это встроенный конструктор, к которому можно добавлять свойства. Я добавил метод к его прототипу. Строки-примитивы автоматически конвертируются к строкам-объектам. Поэтому все строки (строковые объекты) имеют доступ к этому методу!
+String.prototype.giveCar = () => {
+  return 'Give Serge Car';
+};
+const name511 = 'Serge';
+console.log('task 511 ', name511.giveCar()); // Give Serge Car

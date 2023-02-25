@@ -1679,3 +1679,18 @@ function reverse110(num) {
 console.log('task 110 ', reverse110(424667)); // 766442
 console.log('task 110 ', reverse110(12447)); // 74421
 console.log('task 110 ', reverse110(284769)); // 987642
+
+// 111 - Задача - Напишите функцию, которая принимает строковый параметр и меняет местами каждое слово в строке. Все пробелы в строке должны быть сохранены.
+function reverseWords111(str) {
+  const arr = str.split(' ');
+  console.log(arr); // [ 'This', 'is', 'an', 'example!' ] --- [ 'double', '', 'spaces' ]
+
+  const reversed = arr.map((word) => {
+    return word.split('').reverse().join('');
+  });
+
+  return reversed.join(' ');
+}
+
+console.log('task 111 ', reverseWords111('This is an example!')); // sihT si na !elpmaxe
+console.log('task 111 ', reverseWords111('double  spaces')); // elbuod  secaps
