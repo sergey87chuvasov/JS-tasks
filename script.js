@@ -4175,3 +4175,33 @@ String.prototype.giveCar = () => {
 };
 const name511 = 'Serge';
 console.log('task 511 ', name511.giveCar()); // Give Serge Car
+
+// 512- Что выведет консоль
+const arr512 = [1, 2, 3, 4, 5];
+arr512.copyWithin(0, 3, 4);
+console.log('task 512 ', arr512); // [ 4, 2, 3, 4, 5 ]
+
+// 513- Что выведет консоль
+var colors513 = ['Green', 'Red', 'Blue', 'Pink', 'Brown'];
+console.log('task 513 ', colors513.copyWithin(2, 0, 2)); // Green,Red,Green,Red,Brown
+
+// 514- Что выведет консоль
+const a514 = 7;
+console.log('task 514 ', +-a514); // -7
+
+// 515- Что выведет консоль
+let x515 = 5;
+x515 = (x515++, (x515 = addFive(x515)), (x515 *= 2), (x515 -= 5), (x515 += 10));
+function addFive(num) {
+  return num + 5;
+}
+console.log('task 515 ', x515); // 27  ( 6, 11, 22, 17, 27)
+
+// 516- Что выведет консоль
+// В функции a есть знак '-' и происходит численное преобразование true в 1, '4' в 4, '-4' в -4.
+function a516(value) {
+  return true - value;
+}
+
+var b516 = a516('4') + a516('-4') + a516(-'4') + a516(4); // true - '4' = -3 (number); true - '-4' = 5(numb)
+console.log('task 516 ', b516); // true + -'4' = 5 (num) =>>> 7 + -3 = +4
