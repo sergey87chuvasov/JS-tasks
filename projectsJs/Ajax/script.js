@@ -2,14 +2,18 @@ const apiURL = 'https://jsonplaceholder.typicode.com';
 const usersListEl = document.querySelector('.users-list');
 const userInfoEl = document.querySelector('.user-info');
 
-usersListEl.addEventListener('click', (e) => {
+// dom events
+usersListEl.addEventListener('click', onUserClickHandler);
+
+function onUserClickHandler(e) {
   e.preventDefault();
 
   if (e.target.dataset.userId) {
     // console.log(e.target.dataset.userId);
     getUserInfoHTTP(e.target.dataset.userId, onGetUserInfoCallback);
   }
-});
+}
+
 // implement a get users request
 function getUsersHTTP(cb) {
   const xhr = new XMLHttpRequest();
@@ -95,10 +99,18 @@ function userInfoTemplate(user) {
       <div class="card-header">${user.name}</div>
       <div class="card-body text-dark">
         <h5 class="card-title">${user.email}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">nickname - ${user.username}</li>
+          <li class="list-group-item">website - ${user.website}</li>
+          <li class="list-group-item">company - ${user.company.name}</li>
+          <li class="list-group-item">city - ${user.address.city}</li>
+        </ul>
       </div>
+      <div class="card-footer bg-transparent border-dark"> phone- ${user.phone}</div>
     </div>
 
   `;
 }
 
+// init app
 getUsersHTTP(onGetUsersCallback); // get response all users

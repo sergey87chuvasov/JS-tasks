@@ -4205,3 +4205,49 @@ function a516(value) {
 
 var b516 = a516('4') + a516('-4') + a516(-'4') + a516(4); // true - '4' = -3 (number); true - '-4' = 5(numb)
 console.log('task 516 ', b516); // true + -'4' = 5 (num) =>>> 7 + -3 = +4
+
+// 517- Что выведет консоль
+function fib517(n) {
+  return n <= 1 ? n : fib517(n - 1) + fib517(n - 2);
+}
+
+console.log('task 517 ', fib517(3)); // 2
+console.log('task 517 ', fib517(7)); // 13
+
+// 518- Что выведет консоль
+// Метод Object.seal() запечатывает объект, предотвращая добавление новых свойств к объекту и делая все существующие свойства не настраиваемыми. НО ЧСУЩЕСТВ СВ-ВА МОЖНО МЕНЯТЬ
+
+const obj518 = {
+  name: 'Serge',
+};
+Object.seal(obj518);
+obj518.name = 'Den';
+obj518.age = 333;
+console.log('task 518 ', obj518); // { name: 'Den' }
+
+// 519- Что выведет консоль
+// Имя переменной не может совпадать с зарезервированными словами, такими как 'for', 'let', 'return' и т.д. Но для свойств объекта такого ограничения нет:
+let obj519 = {
+  for: 1,
+  let: 2,
+  return: 3,
+};
+
+console.log('task 519 ', obj519.for + obj519.let + obj519.return); // 6
+
+// 520- Что выведет консоль
+// Зарезервированные слова разрешено использовать как имена свойств.
+/*
+let return = 1;
+let for = 'test';
+console.log('task 520 ', for  + return); // Synterror
+*/
+
+// 521- Что выведет консоль
+const weather521 = {
+  rain: 0,
+  temp: 111,
+  humidity: 33,
+};
+
+console.log('task 521 ', Object.entries(weather521)); // [ [ 'rain', 0 ], [ 'temp', 111 ], [ 'humidity', 33 ] ]
