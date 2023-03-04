@@ -1694,3 +1694,16 @@ function reverseWords111(str) {
 
 console.log('task 111 ', reverseWords111('This is an example!')); // sihT si na !elpmaxe
 console.log('task 111 ', reverseWords111('double  spaces')); // elbuod  secaps
+
+// 112 - Задача. Напишите программу, которая выводит на экран числа от 1 до num. При этом вместо чисел, кратных трем, программа должна выводить слово «fizz», а вместо чисел, кратных пяти — слово «buzz». Если число кратно и 3, и 5, то программа должна выводить слово «fizzbuzz» . Входные параметры: num - целое число,   num  > 1
+// С помощью двух тернарок проверяем, выполняется  ли хотя бы одно условие. Если выполняется - выводим НЕ пустую строку ('fizz', 'buzz' или 'fizzbuzz'). Если ни одно условие не выполняется, мы получаем пустую строку, и получаем в console.log такое выражение - ''||i Таким образом мы выводим на консоль число, если строка пустая.
+const fizzBuzz112 = (num) => {
+  for (let i = 1; i < num; i++)
+    console.log(
+      'task 113 ',
+      (i % 3 ? '' : 'fizz') + (i % 5 ? '' : 'buzz') || i
+    );
+};
+
+fizzBuzz112(11); // "1 2  fizz 4 buzz fizz 7 8 fizz buzz"
+fizzBuzz112(22); // "1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16 17 fizz 19 buzz fizz"
