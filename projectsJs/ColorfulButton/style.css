@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgb(52, 48, 48);
+  gap: 20px;
+  min-height: 100vh;
+}
+
+.btn {
+  position: relative;
+  padding: 12px 40px;
+  font-size: 23px;
+  border-radius: 40px;
+  background: rgb(35, 32, 32);
+  color: rgb(208, 201, 201);
+  letter-spacing: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  /* Пользователю запрещено выделять элемент */
+  user-select: none;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn span {
+  position: absolute;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+  /* Предотвращает события мыши и щелчки по элементу. */
+  pointer-events: none;
+  border-radius: 50%;
+  filter: brightness(2);
+  animation: animate 2s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 350px;
+    height: 350px;
+  }
+}
