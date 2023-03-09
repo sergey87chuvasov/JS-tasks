@@ -4395,3 +4395,87 @@ let a538 = 'Hello world';
 let b538 = 'Hello from frontendlib';
 
 console.log('task 538 ', (a538 && b538) === !!(a538 && b538)); // false
+
+// 539 -  Что выведет консоль
+const b539 = new Boolean(false);
+const b1_539 = false;
+console.log(typeof b539); // object
+
+console.log('task 539 ', !!b539, b539 ? 'true' : 'false', b539 == true);
+// true 'true' false
+
+console.log('task 539_2', !!b1_539, b1_539 ? 'true' : 'false', b1_539 == true);
+// false 'false' false
+
+// 540 -  Что выведет консоль
+// Оператор in возвращает true, если указанный индекс присутствует в массиве, либо объекте. В данном массиве элемента с индексом 6 нет, поэтому возвращается false.
+const arr540 = [0, 5, 10, 6, 15];
+const result540 = 6 in arr540;
+const result540_2 = 3 in arr540;
+console.log('task 540 ', result540, result540_2); // false true
+
+// 541 -  Что выведет консоль
+// ?. - оператор опциональной последовательности
+const res541 = {
+  bool: true,
+  data: {
+    user: {
+      firstName: 'Serge',
+      balance: 2000,
+      getName() {
+        return `${this.firstName}`;
+      },
+    },
+  },
+};
+
+console.log('task 541 ', res541?.data?.user?.firstName || 'Default'); // Serge тк undefined ||или 'Default' true
+console.log('task 541 ', res541?.data?.user?.getName() || 'Default'); // Serge
+
+// 542 -  Что выведет консоль
+// ?? - оператор нулевого слияния -  это логический оператор, возвращающий значение правого операнда, если значение левого операнда содержит null или undefined , в противном случае возвращается значение левого операнда
+const res542 = {
+  bool: true,
+  data: {
+    user: {
+      firstName: 'Serge',
+      balance: 0,
+      getName() {
+        return `${this.firstName}`;
+      },
+    },
+  },
+};
+
+const { user } = res542.data;
+console.log('task 542 ', user.balance || 'Default'); // Default
+console.log('task 542 ', user.balance ?? 'Default'); // 0
+
+// 543 -  Что выведет консоль
+// уник идентифик который помогает избежать конфликтов имен в js
+const symb543_1 = Symbol();
+const symb543_2 = Symbol();
+console.log('task 543 ', symb543_1 === symb543_2); // false
+
+// 544 -  Что выведет консоль
+const key544 = Symbol();
+const obj544 = {
+  [key544]: 'Some value',
+};
+
+console.log('task 544 ', obj544[key544]); // Some value
+
+// 545 -  Что выведет консоль
+const arrIter545 = [1, 2, 3][Symbol.iterator]();
+console.log(arrIter545.next()); // { value: 1, done: false }
+console.log(arrIter545.next()); // { value: 2, done: false }
+console.log(arrIter545.next()); // { value: 3, done: false }
+console.log(arrIter545.next()); // { value: undefined, done: true }
+
+// 546 -  Что выведет консоль
+const map546 = new Map([
+  ['name', 'Serge'],
+  ['age', 35],
+]);
+const mapIter546 = map546[Symbol.iterator]();
+console.log('task 546 ', mapIter546.next()); // { value: [ 'name', 'Serge' ], done: false }
