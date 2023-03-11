@@ -4479,3 +4479,88 @@ const map546 = new Map([
 ]);
 const mapIter546 = map546[Symbol.iterator]();
 console.log('task 546 ', mapIter546.next()); // { value: [ 'name', 'Serge' ], done: false }
+
+// 547 -  Что выведет консоль
+function name547(name = 'Serge') {
+  return 'Hi ' + name;
+}
+
+console.log('task 547 ', name547()); // Hi Serge
+console.log('task 547_2', name547('Peter')); // Hi Peter
+console.log('task 547_3', name547(undefined)); // Hi Serge тк undefined означает что переменная не присвоена те name не имеет никакого значения и береться значение по умолчанию
+console.log('task 547_4', name547(null)); // Hi null тк null имеет значение (оно пустое) те оно означет отсутстиве какого либо значения
+
+// 548 -  Что выведет консоль
+// Строка является итерируемой сущностью. Оператор распространения преобразовывает каждый символ в отдельный элемент.
+console.log('task 548 ', [...'Serge']); // [ 'S', 'e', 'r', 'g', 'e' ]
+
+// 549 -  Что выведет консоль
+console.log(
+  'task 549 ',
+  [0, 1, 2, 3].reduce((a, b) => a + b)
+); // 6
+
+// 550 -  Что выведет консоль
+var x550 = 1;
+console.log(
+  'task 550 ',
+  (() => {
+    x550 += 1;
+    ++x550;
+    return x550;
+  })()
+); // 3  1+1+1
+
+console.log(
+  'task 550_2 ',
+  ((y550) => {
+    x550 += y550;
+    x550 = x550 % y550;
+    return x550;
+  })(2)
+); // 1
+
+console.log('task 550_3', (() => (x550 += x550))()); // 2  1+1
+console.log('task 550_4', (() => (x550 *= x550))()); // 4  2*2
+
+// 551 -  Что выведет консоль
+function exm551_1() {
+  for (let i = 0; i < 10; i++) {
+    setTimeout(() => {
+      console.log(i);
+    });
+  }
+}
+exm551_1(); // 1 2 3 4 5 6 7 8 9 let имеет блочн обл видимости и на кажд иетрации let будт присв нов значение
+
+function exm551_2() {
+  // var i - всплывает здесь и в блоке i = 10
+  for (var i = 0; i < 10; i++) {
+    setTimeout(() => {
+      console.log(i);
+    });
+  }
+}
+exm551_2(); // 10 10 10 10 10 10 10 10 10 10 settim отработает когда стек осводобиться те когда весь цикл выполнится то начнет отрабатывать settimeout
+
+// 552 -  Что выведет консоль
+const obj552 = {
+  foo() {
+    console.log(this.a);
+  },
+  a: 999,
+};
+obj552.foo(); // 999
+
+const b552 = obj552.foo;
+b552(); // undefined - тк мы вызываем функц в глобал пространстве а не в контексте объекта, this указывает на window и a там не существует
+const b552_2 = obj552.foo.bind(obj552);
+b552_2(); // 999
+
+// 553 -  Что выведет консоль
+const obj553 = {};
+(function (x) {
+  x.b = 20; // здесь мы изменили объект
+  x = null; // здесь мы изменили переменную локальную
+})(obj553);
+console.log('task 553 ', obj553); // { b: 20 }
