@@ -4564,3 +4564,25 @@ const obj553 = {};
   x = null; // здесь мы изменили переменную локальную
 })(obj553);
 console.log('task 553 ', obj553); // { b: 20 }
+
+// 554 -  Что выведет консоль
+let arr554 = new Array(1, 2);
+let arr554_2 = new Array(3);
+console.log(arr554, arr554_2); // [ 1, 2 ] [ <3 empty items> ]
+console.log('task 554 ', arr554[0] + arr554_2[0]); // NaN тк 1 + undefined
+
+// 555 -  Что выведет консоль
+// Оператор instanceof проверяет, принадлежит ли объект к определённому классу.
+// что JavaScript различает примитивы и объекты.
+console.log('task 555 ', new String('This is a string.') instanceof String); // true
+console.log('task 555_2 ', 'This is a string.' instanceof String); // false
+
+// 556 -  Что выведет консоль
+const js556 = { lang: 'rus', team: 'extra' };
+const newjs556 = {
+  ...js556,
+  level: 'pro',
+};
+const newObj556 = newjs556;
+delete newjs556.lang;
+console.log('task 556 ', Object.keys(newObj556).length); // 2
