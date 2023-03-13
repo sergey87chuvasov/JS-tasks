@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(135 162 168);
+}
+
+ul {
+  position: relative;
+  /* skew() трансформирует элемент, наклоняя его в 2D-пространстве. */
+  transform: skewY(-15deg);
+}
+
+ul li {
+  position: relative;
+  list-style: none;
+  width: 120px;
+  background: rgb(65, 62, 62);
+  padding: 15px;
+  transition: 0.5s;
+  z-index: calc(1 * var(--i));
+}
+
+ul li:hover {
+  transform: translateX(-50px);
+  background: var(--clr);
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: rgb(41, 39, 39);
+  /* Функция brightness() понижает или повышает яркость изображений или фоновых картинок. */
+  filter: brightness(0.7);
+  /* Устанавливает координаты точки, относительно которой будет происходить трансформация элемента. */
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 0.5s;
+}
+
+ul li:hover::before {
+  background: var(--clr);
+  filter: brightness(0.7);
+}
+
+ul li::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -40px;
+  width: 100%;
+  height: 40px;
+  background: rgb(41, 39, 39);
+  filter: brightness(0.9);
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  transition: 0.5s;
+}
+
+ul li:hover::after {
+  background: var(--clr);
+  filter: brightness(0.9);
+}
+
+ul li a {
+  text-decoration: none;
+  color: rgb(209, 199, 199);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+ul li:hover a {
+  color: #fff;
+}
+
+ul li:last-child::after {
+  box-shadow: -120px 120px 20px rgba(0, 0, 0, 0, 0.3);
+}
+
+ul li span {
+  position: absolute;
+  left: -40px;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  background: rgb(41, 39, 39);
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  font-size: 20px;
+}
+
+ul li:hover span {
+  opacity: 1;
+}
