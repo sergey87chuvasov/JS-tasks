@@ -4586,3 +4586,8 @@ const newjs556 = {
 const newObj556 = newjs556;
 delete newjs556.lang;
 console.log('task 556 ', Object.keys(newObj556).length); // 2
+
+// 557 -  Что выведет консоль
+// Встроенный объект Set описывается как набор значений, где каждое значение может встречаться только один раз
+const nums557 = [1, 2, 2, 3, 4, 5, 5, 6, 3, 1, 4, 2, 5, 7, 4, 1];
+console.log('task 557 ', ...new Set(nums557)); // 1 2 3 4 5 6 7
