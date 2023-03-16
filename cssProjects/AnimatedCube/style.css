@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to right, rgb(108, 166, 88), rgb(106, 118, 208));
+}
+
+.container {
+  height: 60vh;
+  width: 30vw;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  perspective: 1000px;
+}
+
+.box {
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  transform-style: preserve-3d;
+  animation: animate 5s infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotateX(45deg) rotateY(-45deg);
+  }
+  25% {
+    transform: rotateX(-45deg) rotateY(-45deg);
+  }
+  50% {
+    transform: rotateX(45deg) rotateY(45deg);
+  }
+  75% {
+    transform: rotateX(-45deg) rotateY(45deg);
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(-45deg);
+  }
+}
+
+.card {
+  height: 250px;
+  width: 250px;
+  text-align: center;
+  padding: 100px 0;
+  color: #fff;
+  background: #141e30;
+  background: linear-gradient(to right, #141e30, #243b55);
+  border: 2px solid rgb(225, 215, 215);
+  font-size: 35px;
+  position: absolute;
+  transition: all 1s;
+}
+
+#front {
+  transform: translateZ(125px);
+}
+
+#back {
+  transform: translateZ(-125px);
+}
+
+#left {
+  right: 125px;
+  transform: rotateY(-90deg);
+}
+
+#right {
+  left: 125px;
+  transform: rotateY(90deg);
+}
+
+#top {
+  bottom: 125px;
+  transform: rotateX(90deg);
+}
+
+#bottom {
+  top: 125px;
+  transform: rotateX(-90deg);
+}
+
+input {
+  padding: 10px;
+  background-color: #000;
+  color: rgb(226, 214, 192);
+  border: none;
+  border-radius: 5px;
+  font-size: 22px;
+  cursor: pointer;
+  position: absolute;
+  top: -100px;
+  left: 175px;
+}
+
+input:focus ~ .box #front {
+  transform: translateZ(180px) rotateY(360deg);
+}
+
+input:focus ~ .box #back {
+  transform: translateZ(-180px) rotateY(360deg);
+}
+
+input:focus ~ .box #left {
+  right: 180px;
+}
+
+input:focus ~ .box #right {
+  left: 180px;
+}
+
+input:focus ~ .box #top {
+  bottom: 180px;
+}
