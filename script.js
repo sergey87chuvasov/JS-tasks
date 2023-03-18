@@ -4617,3 +4617,28 @@ const arr559 = [
 ];
 const [[aa, bb], [cc, dd]] = arr559;
 console.log('task 559_2 ', aa, bb, cc, dd); // 1 2 3 4
+
+// 560 -  Что выведет консоль
+// ОПЕРАТОРЫ СРАВНЕНЯ КОНВЕРТИРУЮТ ЛЮБЙ ТИП В ЧИСЛОВОЙ
+console.log('task 560 ', '2' > 1); // true  convert to num
+console.log('task 560 ', '01' == 1); // true convertto num
+console.log('task 560 ', 'Т' > 'Я'); // false priority
+console.log('task 560 ', 'Z' > 'B'); // true priority
+console.log('task 560 ', 'ABCD' > 'ABCDE'); // false priority
+console.log('task 560 ', 'd' > 'D'); // true priority
+///   !!!!
+console.log('task 560 ', '2' > '12'); // true Сравнение строк, происходит посимвольно.
+console.log('task 560 ', '2' > 12); // false
+/// !!!!!!
+console.log('task 560 ', true > false); // true  1 > 0
+console.log('task 560 ', 'Hello10' > 6); // false  NaN > 6 NaN всегда false с любым типом
+console.log('task 560 ', undefined > 6); // false  NaN > 6 NaN всегда false с любым типом
+console.log('task 560 ', undefined == null); // true
+console.log('task 560 ', undefined === null); // false конверт не происходит
+console.log('task 560 ', '10' === 10); // false
+
+// 561 -  Что выведет консоль
+// ассоциативность присвоения справа на лево
+let x561;
+let y561;
+console.log('task 561 ', (x561 = y561 = 25 - 10 - 5), y561); // x10 y10
