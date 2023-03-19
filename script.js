@@ -4642,3 +4642,21 @@ console.log('task 560 ', '10' === 10); // false
 let x561;
 let y561;
 console.log('task 561 ', (x561 = y561 = 25 - 10 - 5), y561); // x10 y10
+
+// 562 -  Что выведет консоль
+let a562;
+let b562;
+let c562 = false;
+
+if (true) {
+  let b;
+  let c;
+  a562 = 'Hello world';
+  b = 5;
+  c = true;
+  console.log(b); // 5
+}
+
+console.log(a562); // Hello world
+console.log(b562); // undefined
+console.log(c562); // false
