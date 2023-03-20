@@ -1,5 +1,9 @@
+'use strict';
+
 // 1 - Что выведет консоль
 // Set (множество) — коллекция для хранения уникальных значений любого типа. Одно и то же значение нельзя добавить в Set больше одного раза. это неиндексированная коллекция, положить элемент в коллекцию можно, но достать нельзя. По элементам коллекции можно итерироватьс
+
+// !!! массивы упорядочены Set не упорядочен
 
 /*
 Основные методы для работы с коллекцией:
@@ -53,7 +57,7 @@ console.log('task 1-4 ', new Set('abcdfgtaaaa')); // Set(7) { 'a', 'b', 'c', 'd'
 // console.log('task 1-5 ', new Set({ a: 1 })); // TypeError: object is not iterable
 
 // 2 - Что выведет консоль
-// Map — коллекция для хранения данных любого типа в виде пар [ключ, значение], то есть каждое значение сохраняется по уникальному ключу, который потом используется для доступа к этому значению. Причём в качестве ключей тоже принимаются значения любого типа.
+// Map — упорядоченная коллекция для хранения данных любого типа в виде пар [ключ, значение], то есть каждое значение сохраняется по уникальному ключу, который потом используется для доступа к этому значению. Причём в качестве ключей тоже принимаются значения любого типа.
 
 /*
 Основные методы для работы с коллекцией Map:
@@ -132,3 +136,94 @@ console.log('task 3-6 ', Object.entries(weatherObject2)); // [ [ 'london', 10 ],
 // итого
 const wheatherMap2 = new Map(Object.entries(weatherObject2));
 console.log('task 3-7 ', wheatherMap2); // Map(3) { 'london' => 10, 'belarus' => 14, 'greece' => 33 }
+
+// Итерация Map
+const weatherMap3 = new Map([
+  ['Brest', '22'],
+  ['Grodno', '33'],
+  ['Gomel', '14'],
+  ['Vitebsk', '5'],
+]);
+
+// добавим деструктур
+for (const [key, value] of weatherMap3) {
+  console.log(key);
+  console.log(value);
+}
+
+// конвертация из Map в массив - spread
+console.log([...weatherMap3]); // [ [ 'Brest', '22' ], [ 'Grodno', '33' ], [ 'Gomel', '14' ], [ 'Vitebsk', '5' ] ]
+
+// 2
+console.log(weatherMap3.keys()); // { 'Brest', 'Grodno', 'Gomel', 'Vitebsk' }
+console.log(weatherMap3.values()); // { '22', '33', '14', '5' }
+// перевод в массив spread синтак
+console.log([...weatherMap3.keys()]); // [ 'Brest', 'Grodno', 'Gomel', 'Vitebsk' ]
+console.log([...weatherMap3.values()]); // [ '22', '33', '14', '5' ]
+
+// упражнение swap ключей и значений (поменять местами)
+let weatherMap4 = new Map([
+  ['Nesvizh', '24'],
+  ['Kopyl', '31'],
+  ['Lida', '19'],
+  ['Minsk', '2'],
+]);
+
+//1 преобр в массив массивов
+weatherMap4 = new Map([...weatherMap4].map((el) => el.reverse()));
+console.log(weatherMap4);
+/*
+Map(4) {
+  '24' => 'Nesvizh',
+  '31' => 'Kopyl',
+  '19' => 'Lida',
+  '2' => 'Minsk'
+}
+ */
+
+// WeakMap - не очень популярны в основном для работы с КЕШ
+let a5 = { a: 1 };
+let b5 = { b: 1 };
+const map5 = new WeakMap();
+
+// 1ое отличие методов меньше и ключи только объекты или []
+map5.set(a5, 'testA');
+map5.set(b5, 'testB');
+console.log(map5); // WeakMap {{…} => 'test'}
+console.log(map5.get(a5)); // test
+console.log(map5.has(a5)); // true
+// console.log(map5.delete(a5)); // true
+
+// !!! WeakMap - хранит наш ключ - значение ровно до того момента когда объект существует, как только мы теряем ссылку на наш объект WeakMap - очищается и удаляет ссылку на этот объект - ТЕ ВОЗМОЖНОСТЬ БЫСТРО ХРАНИТЬ ЗНАЧЕНИЯ И ИХ ПОТОМ САМООЧИЩАТЬ
+
+console.log(map5); // WeakMap {{…} => 'testB', {…} => 'testA'}
+
+a5 = null;
+console.log(map5); // WeakMap {{…} => 'testB'}
+
+// trainy
+let a6 = { a: 1 };
+let cache = new WeakMap();
+function getValue(obj) {
+  if (!cache.has(obj)) {
+    const res = 1; /* сложный расчет */
+    cache.set(obj, res);
+  }
+
+  return cache.get(obj);
+}
+
+const res1 = getValue(a6);
+console.log(res1); // 1
+const res2 = getValue(a6);
+console.log(res2); // 1
+
+// WeakSet() - хранят исключительно объекты
+let a7 = { a: 1 };
+let b7 = { b: 2 };
+const set7 = new WeakSet([a7, b7]);
+console.log(set7); // WeakSet {{…}, {…}}
+a7 = null;
+setTimeout(() => {
+  console.log(set7);
+}, 1000);
