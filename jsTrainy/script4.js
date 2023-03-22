@@ -101,3 +101,120 @@ console.log(Math.trunc(0.4232)); // 0
 console.log((1.433).toFixed(1)); // 1.4
 console.log((1.843434534324).toFixed(5)); // 1.84343
 console.log((0.4232).toFixed(3)); // 0.423
+
+// конверт в число
+console.log(Number((1.433).toFixed(1))); // 1.4
+console.log(+(0.4232).toFixed(3)); // 0.423 - - под капотом это число преобр в объект - берем методы - конверт - и преобр в число
+
+// упражнение функция случайного числа от 1 - 20 случайным образом
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(random(1, 20));
+
+// оператор остатка от деления
+console.log(15 / 2); // 7.5
+console.log(15 % 2); // 1
+console.log(14 % 2); // 0
+
+// четность числа
+const isEven = (n) => n % 2 === 0;
+console.log(isEven(2)); // true
+console.log(isEven(3)); // false
+
+// не четность числа
+const isOdd = (n) => n % 2 !== 0;
+console.log(isOdd(2)); // false
+console.log(isOdd(3)); // true
+
+// разделитель чисел
+const bigNum1 = 350_500_000; // такая запись лучше для восприятия
+const bigNum2 = 350500000;
+// ещё вариант
+const bigNum3 = 2_0.1_0;
+
+// но следует помнить
+console.log(Number('350_500_000')); // NaN
+console.log(Number('350500000')); // 350500000
+
+// работа с BigInt
+// макс доступное число для чисел
+console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+// или
+console.log(2 ** 53 - 1); // 9007199254740991
+
+// мин доступное число
+console.log(Number.MIN_SAFE_INTEGER); // -9007199254740991
+
+// BIGiNT
+console.log(123243453243252523532412256235n);
+// или
+console.log(BigInt(123243453243252523532412256235)); // 123243453243252519895801266176n
+console.log(10n + 10n); // 20n
+console.log(10n * 10n); // 100n
+console.log(10n * BigInt(10)); // 100n
+console.log(10n === 10); // false
+console.log(typeof 10n); // bigint
+
+// интернализация чисел
+const options1 = {
+  style: 'currency',
+  currency: 'RUB',
+};
+
+const options2 = {
+  style: 'currency',
+  currency: 'USD',
+};
+
+const options3 = {
+  style: 'decimal',
+};
+
+const options4 = {
+  style: 'percent',
+};
+
+const options5 = {
+  style: 'unit',
+  unit: 'celsius',
+};
+
+console.log(new Intl.NumberFormat('ru-RU', options1).format(23000)); // 23 000,00 ₽
+console.log(new Intl.NumberFormat('en-US', options2).format(23000)); // $23,000.00
+console.log(new Intl.NumberFormat('ru-RU', options3).format(100)); // 100
+console.log(new Intl.NumberFormat('ru-RU', options4).format(0.1)); // 10 %
+console.log(new Intl.NumberFormat('ru-RU', options5).format(25)); // 25 °C
+
+// задача на конвертор валют
+function convert(sum, initCurr, convertCurr) {
+  const allCurrencies = [
+    { name: 'USD', mult: 1 },
+    { name: 'RUB', mult: 1 / 60 },
+    { name: 'EUR', mult: 1.1 },
+  ];
+
+  const initial = allCurrencies.find((c) => c.name === initCurr);
+  if (!initial) {
+    return null;
+  }
+
+  const convert = allCurrencies.find((c) => c.name === convertCurr);
+  if (!convert) {
+    return null;
+  }
+
+  return new Intl.NumberFormat('ru-RU', {
+    style: 'currency',
+    currency: convert.name,
+  }).format((sum * initial.mult) / convert.mult);
+}
+
+console.log(convert(10000, 'RUB', 'USD')); // 166,67 $
+console.log(convert(10000, 'RUB', 'EUR')); // 151,52 €
+console.log(convert(100, 'USD', 'RUB')); // 6 000,00 ₽
+console.log(convert(100, 'USD', 'EUR')); // 90,91 €
+console.log(convert(100, 'EUR', 'RUB')); // 6 600,00 ₽
+console.log(convert(100, 'TTTT', 'RUB')); // null
+console.log(convert(100, 'EUR', 'TTTT')); // null
