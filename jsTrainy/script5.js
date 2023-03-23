@@ -103,3 +103,29 @@ function isBirth(user) {
 }
 
 console.log(isBirth(user99)); // false
+
+// Интернализация дат
+const date5 = new Date();
+console.log(date5); // Fri Mar 24 2023 00:06:53 GMT+0300 (Москва, стандартное время)
+
+const options5 = {
+  hour: 'numeric',
+  minute: 'numeric',
+};
+
+const options6 = {
+  hour: 'numeric',
+  minute: 'numeric',
+  month: 'long',
+  weekday: 'short',
+};
+
+// отформатируем
+console.log(new Intl.DateTimeFormat('ru-RU').format(date5)); // 24.03.2023
+console.log(new Intl.DateTimeFormat('ru-RU', options5).format(date5)); // 00:11
+console.log(new Intl.DateTimeFormat('en-US', options6).format(date5)); // Fri (month: March) at 12:14 AM
+
+// !!!
+console.log(
+  new Intl.DateTimeFormat(navigator.language, options6).format(date5)
+); // пт (месяц: март) в 00:16
