@@ -4660,3 +4660,86 @@ if (true) {
 console.log(a562); // Hello world
 console.log(b562); // undefined
 console.log(c562); // false
+
+// 563 -  Что выведет консоль
+const arr563 = [1, 2];
+const [, , ...rest] = arr563;
+console.log('task 563 ', rest); // []
+
+// 564 -  Что выведет консоль
+// Метод endsWith() позволяет определить, заканчивается ли строка символами указанными в скобках, возвращая, соответственно, true или false. str.endsWith(searchString[, length])
+const str564 = 'Cats are the best!';
+console.log('task 564 ', str564.endsWith('best!')); // true
+console.log('task 564 ', str564.endsWith('best', 17)); // true
+console.log('task 564 ', str564.endsWith('best')); // false
+
+// 565 -  Что выведет консоль
+// Метод Array.isArray() возвращает true, если объект является массивом и false, если он массивом не является.
+console.log(Array.isArray(5)); // false
+console.log(Array.isArray('')); // false
+console.log(Array.isArray()); // false
+console.log(Array.isArray(null)); // false
+console.log(Array.isArray({ length: 5 })); // false
+console.log(Array.isArray([])); // true
+
+// 566 -  Что выведет консоль
+// мы не возвращаем значение. Когда мы не возвращаем значение из функции, функция возвращает значение undefined
+
+console.log(
+  'task 566 ',
+  [1, 2, 3].map((num) => {
+    if (typeof num === 'number') return;
+    return num * 2;
+  })
+); // [ undefined, undefined, undefined ]
+
+// 567 -  Что выведет консоль
+// Поскольку объявления переменных поднимаются наверх своей области видимости, а инициализация переменных происходит во время выполнения скрипта, этот код: var num567; => var num567 = 20;
+('use strict');
+var num567 = 20;
+var num567;
+console.log('task 567 ', num567); // 20
+
+// 568-  Что выведет консоль
+// Объявления переменных происходят до выполнения скрипта, на этапе парсинга. Все объявления поднимаются наверх своей области. Повторное объявление переменной с ключевым словом var будет проигнорировано.
+/**
+номер переменной;
+номер переменной; // повторное объявление игнорируется
+число = 20;
+число = 99;
+В результате число = 99.
+ */
+('use strict');
+var num568 = 20;
+var num568 = 99;
+console.log('task 568 ', num568); // 99
+
+// 569-  Что выведет консоль
+// Локальная переменная функции setTimeout продолжает ссылаться на функцию, объявленную в первой строк
+let f569 = function () {
+  console.log(1); // 1
+};
+setTimeout(f569, 1000);
+
+f569 = function () {
+  console.log(2);
+};
+
+// ответ: 1
+
+// 570-  Что выведет консоль
+const arr570 = { length: 5 };
+Array.prototype.push.call(arr570, 1, 2, 3);
+console.log('task 570 ', arr570.length); // 8  { '5': 1, '6': 2, '7': 3, длина: 8 }
+
+// 571-  Что выведет консоль
+const arr571 = [3, 2, 11, 1];
+arr571.sort();
+console.log('task 571 ', arr571); // [ 1, 11, 2, 3 ]
+
+// 572-  Что выведет консоль
+// str[index], и charAt(index) возвращают указанный символ из строки.
+// Разница в том, что если указанный вами параметр индекса находится за пределами этого диапазона, charAt вернет пустую строку, а str[index] не определен.
+const str572 = 'abcdefgh';
+console.log('task 572 ', str572[50]); //  undefined
+console.log('task 572 ', str572.charAt[50]); //  undefined
