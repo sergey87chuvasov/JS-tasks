@@ -4743,3 +4743,51 @@ console.log('task 571 ', arr571); // [ 1, 11, 2, 3 ]
 const str572 = 'abcdefgh';
 console.log('task 572 ', str572[50]); //  undefined
 console.log('task 572 ', str572.charAt[50]); //  undefined
+
+// 573 -  Что выведет консоль
+// Object.freeze(obj) замораживает только obj и его свойства. Он не замораживает значения этих свойств.
+const obj573 = { arr: ['foo'] };
+Object.freeze(obj573);
+obj573.arr.push('bar');
+console.log(obj573); // { arr: [ 'foo', 'bar' ] }
+console.log('task 573 ', obj573.arr.length); //  2
+
+// 574 -  Что выведет консоль
+// Если возвращаемое значение функции-конструктора является объектом, оно заменяет это.
+function myFunc574(x) {
+  this.a = 5;
+
+  return { a: 10 };
+}
+const result574 = new myFunc574();
+console.log('task 574 ', result574); // { a: 10 }
+
+// 575 -  Что выведет консоль
+// Параметр функции x - это локальная переменная функции. В теле функции мы видим, что есть попытка создать еще одну переменную с тем же именем. Ключевое слово let не позволяет вам переопределить переменную в заданной области. Получаем синтаксическую ошибку
+
+function myFunc575(x) {
+  let x = 10;
+  console.log(x);
+}
+console.log('task 575 ', myFunc575(5)); // SyntaxError: Identifier 'x' has already been declared
+
+// 576 -  Что выведет консоль
+// Содержимое строки в JS доступно только для чтения. В обычном режиме попытка перезаписать символ в строке будет просто игнорироваться, оставляя исходную строку неизменной. В строгом режиме мы получим TypeError:
+('use strict');
+let myStr576 = 'Hello';
+myStr576[1] = '111';
+console.log('task 576 ', myStr576); // TypeError: Cannot assign to read only property '1' of string 'Hello'
+
+// 577 -  Что выведет консоль
+// Посещаются только перечисляемые собственные свойства. Это означает, что Map, Set и т. д. станут "{}".
+const map577 = new Map();
+map577.set('foo', 'bar');
+const jsonText = JSON.stringify(map577);
+console.log('task 577 ', jsonText); // {}
+
+// 578 -  Что выведет консоль
+// Статический Math.hypot() - метод возвращает квадратный корень из суммы квадратов своих аргументов.
+console.log('task 578 ', Math.hypot(3, 4)); // 5  ( 9 + 16 = 25)
+console.log('task 578 ', Math.hypot(-3)); // 3  the same as Math.abs(-3)
+console.log('task 578 ', Math.hypot(5, 12)); // 13
+console.log('task 578 ', Math.hypot(NaN)); // NaN
