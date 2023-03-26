@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #242121;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#10c015, #0c4675);
+  z-index: 10;
+  /* эл. не является объектом события мыши */
+  pointer-events: none;
+  /* режим смешивания цветов выбранного эл. с низлежащими слоями */
+  mix-blend-mode: multiply;
+}
+
+.circle {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(75, 72, 72);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff5, 0 0 0 20px #333, 0 0 0 22px #fff, 0 0 50px #fff,
+    0 0 450px #fff;
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 170px;
+  border-radius: 2px;
+  background: linear-gradient(0deg, transparent, #fff);
+  transform-origin: bottom;
+  animation: animateNiddles 10s steps(60) infinite;
+}
+
+.circle::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 130px;
+  border-radius: 2px;
+  background: linear-gradient(0deg, transparent, #fff);
+  transform-origin: bottom;
+  animation: animateNiddles 100s steps(60) infinite;
+}
+
+@keyframes animateNiddles {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+ul li {
+  position: absolute;
+  top: 10px;
+  list-style: none;
+  /* Начало преобразования — это точка, вокруг которой применяется преобразование */
+  transform-origin: 0 240px;
+  transform: rotate(calc(21deg * var(--i)));
+  font-size: 29px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+ul li span {
+  display: inline-block;
+  color: #fff;
+  transform: rotate(calc(-21deg * var(--i)));
+  text-shadow: 0 0 15px #fff, 0 0 35px #fff, 0 0 75px #fff, 0 0 155px #fff;
+}
