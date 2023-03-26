@@ -4791,3 +4791,63 @@ console.log('task 578 ', Math.hypot(3, 4)); // 5  ( 9 + 16 = 25)
 console.log('task 578 ', Math.hypot(-3)); // 3  the same as Math.abs(-3)
 console.log('task 578 ', Math.hypot(5, 12)); // 13
 console.log('task 578 ', Math.hypot(NaN)); // NaN
+
+// 579 -  Что выведет консоль
+let arr578 = [
+  1,
+  2,
+  3,
+  4,
+  function test() {
+    return 2 + 2;
+  },
+  999,
+];
+console.log('task 579 ', arr578[4]()); // 4
+
+// 580 -  Что выведет консоль
+let year580 = 2023;
+let birtYear580 = 1987;
+let arr580 = [1, 2, 3, 4, year580 - birtYear580];
+console.log('task 580 ', arr580); // [ 1, 2, 3, 4, 36 ]
+
+// 581 -  Что выведет консоль
+//определить наличие свойства в объекте
+const obj581 = {
+  prop: 'bwahahah',
+  prop2: 'hweasa',
+};
+
+console.log('prop' in obj581); // true
+console.log('prop1' in obj581); // false
+console.log('task 581 ', obj581.hasOwnProperty('prop2')); // true
+console.log('task 581 ', obj581.hasOwnProperty('prop1')); // false
+console.log('task 581 ', obj581['prop']); // bwahahah
+console.log('task 581 ', obj581['prop1']); // undefined
+
+// 582 -  Что выведет консоль
+// Значение по умолчанию игнорируется, свойство age изменяется непосредственно на объекте и изменяет исходное значение.
+const user582 = {
+  name: 'Oleg',
+  age: 28,
+};
+
+const changeUserAge582 = (val = { ...user }) => (val.age += 1);
+changeUserAge582(user582);
+console.log('task 582 ', user582); // { name: 'Oleg', age: 29 }
+
+const changeUser582 = (val = { ...user582 }) => {
+  val.age += 1;
+  val.name = 'Kolya';
+};
+// Из-за деструктуризации ссылка на объект изменяется, поэтому изменения значений свойств объекта не отражаются в исходном пользовательском объекте.
+changeUser582();
+console.log('task 582 ', user582); // { name: 'Oleg', age: 29 }
+
+// 583 -  Что выведет консоль
+// Если return отсутствует в функции-конструкторе, то он неявно возвращает this.
+function myFunc583() {
+  this.a = 5;
+}
+const result583 = new myFunc583();
+console.log('task 583 ', result583); // { a: 5 }
