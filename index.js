@@ -1707,3 +1707,27 @@ const fizzBuzz112 = (num) => {
 
 fizzBuzz112(11); // "1 2  fizz 4 buzz fizz 7 8 fizz buzz"
 fizzBuzz112(22); // "1 2 fizz 4 buzz fizz 7 8 fizz buzz 11 fizz 13 14 fizzbuzz 16 17 fizz 19 buzz fizz"
+
+// 113 - Задача. Создать последовтельность Фиббоначи.
+function fibGen(num) {
+  let output = [];
+
+  if (num === 1) {
+    output = [0];
+  } else if (num === 2) {
+    output = [0, 1];
+  } else {
+    output = [0, 1];
+
+    for (let i = 2; i < num; i++) {
+      // output.push(output[output.length - 2] + output[output.length - 1]);
+      output.push(output.at(-2) + output.at(-1));
+    }
+  }
+
+  return output;
+}
+
+console.log('task 113 ', fibGen(1)); // [ 0 ]
+console.log('task 113 ', fibGen(2)); // [ 0, 1 ]
+console.log('task 113 ', fibGen(13)); // [ 0,  1,  1,  2,  3,  5, 8, 13, 21, 34, 55, 89, 144 ]

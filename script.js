@@ -4851,3 +4851,69 @@ function myFunc583() {
 }
 const result583 = new myFunc583();
 console.log('task 583 ', result583); // { a: 5 }
+
+// 584 -  Что выведет консоль
+// continue - пропускает итерацию цикла
+const arr584 = [1, 2, 3, 4, 5];
+for (let i = 0; i < arr584.length; i++) {
+  if (arr584[i] === 3) continue;
+  console.log('task 584 ', arr584[i]); // 1 2 4 5
+}
+
+// 584 -  Что выведет консоль
+// break - прекращает работу цикла
+const arr585 = [1, 2, 3, 4, 5];
+for (let i = 0; i < arr585.length; i++) {
+  if (arr585[i] === 3) break;
+  console.log('task 585 ', arr585[i]); // 1 2
+}
+
+// 585 -  Что выведет консоль
+// не глубокое копирование ... spread или object.assign({}, obj)
+// глубокое JSON.parse(JSON.stringify(obj))
+const obj585 = {
+  name: 'Serge',
+  age: 30,
+  someObj: {
+    city: 'Minsk',
+  },
+};
+const obj585_2 = Object.assign({}, obj585);
+const obj585_3 = { ...obj585 };
+const obj585_4 = JSON.parse(JSON.stringify(obj585));
+obj585.someObj.city = 'Ottawa';
+console.log(obj585); // { name: 'Serge', age: 30, someObj: { city: 'Ottawa' } }
+console.log('task 585 ', obj585_2); // { name: 'Serge', age: 30, someObj: { city: 'Ottawa' } }
+console.log('task 585 ', obj585_4); // { name: 'Serge', age: 30, someObj: { city: 'Minsk' } }
+
+// 586 -  Что выведет консоль
+('use strict');
+console.log(a586); // undefined
+var a586 = 5;
+
+// 587 -  Что выведет консоль
+let foo587 = { name: `kitten` };
+let prop587 = `name`;
+
+console.log(foo587.name); // kitten
+console.log(foo587['name']); // kitten
+console.log(foo587[`name`]); // kitten
+console.log(foo587[prop587]); // kitten
+
+// 588 -  Что выведет консоль
+var arr588 = [0, 1, 2, 4];
+console.log('task 588 ', arr588.indexOf(3)); // -1
+
+// 589 -  Что выведет консоль
+let a589 = [];
+a589[1] = 5;
+a589[5] = 55;
+console.log('task 589 ', a589.length); // 6
+console.log('task 589 ', a589); // [ <1 empty item>, 5, <3 empty items>, 55 ]
+
+// 590 -  Что выведет консоль
+let trees590 = ['xyz', 'xxxx', 'test', 'ryan', 'apple'];
+delete trees590[3];
+
+console.log('task 590 ', trees590.length); // 5
+console.log('task 590 ', trees590); // [ 'xyz', 'xxxx', 'test', <1 empty item>, 'apple' ]
