@@ -4894,10 +4894,12 @@ var a586 = 5;
 // 587 -  Что выведет консоль
 let foo587 = { name: `kitten` };
 let prop587 = `name`;
+console.log(prop587);
 
 console.log(foo587.name); // kitten
 console.log(foo587['name']); // kitten
 console.log(foo587[`name`]); // kitten
+// console.log(foo587[name]); // ReferenceError: name is not defined
 console.log(foo587[prop587]); // kitten
 
 // 588 -  Что выведет консоль
