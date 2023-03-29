@@ -4919,3 +4919,57 @@ delete trees590[3];
 
 console.log('task 590 ', trees590.length); // 5
 console.log('task 590 ', trees590); // [ 'xyz', 'xxxx', 'test', <1 empty item>, 'apple' ]
+
+// 591 -  Что выведет консоль
+let x591 = {};
+let y591 = {};
+let z591 = x591;
+
+console.log('task 591 ', x591 == y591); // false
+console.log('task 591 ', x591 === y591); // false
+console.log('task 591 ', x591 == z591); // true
+console.log('task 591 ', x591 === z591); // true
+
+// 592 -  Что выведет консоль
+const isTrue592 = true == [];
+console.log(isTrue592); // false
+const isFale592 = true == ![];
+console.log(isTrue592); // false
+console.log(isTrue592 + isFale592); // 0
+
+// 593 -  Что выведет консоль
+// Переменная x затем перезаписывается значением 15, и вызывается функция f с аргументом 10, которая возвращает значение 26. Функция f имеет доступ к переменной x из внешней области видимости благодаря замыканию.
+var x593 = 10;
+const f593 = (num) => ++num + x593;
+x593 = 15;
+console.log('task 593 ', f593(10)); // 26
+
+// 594 -  Что выведет консоль
+function outerFunc(count) {
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+let counter594 = outerFunc(5);
+counter594();
+counter594();
+counter594();
+console.log('task 594 ', counter594()); // 6 7 8 9
+
+// 595 -  Что выведет консоль
+//  Когда вы делаете arr["something"], поскольку something(то, что вы используете в качестве индекса) не является целым числом, вы в основном определяете свойство arr объекта (все является объектом в javascript). Но вы не добавляете элемент в стандартный массив.
+const arr595 = [];
+arr595[0] = 'a';
+arr595[1] = 'b';
+arr595.foo = 'c';
+console.log('task 595 ', arr595.length); // 2
+console.log('task 595 ', arr595); // [ 'a', 'b', foo: 'c' ]
+
+// 596 -  Что выведет консоль
+function b596(x, y, a) {
+  arguments[2] = 10;
+  console.log(a); // 10
+}
+b596(1, 2, 3);
