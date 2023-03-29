@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(27, 17, 33);
+  overflow: hidden;
+}
+
+section .text {
+  position: relative;
+  font-size: 5em;
+  text-align: center;
+  color: rgb(54, 186, 54);
+  -webkit-box-reflect: below -0.36em linear-gradient(transparent, #0f0f0f);
+}
+
+section .text span {
+  position: relative;
+  display: inline-block;
+}
