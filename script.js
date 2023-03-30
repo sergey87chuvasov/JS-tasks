@@ -4973,3 +4973,39 @@ function b596(x, y, a) {
   console.log(a); // 10
 }
 b596(1, 2, 3);
+
+// 597 -  Что выведет консоль
+const numbers597 = [33, 2, 8];
+numbers597.sort();
+console.log('task 597 ', numbers597[1]); // 3
+
+// 598 -  Что выведет консоль
+const result598 = null == undefined;
+console.log('task 598 ', result598); // true
+
+// 599 -  Что выведет консоль
+const result599 = (true + true) * (true + true) - true;
+console.log('task 599 ', result599); // 3
+
+// 600 -  Что выведет консоль
+const result600 = [1, 2, 3] + [4, 5, 6];
+console.log('task 600 ', result600); // 1,2,34,5,6
+
+// 601 -  Что выведет консоль
+const { a601, b601 = 4 } = 123;
+console.log('task 601 ', a601, b601); // undefined, 4
+
+// 602 -  Что выведет консоль
+// Алгоритм деструктуризации массива работает только для итерируемых значений. Строка повторяема, а число нет:
+const [a602] = '123';
+const [b602] = 123; // TypeError: 123 is not iterable
+console.log('task 602 ', a602, b602); //  '1', Error
+
+// 603 -  Что выведет консоль
+const list603 = [1 + 2, 1 * 2, 1 / 2];
+console.log('task 603 ', list603); // [ 3, 2, 0.5 ]
+
+// 604 -  Что выведет консоль
+const arr604 = [1, 2, 3];
+arr604[-1] = 4;
+console.log('task 604 ', arr604); // [ 1, 2, 3, '-1': 4 ]
