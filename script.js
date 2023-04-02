@@ -5009,3 +5009,12 @@ console.log('task 603 ', list603); // [ 3, 2, 0.5 ]
 const arr604 = [1, 2, 3];
 arr604[-1] = 4;
 console.log('task 604 ', arr604); // [ 1, 2, 3, '-1': 4 ]
+
+// 605 -  Что выведет консоль
+let count605 = 1;
+let ret605 = (count605++, count605);
+console.log('task 605 ', ret605); // 2
+
+// 606 -  Что выведет консоль
+let val606 = (12, 32);
+console.log('task 606 ', val606); // 32
