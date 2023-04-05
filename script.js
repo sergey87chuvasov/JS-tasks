@@ -5018,3 +5018,53 @@ console.log('task 605 ', ret605); // 2
 // 606 -  Что выведет консоль
 let val606 = (12, 32);
 console.log('task 606 ', val606); // 32
+
+// 607 -  Что выведет консоль
+let emo607 = ['', '', '', ''];
+console.log('task 607 ', Array.isArray(emo607)); // true
+let obj607 = {};
+console.log('task 607 ', Array.isArray(obj607)); // false
+
+// 608 -  Что выведет консоль
+// обмен значениями переменных при помощи деструктаризации
+let fruit1 = 'apple';
+let fruit2 = 'orange';
+
+[fruit1, fruit2] = [fruit2, fruit1];
+console.log('task 608 ', fruit1, fruit2); // orange apple
+
+// 609 -  Что выведет консоль
+// Объединение нескольких объектов
+let emp609 = {
+  id: 'E_01',
+  name: 'Jack',
+  age: 32,
+  addr: 'India',
+};
+
+let job609 = {
+  title: 'Software Dev',
+  location: 'Paris',
+};
+// spread-оператор
+let merged609 = { ...emp609, ...job609 };
+console.log('task 609', merged609); // {id: 'E_01', name: 'Jack', age: 32, addr: 'India', title: 'Software Dev', …}
+
+// Object.assign()
+console.log('taks 609_2', Object.assign({}, emp609, job609)); // {id: 'E_01', name: 'Jack', age: 32, addr: 'India', title: 'Software Dev', …}
+
+// 610 -  Что выведет консоль
+// Функции, определенные позже, имеют более высокий приоритет.
+console.log(foo610()); // test2
+function foo610() {
+  return 'test1';
+}
+function foo610() {
+  return 'test2';
+}
+
+// 611 -  Что выведет консоль
+('use strict');
+const a611 = { x: 1, x: 2 };
+console.log('task 611 ', a611); // { x: 2 }
+console.log('task 611 ', a611.x); //  2
