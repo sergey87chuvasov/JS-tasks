@@ -283,3 +283,28 @@ console.log(userX.checkPassword('12345')); // true
 console.log(userX.checkPassword('7777')); // false
 console.log(userX.changePassword('12345', '99999')); // true
 console.log(userX); // UserX {#login: 'aa@aa.ru', #_password: '99999'}
+
+// Object.create
+
+const UserY = {
+  init(email, password) {
+    this.email = email;
+    this.password = password;
+  },
+
+  log() {
+    console.log('Log');
+  },
+};
+
+const user3 = Object.create(UserY);
+console.log(user3); // {}
+// prototype нашего пользователя стал объектом user3
+user3.log();
+// user3.email = '123@ru';
+// user3.password = '12234';
+// console.log(user3.__proto__ == UserY); // true
+// console.log(user3); // { email: '123@ru', password: '12234' }
+
+user3.init('11@2.ru', 'qwerry');
+console.log(user3); // { email: '11@2.ru', password: 'qwerry' }
