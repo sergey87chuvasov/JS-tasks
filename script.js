@@ -5068,3 +5068,63 @@ function foo610() {
 const a611 = { x: 1, x: 2 };
 console.log('task 611 ', a611); // { x: 2 }
 console.log('task 611 ', a611.x); //  2
+
+// 612 -  Что выведет консоль
+var start612 = 1;
+function setEnd612() {
+  var end = 10;
+}
+setEnd612();
+console.log(end); // ReferenceError: end is not defined
+
+// 613 -  Что выведет консоль
+const value613 = { number: 10 };
+const multiply613 = (x = { ...value613 }) => {
+  console.log('task 613 ', (x.number *= 2));
+};
+
+multiply613(); // 20
+multiply613(); // 20
+multiply613(value613); // 20
+multiply613(value613); // 40
+
+// 614 -  Что выведет консоль
+// Конструктор Set() создает объекты Set:
+const greeting614 = 'Hello world';
+const mySet614 = new Set(greeting614);
+console.log('task 614 ', mySet614); // Set(8) { 'H', 'e', 'l', 'o', ' ', 'w', 'r', 'd' }
+console.log('task 614 ', mySet614.size); // 8
+
+// 615 -  Что выведет консоль
+[x615] = new Set('abc');
+console.log('task 615 ', x615); // a
+
+// 616 -  Что выведет консоль
+// Чтобы улучшить читаемость, в ES2021 в качестве разделителей числовых литералов были введены символы подчеркивания.
+const num616 = 55_00;
+const num616_2 = 4_0;
+console.log('task 616 ', num616 * num616_2); // 220000 те 5500 * 40
+
+// 617 -  Что выведет консоль
+// Object.create(null) создает объект obj с нулевым прототипом. Поскольку obj не наследуется от Object, у него нет метода hasOwnProperty.
+const obj617 = Object.create(null);
+obj617.foo = 'bar';
+console.log(obj617); // [Object: null prototype] { foo: 'bar' }
+console.log(obj617.hasOwnProperty('foo')); // TypeError: obj617.hasOwnProperty is not a function
+
+// 618 -  Что выведет консоль
+// Оператор in проверяет наличие свойства в объекте и в цепочке прототипов. Для проверки наличия свойства непосредственно в объекте есть метод hasOwnProperty и статический метод Object.hasOwn.
+const obj618 = {};
+console.log('task 618 ', 'constructor' in obj618); // true
+
+// 619 -  Что выведет консоль
+// Нулевой объединяющий оператор присваивания ??= был введен в ES 2021. a ??= b эквивалентно a ?? (а = б). Присваивание выполняется только в том случае, если a не определено или имеет значение null.
+let a619 = 0;
+let b619 = 5;
+a619 ??= b619;
+console.log('task 619 ', a619); // 0
+////
+let a619_1 = undefined;
+let b619_1 = 5;
+a619_1 ??= b619_1;
+console.log('task 619_1 ', a619_1); // 5
