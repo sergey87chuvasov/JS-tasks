@@ -308,3 +308,144 @@ user3.log();
 
 user3.init('11@2.ru', 'qwerry');
 console.log(user3); // { email: '11@2.ru', password: 'qwerry' }
+
+// ПРИНЦИПЫ ООП В КЛАССАХ
+// Абстракция vs ИНкапсюляция
+// фильм - название режиссер рейтинг длительность страна актёры трейлер итд 1000 хар-к
+
+// наборы св-в абстракция над реальным объектом
+// ИНКАПСЮЛЯЦИЯ - заключение св-в внутри класса без возможности доступа снаружи - снаружи публичные вещи которые мы хотим те она определяет что внутреннее а что внешнее
+class Film {
+  #name;
+  #author;
+  raiting;
+  #length;
+
+  // факты о фильме при конструировании; raiting может быть публичным св-ом а остальные приватные
+  constructor(name, author, length) {
+    this.#name = name;
+    this.#author = author;
+    this.#length = length;
+  }
+
+  // геттер - получить значение - обращение как к свойству а не как к функции - по сути это некоторое скрытие за собой реализации получения некторых данных
+  // МОЖЕМ ЧИТАТЬ НО НЕ УСТАНАВЛИВАТЬ
+  get name() {
+    return this.#name;
+  }
+
+  get author() {
+    return this.#author;
+  }
+
+  get length() {
+    return this.#length;
+  }
+}
+
+const film = new Film('Avatar', 'Cameron', 240);
+console.log(film); // Film {raiting: undefined, #name: 'Avatar', #author: 'Cameron', #length: 240}
+
+// Наследование
+// создадим класс книги - проектируем книгу
+const Book2 = function (title, author) {
+  this.title = title;
+  this.author = author;
+};
+
+// сделаем метод
+Book2.prototype.buy = function () {
+  console.log('Bue'); // Bue
+};
+
+// созд аудио книгу - в ней уже видны повторения
+const AudioBook2 = function (title, author, lenMin) {
+  // this.title = title;
+  // this.author = author;
+
+  // вызовем функции с контекстом
+  Book2.call(this, title, author);
+  this.lenMin = lenMin;
+};
+
+// нужно полноценно связать контексты что бы и отрабатывал метод и у Book
+AudioBook2.prototype = Object.create(Book2.prototype);
+// дополнительно и конструткор
+AudioBook2.prototype.constructor = AudioBook2;
+
+AudioBook2.prototype.log = function () {
+  console.log(`${this.title} - ${this.lenMin}`); // TTH - 333
+};
+
+const book2 = new AudioBook2('TTH', 'Gray', 333);
+book2.log();
+book2.buy();
+console.log(book2); // увидим все цепочки прототипов
+///
+
+// Оператор instanceof - позволяет узнать принадлежит ли объект классу или классу наследующему от него.
+console.log(book2 instanceof AudioBook2); // true
+console.log(book2 instanceof Book2); // true
+
+// Наследование ES6 - перепишем - 99% НАПИСАНИЯ КОДА
+class Book3 {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  buy() {
+    console.log('Buy');
+  }
+}
+
+// 1 - решаем проблему со связыванием
+class AudioBook3 extends Book3 {
+  constructor(title, author, lenMin) {
+    // super - метод который вызывает конструктор исходного класса
+    super(title, author);
+    this.lenMin = lenMin;
+  }
+
+  log() {
+    console.log(`${this.title} - ${this.lenMin}`); //
+  }
+}
+
+const book3 = new AudioBook3('Money', 'B.G', 111);
+
+// тестируем методы
+book3.log(); // Money - 111
+book3.buy(); // Buy
+console.log(book3); // AudioBook3 { title: 'Money', author: 'B.G', lenMin: 111 }
+
+// Override методов и св-в которые позволяет менять методы и св-ва в классе который отнаследовался от нашего исходного
+class Book4 {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  info() {
+    console.log(`${this.title} - ${this.author}`);
+  }
+}
+
+const book4 = new Book4('qwerty', 'asdfg');
+book4.info(); // qwerty - asdfg
+
+class Ebook extends Book4 {
+  constructor(title, author, pages) {
+    super(title, author);
+    this.pages = pages;
+  }
+
+  // override
+  info() {
+    console.log(`${this.title} - ${this.author} - ${this.pages}`);
+  }
+}
+
+// фактичесик мы перезаписали метод info() - сделали ему override - поменяли поведение метода
+const book4_1 = new Ebook('aaaddd', 'bbbnnn', 777);
+book4_1.info(); // aaaddd - bbbnnn - 777
