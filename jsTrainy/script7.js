@@ -449,3 +449,90 @@ class Ebook extends Book4 {
 // фактичесик мы перезаписали метод info() - сделали ему override - поменяли поведение метода
 const book4_1 = new Ebook('aaaddd', 'bbbnnn', 777);
 book4_1.info(); // aaaddd - bbbnnn - 777
+
+// УПРАЖНЕНИЕ -  сделать класс врага со здоровьем и методом получения урона  - сделать класс меча который имеет силу и метод нанесения урона  - сделатькласс орка который в 50% случаев не получает урон
+
+class Enemy {
+  health;
+  constructor(health) {
+    this.health = health;
+  }
+
+  recieveDamage(damage) {
+    this.health = this.health - damage;
+    console.log(this.health);
+  }
+}
+
+class Sword {
+  damage;
+  constructor(damage) {
+    this.damage = damage;
+  }
+
+  strike(enemy) {
+    enemy.recieveDamage(this.damage);
+  }
+}
+
+class Orc extends Enemy {
+  constructor(health) {
+    super(health);
+  }
+
+  recieveDamage(damage) {
+    if (Math.random() > 0.5) {
+      this.health = this.health - damage;
+    }
+    console.log(this.health);
+  }
+}
+
+const enemy = new Enemy(10);
+const sword = new Sword(3);
+sword.strike(enemy); //
+sword.strike(enemy); //
+sword.strike(enemy); //
+
+// ПОЛИМОРФИЗМ
+
+// ПАТТЕРН Builder И chaining
+
+class Wallet {
+  balance = 0;
+
+  add(sum) {
+    this.balance += sum;
+    return this;
+  }
+
+  remove(sum) {
+    this.balance -= sum;
+    return this;
+  }
+}
+
+const wallet = new Wallet();
+const res = wallet.add(100).remove(10);
+console.log(res); // Wallet { balance: 90 }
+
+class Builder {
+  house = {};
+
+  addRoof() {
+    this.house.roof = 'Roof';
+    return this;
+  }
+
+  addFloor() {
+    this.house.floor = 'Floor';
+    return this;
+  }
+
+  execute() {
+    return this.house;
+  }
+}
+
+const result2 = new Builder().addRoof().addFloor().execute();
+console.log(result2); //  roof: 'Roof', floor: 'Floor' }
