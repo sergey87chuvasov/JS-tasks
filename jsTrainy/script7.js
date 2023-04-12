@@ -536,3 +536,157 @@ class Builder {
 
 const result2 = new Builder().addRoof().addFloor().execute();
 console.log(result2); //  roof: 'Roof', floor: 'Floor' }
+
+// SOLID - это принципы которые лежат в основе дизайна построения приложения в ООП те как хорошо и правильно построить наше приложение
+// их 5 штук по каждой букве
+
+/**
+ S - Принцип единой ответственности - The Single Responsibility Principle - класс должен уметь выполнять одну вещь но хорошо, те класс должен делать только то что относиться к нему - или у каждого класса должна быть только одна причина для изменения - одна ответственность
+
+ О - Принцип открытости и закрытости - The Open Closed Principle - наш класс должен быть открыт к дополнению но закрыт для модификации - те когда мы хотим расширить поведение класса мы это можем сделать но не путем изменения самого класса внутри
+
+ L - Принцип подстановки Барбары Лисков - The Liskov Substitution Principle - спокойная замена общих классов их дочерними что бы не было поломки те принцип ЗАМЕНЫ
+
+ I - Принцип разделения интерфейса - The Interface Segregation Principle - интерфейс должен описывать только что что нужно и не зависеть от методов и свойств которые не нужны и не отвечают за эту область - это позволяет держать интерфейсы в компактном виде и правильно разделять ответственность 
+
+ D - Принцип инверсии зависимостей - The Dependency Inversion Principle - более общие классы (высокоуровневые) не должны зависеть от частных низкоуровневых - оба модуля должны зависеть от абстракций
+ */
+
+// S - Принцип единой ответственности
+
+// те зона ответственности у класса должна быть одна
+class Character {
+  #inventory = [];
+  #health = 10;
+
+  pickItem(item) {
+    this.#inventory.push(item);
+  }
+
+  recieveDamage(damage) {
+    this.#health -= damage;
+  }
+}
+
+class DB {
+  // те мы убрали из класса Character то что к нему не относиться и поместили в DB (база данных) класс базы данных
+  saveCharacter(item) {
+    localStorage.setItem('char', this);
+  }
+
+  loadCharacter() {
+    // ...
+  }
+}
+
+// О - Принцип открытости и закрытости
+class Treasure {
+  value = 0;
+}
+
+class Coin extends Treasure {
+  value = 1;
+}
+
+class Crystal extends Treasure {
+  value = 10;
+}
+
+class Briliant extends Treasure {
+  value = 20;
+}
+
+// при расширении линейки классов в нашем инвентаре мы не будем ничего модифицировать
+class Inventary {
+  #score;
+  pick(treasure) {
+    this.#score += treasure.value;
+  }
+}
+
+// L - Принцип подстановки Барбары Лисков
+class User5 {
+  role = 'user';
+
+  getRole() {
+    return this.role;
+  }
+}
+
+// нарушен принцип изз за строки - а теперь массив - переделаем
+class Admin extends User5 {
+  role = ['user', 'admin'];
+
+  getRole() {
+    return this.role.join(', ');
+  }
+}
+
+function logRole(user) {
+  console.log('Role: ' + user.getRole().toUpperCase());
+}
+logRole(new User5());
+logRole(new Admin());
+
+// I - Принцип разделения интерфейса
+class Weapon {
+  // strike() {}
+  // shoot() {}
+
+  // кладем то что действительно нужно и тому и тому методу
+  cost;
+
+  dealDamage() {}
+}
+
+class Rifle extends Weapon {
+  // strike() {
+  //   // не эффект
+  // }
+
+  shoot() {
+    // эффект
+    this.dealDamage();
+  }
+}
+
+class Sword extends Weapon {
+  strike() {
+    this.dealDamage();
+  }
+
+  // shoot() {
+  //   // НЕТ СМЫСЛА
+  // }
+}
+
+//  D - Принцип инверсии зависимостей
+
+class DB2 {
+  save(items) {
+    console.log(`Saved: ${items}`);
+  }
+}
+
+class MongoDB extends DB2 {
+  save(items) {
+    console.log(`Saved to Mongo: ${items}`);
+  }
+}
+
+class ToDoList {
+  items = [1, 2, 3];
+  db;
+  constructor(db) {
+    this.db = db;
+  }
+
+  saveToDb() {
+    this.db.save(this.items);
+  }
+}
+
+const list5 = new ToDoList(new DB2());
+list5.saveToDb(); // Saved: 1,2,3
+const list5_5 = new ToDoList(new MongoDB());
+list5_5.saveToDb(); // Saved to Mongo: 1,2,3
