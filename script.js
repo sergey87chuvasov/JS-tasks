@@ -5166,3 +5166,64 @@ console.log('task 625 ', unicLetters624); // Set(5) { 'D', 'm', 'i', 't', 'r' }
 for (let value of unicLetters624) {
   console.log(value);
 }
+
+// 625 -  Что выведет консоль
+console.log('task 625 ', '1'[0]); // 1
+
+// 626 -  Что выведет консоль
+// console.log(...'abc'); // a b c
+function log626(arg) {
+  console.log(arg); // a   // if (...arg) [ 'a', 'b', 'c' ]
+}
+log626(...'abc');
+
+// 627 -  Что выведет консоль
+// Оператор запятая (,) оценивает каждый из своих операндов (слева направо) и возвращает значение последнего операнда.
+const arr627 = [1, 2, 3, 4];
+const result627 = arr627.map((x) => (x * x, x * x));
+console.log('task 627 ', result627); // [ 1, 4, 9, 16 ]
+const result628 = arr627.map((x) => (x * x, x * x * x));
+console.log('task 627 ', result628); // [ 1, 8, 27, 64 ]
+
+// 628 -  Что выведет консоль
+// string training
+const str628 = 'hello';
+const str628_1 = new String('hello');
+console.log('task 628 ', typeof str628, typeof str628_1); // string object
+console.log(str628[1]); // e
+console.log(str628.length); // 5
+console.log(str628.indexOf('l')); // 2
+console.log(str628.lastIndexOf('l')); // 3
+console.log(str628.indexOf('m')); // -1
+console.log(str628.lastIndexOf('m')); // -1
+console.log(str628.slice(1)); // мы получим все начиная с 1 индекса = ello
+console.log(str628.slice(1, 3)); // с какого и до какого = el
+
+// 629 -  Что выведет консоль
+const str629 = 'hello how are you';
+console.log(str629.slice(0, str629.indexOf(' '))); // hello
+console.log(str629.slice(str629.lastIndexOf(' '))); // _you - тут есть пробел
+console.log(str629.slice(str629.lastIndexOf(' ') + 1)); // you - тут НЕТ  пробелА
+console.log(str629.slice(-9)); // w are you - С КОНЦА
+console.log(str629.replace('h', 'y')); // yello how are you
+console.log(str629.replace('how', 'noob')); // hello noob are you
+
+// 630 -  Что выведет консоль
+const str630 = 'hello world';
+console.log(str630.includes('wor')); // true
+console.log(str630.includes('worg')); // false
+console.log(str630.startsWith('he')); // true
+console.log(str630.startsWith('hy')); // false
+console.log(str630.endsWith('ld')); // true
+console.log(str630.endsWith('ldd')); // false
+
+// 631 -  Что выведет консоль
+const newNames = 'serge pit bred jon max';
+console.log(newNames.split(' ')); // [ 'serge', 'pit', 'bred', 'jon', 'max' ]
+console.log(newNames.split('')); // ['s', 'e', 'r', 'g', 'e',' ', 'p', 'i', 't', ' ','b', 'r', 'e', 'd', ' ','j', 'o', 'n', ' ', 'm','a', 'x']
+
+// 632 -  Что выведет консоль
+const cardNum632 = '4444';
+console.log('task 632 ', cardNum632.padStart(16, '*')); // ************4444 // 16 - 4 = 12 осталось добавить *
+console.log('task 632 ', cardNum632.padEnd(16, '*')); // 4444************
+console.log('task 632 ', cardNum632.repeat(2)); // 44444444
