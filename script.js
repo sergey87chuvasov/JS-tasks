@@ -5227,3 +5227,74 @@ const cardNum632 = '4444';
 console.log('task 632 ', cardNum632.padStart(16, '*')); // ************4444 // 16 - 4 = 12 осталось добавить *
 console.log('task 632 ', cardNum632.padEnd(16, '*')); // 4444************
 console.log('task 632 ', cardNum632.repeat(2)); // 44444444
+
+// 633 -  Что выведет консоль
+// функции высшего порядка
+
+function hello633(hiStr) {
+  return function (name) {
+    console.log(` ${hiStr} ${name}`);
+  };
+}
+
+const greet633 = hello633('Hello');
+greet633('Serge'); // Hello Serge
+
+hello633('Привет')('Серж'); // Привет Серж
+
+// 634 -  Что выведет консоль
+console.log('task 634 ', [] + [] + 'foo'.split('')); // 'f,o,o'  тк ниже распишем
+console.log('task 634 ', typeof ([] + [] + 'foo'.split(''))); // string
+console.log(typeof ([] + []), [] + []); // string,  ''
+console.log('foo'.split('')); // ['f', 'o', 'o']  + '' = 'f,o,o'
+
+// 635 -  Что выведет консоль
+const obj635 = { 0: 1, 0: 2 };
+console.log('task 635 ', obj635[0]); // 2
+
+// 636 -  Что выведет консоль
+let x636 = 7;
+if (10 > 9 > 8) {
+  x636++;
+}
+
+console.log('task 636 ', x636); // 7
+
+// 637 -  Что выведет консоль
+const obj637 = { foo: 1, bar: 2 };
+const obj637_2 = { foo: 2, ...obj637 };
+console.log('task 637 ', obj637_2.foo); // 1
+
+// 638 -  Что выведет консоль
+// Метод entries() возвращает новый объект итератора массива Array Iterator, содержащий пары ключ / значение для каждого индекса в массиве.
+const arr638 = ['a', 'b', 'c', 'd', 'e'];
+
+for (let [key, value] of arr638.entries()) {
+  console.log('task 638 ', `Ключ: ${key} значение ${value}`); //  Ключ: 0-4 значение a-e
+}
+
+arr638.forEach((value, key, arr) => {
+  console.log('task 638 ', `Ключ: ${key} значение ${value} в массиве ${arr}`); //  Ключ: 0-4 значение a-e в массиве a,b,c,d,e
+});
+
+// 639 -  Что выведет консоль
+// forEach with map and set
+const map639 = new Map([
+  ['usd', 'dollars'],
+  ['rub', 'rubbles'],
+  ['eur', 'euro'],
+]);
+
+map639.forEach((value, key, map) => {
+  console.log(value);
+  console.log(key);
+  console.log(map);
+});
+
+const set639 = new Set(map639);
+// нет смысла в key
+set639.forEach((value, key, set) => {
+  console.log(value);
+  console.log(key);
+  console.log(set);
+});
