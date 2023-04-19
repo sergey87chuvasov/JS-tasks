@@ -5331,3 +5331,36 @@ let str643 = 'Hello';
 let str643_2 = String('Hello');
 console.log(str643 instanceof String); // false
 console.log(str643_2 instanceof String); // false
+
+// 644 -  Что выведет консоль
+const people644_1 = {
+  name: 'serge',
+  sayName() {
+    return this.name;
+  },
+};
+
+const people644_2 = {
+  name: 'Kate',
+};
+
+people644_2.__proto__ = people644_1;
+const result644 = people644_2.sayName();
+console.log('task 644 ', result644); // Kate
+
+// 645 -  Что выведет консоль
+// В блоке try мы выводим в лог ожидаемое значение переменной myPromise: "Hello Irish". Поскольку в блоке try не было выдано никаких ошибок, код в блоке catch не запускается. Код в блоке finally всегда выполняется, "Finnallly" также выводится в лог.
+const myPromise645 = Promise.resolve('Hello Irish');
+(async () => {
+  try {
+    console.log(await myPromise645);
+  } catch {
+    throw new Error('Error');
+  } finally {
+    console.log('Finnallly');
+  }
+})();
+/*
+Hello Irish
+Finnallly
+ */

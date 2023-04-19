@@ -19,3 +19,51 @@ fetch('https://dummyjson.com/products', {
   .then((data) => console.log(data));
 
 // пример с insomnia
+
+// json - формат описания объектов в js obj notation - хорошая читаемость но не сильно оптимален
+// он состоит из ключа (строка) - строго двойные ковычки - и значения (разного)
+{
+  "id": 1,
+  "title": 'test',
+  "price": true
+}
+
+// xml http request - знать нужно хоть и старый
+const request = new XMLHttpRequest();
+request.open('GET', 'https://dummyjson.com/products/1');
+request.send();
+
+request.addEventListener('load', function() {
+  // console.log(this.responseText)
+  console.log(JSON.parse(this.responseText)); // {id: 1, title: 'iPhone 9', description: 'An apple mobile which is nothing like apple', price: 549, discountPercentage: 12.96, …}
+
+  const data = JSON.parse(this.responseText);
+  console.log(data)
+})
+
+console.log('end'); // снчала end а потом запрос
+
+// ПРАКТИКА - Получить среднюю цены 30 товаров из API
+const request2 = new XMLHttpRequest();
+request2.open('GET', 'https://dummyjson.com/products');
+request2.send();
+// далее мы подписываемся на приход данных
+request2.addEventListener('load', function() {
+  const data2 = JSON.parse(this.responseText);
+  console.log(data2) // {products: Array(30), total: 100, skip: 0, limit: 30}
+
+  // или сделаем деструктур и получим products те его массив
+  const { products } = JSON.parse(this.responseText);
+  console.log(products) // (30) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+
+  // получим ценну
+  const sum = products.reduce((acc, p) => acc += p.price, 0);
+  console.log(sum) // 11190
+  
+  // получим среднее
+  const averSum = sum / products.length;
+  console.log(averSum) // 373
+})
+
+
+// послед выполн запросов - callbackHell
