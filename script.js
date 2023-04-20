@@ -5364,3 +5364,31 @@ const myPromise645 = Promise.resolve('Hello Irish');
 Hello Irish
 Finnallly
  */
+
+// 646 -  Что выведет консоль
+// Последний оператор return всегда «побеждает» другие.
+function returns646() {
+  try {
+    return 'one';
+  } catch (e) {
+    return 'two';
+  } finally {
+    try {
+      return 'three';
+    } finally {
+      return 'four';
+    }
+  }
+}
+
+console.log(returns646()); // four
+
+// 647 -  Что выведет консоль
+// Однако, только свойства с целочисленными ключами являются элементами массива и изменяют его длину.
+let arr647 = [];
+arr647[0] = 1;
+arr647[1] = 2;
+console.log(arr647); // [ 1, 2 ]
+arr647.x = 3;
+console.log(arr647); // [ 1, 2, x: 3 ]
+console.log(arr647.length); // 2
