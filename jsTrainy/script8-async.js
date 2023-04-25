@@ -67,3 +67,55 @@ request2.addEventListener('load', function() {
 
 
 // послед выполн запросов - callbackHell
+
+// Promise - это контейнер для значения, которое вренеться в будущем
+// состояния - Pending - Settled - [Fulfield, Rejected]
+
+
+const res = fetch('https://dummyjson.com/products/1')
+console.log(res) // Promise { <pending> }
+
+// Обработка Promise
+fetch('https://dummyjson.com/products').then((response) => {
+  console.log(response)
+  // мы получ json - он возвр promise
+  // console.log(response.json())
+  return response.json()
+}).then((data) => {
+  console.log(data)
+})
+
+// short way
+const res3 = fetch('https://dummyjson.com/products/1').then((response) => response.json()).then((data) => data);
+console.log(res3)
+
+// Цепочка Promise
+fetch('https://dummyjson.com/products')
+.then((response) => response.json())
+.then(({ products }) => {
+  console.log(products)
+  // делаем ещё один запрос за ним
+  return fetch('https://dummyjson.com/products/' + products[0].id)
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data) // {id: 1, title: 'iPhone 9', description: 'An apple mobile which is nothing like apple', price: 549, discountPercentage: 12.96, …}
+})
+
+// Обработка reject
+// сделаем ошибку в запросе
+fetch('https://dummyjson.com/products')
+.then(response => response.json())
+.then(({ products }) => {
+  console.log(products)
+  // делаем ещё один запрос за ним
+  return fetch('https://dummyjson.com/products/' + products[0].id)
+})
+.then(response => response.json())
+.then(data => {
+  console.log(data)
+})
+.catch(error = console.log(error))
+.finally(() => {
+  console.log('Finally')
+})
