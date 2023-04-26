@@ -2770,7 +2770,7 @@ console.log('task 350 ', a350()()); // 1
 // 352- Что выведет консоль
 (function () {
   console.log('task 352 ', this);
-}.apply(0)); // [Number: 0]
+}).apply(0); // [Number: 0]
 
 // 353- Что выведет консоль
 function a353() {
@@ -3915,9 +3915,9 @@ console.log('task 486 ', highFive486()); // 10
 // 487- Что выведет консоль
 (function greetNewUser487() {
   console.log('Hello ' + this.name);
-}.bind({
+}).bind({
   name: 'John',
-})()); // Hello John
+})(); // Hello John
 
 // 488- Что выведет консоль
 console.log('task 488 ', '3' + -' ' + -+-'1'); // '301'
@@ -5392,3 +5392,61 @@ console.log(arr647); // [ 1, 2 ]
 arr647.x = 3;
 console.log(arr647); // [ 1, 2, x: 3 ]
 console.log(arr647.length); // 2
+
+// 648 -  Что выведет консоль
+console.log(null > 0); // false
+console.log(null == 0); // false
+console.log(null >= 0); // true
+
+// 649 -  Что выведет консоль
+console.log(parseInt('10')); //10
+console.log(parseInt('10.33')); //10
+console.log(parseInt('10 20 30')); //10
+console.log(parseInt('10 год')); //10
+console.log(parseInt('год 10')); //NaN
+
+// 650 -  Что выведет консоль
+// Оператор instanceof позволяет проверить, принадлежит ли объект указанному классу, с учётом наследования.
+class Rabbit650 {}
+let rabbit650 = new Rabbit650();
+console.log(rabbit650 instanceof Rabbit650); // true
+// Также это работает с функциями-конструкторами:
+function Rabbit() {}
+console.log(new Rabbit() instanceof Rabbit); // true
+
+// 651 -  Что выведет консоль
+const greeting651 = '    Hello     ';
+console.log(greeting651.trimEnd()); // '    Hello'
+
+// 652 -  Что выведет консоль
+// Метод Object.create() создаёт новый объект с указанным прототипом и свойствами из существующего
+const person652 = {
+  name: 'John',
+  introduction: function () {
+    console.log(`My name is ${this.name}`);
+  },
+};
+const me652 = Object.create(person652);
+me652.name = 'Robert';
+me652.introduction(); // My name is Robert
+
+// 653 -  Что выведет консоль
+console.log('9' > '19'); // true
+console.log('01' == '1'); // false
+
+// 654 -  Что выведет консоль
+// Переменные с ключевым словом let (и const) поднимаются в начало функции, в отличие от var, которые не инициализируется. Они недоступны до того, как мы объявим (инициализируем) их строку. Это называется "временной мертвой зоной".
+let lang654 = 'JS';
+function getLang() {
+  console.log(lang654);
+  let lang654 = 'HTML';
+}
+getLang(); // ReferenceError: Cannot access 'lang654' before initialization
+
+// 655 -  Что выведет консоль
+const a655 = [,];
+console.log(a655); // [ <1 empty item> ]
+const len655 = a655.length;
+console.log(len655); // 1
+const index655 = a655.indexOf(a655[0]);
+console.log(index655); // -1, у нас есть массив с ненулевой длиной, который не содержит своего первого элемента. Что за черт?
