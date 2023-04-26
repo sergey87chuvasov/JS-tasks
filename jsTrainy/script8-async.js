@@ -1,3 +1,5 @@
+/* 
+
 // Асинхронная операция - передача операции для выполнения на стороне (web api)
 console.log(1);
 
@@ -13,7 +15,7 @@ console.log(3); // 1 3 2
 
 // fetch - протокол - хост - путь
 fetch('https://dummyjson.com/products', {
-  method: 'GET' /* or POST/PUT/PATCH/DELETE */,
+  method: 'GET' /* or POST/PUT/PATCH/DELETE ,
 })
   .then((res) => res.json())
   .then((data) => console.log(data));
@@ -119,3 +121,91 @@ fetch('https://dummyjson.com/products')
 .finally(() => {
   console.log('Finally')
 })
+
+*/
+
+// ПРАКТИКА - ПОЛУЧИТЬ СПИСОК КАТЕГОРИЙ
+
+function createSelect(array) {
+  const el = document.querySelector('.filter');
+  el.innerHTML = `<select>
+    ${array.map((arrEl) => `<option value=${arrEl}>${arrEl}</option>`)}
+  </select>`;
+}
+
+function getCategories() {
+  fetch('https://dummyjson.com/products/categories')
+    .then((response) => response.json())
+    .then((data) => createSelect(data))
+    .catch((error) => console.error(`Error: ${error}`));
+}
+
+// getCategories();
+
+// ручное создание ошибок - сделаем ошибку в fetch запросе
+/* 
+fetch('https://dummyjson.com/productss')
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(`is erorr ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(({ products }) => {
+    console.log(products);
+    // делаем ещё один запрос за ним
+    return fetch('https://dummyjson.com/products/' + products[0].id);
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    const el = document.querySelector('.filter2');
+    el.innerHTML = error.message;
+  });
+  
+*/
+
+// УПРАЖНЕНИЕ  - ФУНКЦИЯ ЗАПРОСОВ
+
+function getData(url, errorMessage, method = 'GET') {
+  return fetch(url, {
+    method,
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error(`${errorMessage} ${response.status}`);
+    }
+    return response.json();
+  });
+}
+
+getData('https://dummyjson.com/products', 'Can not get products')
+  .then(({ products }) => {
+    console.log(products);
+    return getData('https://dummyjson.com/products/' + products[0].id);
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    const el = document.querySelector('.filter2');
+    el.innerHTML = error.message;
+  });
+
+// Что будет выведено в консоль?
+
+let promise = new Promise((resolve, reject) => {
+  resolve('Resolved');
+});
+promise
+  .then((value) => {
+    console.log(value);
+    return 'Then Returned';
+  })
+  .finally(() => {
+    console.log('Finally Executed');
+  })
+  .then((value) => {
+    console.log(value);
+  }); // Resolve - Finally Executed - Then Returned
