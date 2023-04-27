@@ -5450,3 +5450,47 @@ const len655 = a655.length;
 console.log(len655); // 1
 const index655 = a655.indexOf(a655[0]);
 console.log(index655); // -1, у нас есть массив с ненулевой длиной, который не содержит своего первого элемента. Что за черт?
+
+// 656 -  Что выведет консоль
+console.log(11 == 11.0); // true
+console.log(Number(true)); // 1
+console.log(Number('3333')); // 3333
+console.log(+'444'); //
+console.log(+true); // 1
+console.log(+false); // 0
+console.log(parseInt('12px')); // 12
+console.log(parseInt('12.22px')); // 12
+console.log(parseFloat('12.22px')); // 12.22
+console.log(Math.max(2, 4, 9, 22, 4321)); // 4321
+console.log(Math.min(2, 4, 9, 22, 4321)); // 2
+
+// 657 -  Что выведет консоль
+const user657 = {
+  name: 'David',
+  age: 30,
+  city: 'Minsk',
+  skills: 'JS',
+};
+console.log('task 657 ', Object.keys(user657).length); //4
+
+// 657 -  Что выведет консоль
+const numbers657 = [1, 2, 3, 4, 5, 6, 7, 8];
+const last657 = numbers657.slice(-1);
+const secondLast657 = numbers657.slice(-2);
+console.log('task 657 ', last657, secondLast657); // [ 8 ] [ 7, 8 ]
+
+// 658 -  Что выведет консоль
+// Три способа проверить, является ли объект массивом
+const arr658 = [1, 2, 3, 4];
+console.log('task 658 ', arr658.constructor.toString().indexOf('Array') > -1); // true
+console.log('task 658 ', arr658 instanceof Array); // true
+console.log('task 658 ', Array.isArray(arr658)); // true
+
+// 659 -  Что выведет консоль
+// Строка, созданная вызовом String в неконструкторном контексте (то есть, без использования ключевого слова new), является строковым примитивом, таким же как строковый литерал.
+console.log(String('Hello') === 'Hello'); // true
+console.log(new String('Hello') === 'Hello'); // false
+
+// 660 -  Что выведет консоль
+// Конструктор Array создает массив из пустых элементов заданной параметром длины. Метод массива toString() возвращает строку, состоящую из элементов массива, разделенных запятой.
+console.log(new Array(5).toString()); // ,,,,
