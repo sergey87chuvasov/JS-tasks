@@ -5494,3 +5494,104 @@ console.log(new String('Hello') === 'Hello'); // false
 // 660 -  Что выведет консоль
 // Конструктор Array создает массив из пустых элементов заданной параметром длины. Метод массива toString() возвращает строку, состоящую из элементов массива, разделенных запятой.
 console.log(new Array(5).toString()); // ,,,,
+
+// 661 -  Что выведет консоль
+let promise661 = Promise.resolve(42);
+
+promise661.then((value) => {
+  console.log(value); // 42
+});
+
+// 662 -  Что выведет консоль
+let promise662 = Promise.reject(new Error('Error thrown'));
+
+promise662.catch((error) => {
+  console.log(error.message); // Error thrown
+});
+
+// 663 -  Что выведет консоль
+const promise663 = Promise.resolve(3);
+console.log(promise663); // Promise { 3 } - создать resolved объект Promise со значением 3
+
+// 664 -  Что выведет консоль
+setTimeout(function timeout() {
+  console.log('Таймаут');
+}, 0);
+
+let p664 = new Promise(function (resolve, reject) {
+  console.log('Создание промиса');
+  resolve();
+});
+
+p664.then(function () {
+  console.log('Обработка промиса');
+});
+
+console.log('Конец скрипта');
+/*
+Создание промиса
+Конец скрипта
+Обработка промиса
+Таймаут
+*/
+
+// 665 -  Что выведет консоль
+// Promise.resolve().then(() => setTimeout(() => console.log(4))); промис порождает макрозадачу. Для таких особых задачек, я добавляю стрелочку направо, мол, при исполнении промиса, перейдет в статус макрозадач. Не забываем, что есть нулевая отсрочка срабатывания
+console.log(1);
+setTimeout(() => console.log(2));
+Promise.resolve().then(() => console.log(3));
+Promise.resolve().then(() => setTimeout(() => console.log(4)));
+Promise.resolve().then(() => console.log(5));
+setTimeout(() => console.log(6));
+console.log(7);
+/*
+1
+7
+3
+5
+2
+6
+4
+*/
+
+// 666 -  Что выведет консоль
+// Функция, переданная в конструкцию new Promise, называется исполнитель (executor). Когда Promise создаётся, она запускается автоматически. Вот тут хитрее. В момент выполнения executor'а регистрируется макротаска, при выполнении которой регистрируется микротаска. Когда очередь подходит к нашей хитрой четверке, то вспоминаем, что макрозадачи срабатывают не все, а лишь по одной, а потом цикл проверяется очередь основного потока и микрозадач. А у нас получается, что макрозадача порождает микрозадачу, выполняет ее, и лишь потом берет следующую макрозадачу. Поэтому можно еще раз перерисовать табличку.
+console.log(1);
+setTimeout(() => console.log(2));
+Promise.reject(3).catch(console.log);
+new Promise((resolve) => setTimeout(resolve)).then(() => console.log(4));
+Promise.resolve(5).then(console.log);
+console.log(6);
+setTimeout(() => console.log(7), 0);
+/*
+1
+6
+3
+5
+2
+4
+7
+*/
+
+// 667 -  Что выведет консоль
+const myPromise = (delay) =>
+  new Promise((res, rej) => {
+    setTimeout(res, delay);
+  });
+setTimeout(() => console.log('in setTimeout1'), 1000);
+myPromise(1000).then((res) => console.log('in Promise 1'));
+setTimeout(() => console.log('in setTimeout2'), 100);
+myPromise(2000).then((res) => console.log('in Promise 2'));
+setTimeout(() => console.log('in setTimeout3'), 2000);
+myPromise(1000).then((res) => console.log('in Promise 3'));
+setTimeout(() => console.log('in setTimeout4'), 1000);
+myPromise(5000).then((res) => console.log('in Promise '));
+/*
+in setTimeout2
+in setTimeout1
+in Promise 1
+in Promise 3
+in setTimeout4
+in Promise 2
+in setTimeout3
+*/
