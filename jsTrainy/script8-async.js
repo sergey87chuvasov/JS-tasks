@@ -209,3 +209,100 @@ promise
   .then((value) => {
     console.log(value);
   }); // Resolve - Finally Executed - Then Returned
+
+// event loop - Promise
+console.log(1);
+
+setTimeout(() => {
+  console.log(2);
+}, 0);
+Promise.resolve(3).then((res) => console.log(res));
+
+console.log(4); // 1 4 3 2
+
+// блокировка операции
+for (let i = 0; i < 1000000000; i++) {}
+
+// создание promise
+const prom = new Promise((resolve, reject) => {
+  resolve('Success');
+});
+
+prom.then((data) => console.log(data)); // Success
+
+// 2
+const prom2 = new Promise((resolve, reject) => {
+  if (new Date() < new Date('01/01/2024')) {
+    reject(new Error('error'));
+  }
+  resolve('Success');
+});
+
+prom2.then((data) => console.log(data)).catch((error) => console.log(error)); // error
+
+// 3
+function timeout3(sec) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, sec * 1000);
+  });
+}
+
+timeout3(1)
+  .then(() => {
+    console.log(1);
+    return timeout3(1);
+  })
+  .then(() => {
+    console.log(1);
+  }); // 1 1
+
+// СТАТИЧЕСКИЕ МЕТОДЫ promise
+// мгновенный ответ
+Promise.resolve('Instant').then((data) => console.log(data)); // Instant
+const prom4 = new Promise((resolve) => {
+  console.log('Constructor');
+  setTimeout(() => {
+    resolve('Timer');
+  }, 1000);
+});
+prom4.then((data) => console.log(data));
+Promise.reject(new Error('Error')).catch((error) => console.error(error));
+
+/*
+Constructor
+Instant
+Error: Error
+Timer
+ */
+
+// УПРАЖНЕНИЕ СОЗДАНИЕ fetch
+// Сделать функцию myFetch c XMLHttpRequest
+
+function myFetch(url) {
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    request.open('GET', url);
+    request.send();
+
+    request.addEventListener('load', function () {
+      if (this.status > 400) {
+        reject(new Error(this.status));
+      }
+      resolve(this.responseText);
+    });
+
+    request.addEventListener('error', function () {
+      reject(new Error(this.status));
+    });
+
+    request.addEventListener('timeout', function () {
+      reject(new Error('Timeout'));
+    });
+  });
+}
+
+myFetch('https://dummyjson.com/products')
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err));
