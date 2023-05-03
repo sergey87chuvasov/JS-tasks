@@ -306,3 +306,94 @@ function myFetch(url) {
 myFetch('https://dummyjson.com/products')
   .then((data) => console.log(data))
   .catch((err) => console.error(err));
+
+// ASYNC AWAIT - ИСПОЛЬЗУЕТСЯ В БОЛЬШИНСТВЕ СЛУЧАЕВ НА ПРАКТИКЕ
+
+console.log('start');
+function getProducts() {
+  fetch('https://dummyjson.com/products')
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+}
+getProducts();
+console.log('end');
+
+// перепишем на async await
+// как только функция асинхронна она по умолчанию возвращает Promise
+console.log('start2');
+async function getProducts2() {
+  // подожди пока await отработает и запихни результат в res
+  const productsResponse = await fetch('https://dummyjson.com/products');
+  const { products } = await productsResponse.json();
+  console.log(products);
+
+  // если несколько запросов- например мы уже стучимся до конкретного продукта
+  const productResponse = await fetch(
+    'https://dummyjson.com/products/' + products[0].id
+  );
+  const product = await productResponse.json();
+  console.log(product);
+}
+getProducts2(); // мы получили id конкретного продукта {id: 1, title: 'iPhone 9', description: 'An apple mobile which is nothing like apple', price: 549, discountPercentage: 12.96, …}
+console.log('end2');
+
+// TRY CATCH - отлов ошибок в случае их появления
+
+console.log('start3');
+async function getProducts3() {
+  try {
+    const productsResponse = await fetch('https://dummyjson.com/productss');
+    // работа со статус кодом
+    if (!productsResponse.ok) {
+      throw new Error(productsResponse.status);
+    }
+    const { products } = await productsResponse.json();
+    console.log(products);
+
+    const productResponse = await fetch(
+      'https://dummyjson.com/products/' + products[0].id
+    );
+    const product = await productResponse.json();
+    console.log(product);
+  } catch (e) {
+    console.error(e);
+  } finally {
+    console.log('Finnaly');
+  }
+}
+getProducts3();
+console.log('end3');
+
+// УПРАЖНЕНИЕ МОЙ ГОРОД
+// ПОЛУЧИТЬ геолок исп getCurrPosit() web api
+
+function getMyCoordinates() {
+  return new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        resolve({ latitude: coords.latitude, longitude: coords.longitude });
+      },
+      (err) => {
+        reject(err);
+      }
+    );
+  });
+}
+
+async function getMycity() {
+  try {
+    const { latitude, longitude } = await getMyCoordinates();
+    const response = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}00`
+    );
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    const data = await response.json();
+    console.log(data);
+    console.log(data.city);
+  } catch (e) {
+    console.error(e);
+  }
+}
+getMycity(); // нажимае разрешить и получаем данные в консоле лог об моей геолокации
