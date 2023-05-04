@@ -397,3 +397,78 @@ async function getMycity() {
   }
 }
 getMycity(); // нажимае разрешить и получаем данные в консоле лог об моей геолокации
+
+// Асинхронные методы
+
+class ProductRepository {
+  async getProducts() {
+    const response = await fetch('https://dummyjson.com/products');
+    console.log(await response.json());
+  }
+}
+
+const repo = new ProductRepository();
+repo.getProducts();
+
+// async errow =>
+
+const asyncArrow = async () => {
+  const response = await fetch('https://dummyjson.com/products');
+  console.log(await response.json());
+};
+
+asyncArrow();
+
+// последовательность выполнения
+// 1 - promise - 2
+
+const asyncArrow2 = async () => {
+  try {
+    const response = await fetch('https://dummyjson.com/products');
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
+};
+// console.log('1');
+// asyncArrow2()
+//   .then((data) => console.log(data))
+//   .finally(() => console.log('2'));
+
+(async () => {
+  console.log('1');
+  const res = asyncArrow();
+  console.log(res);
+  console.log('2');
+})(); // 1 - products - 2
+
+// Параллельное выполнение
+async function getAllProducts() {
+  const response = await fetch('https://dummyjson.com/products');
+  return response.json();
+}
+
+async function getProduct(id) {
+  const response = await fetch('https://dummyjson.com/products/' + id);
+  return response.json();
+}
+
+async function main() {
+  const { products } = await getAllProducts();
+
+  // что бы запустить всё сразу - promise.all - например запаралл получение 3 х продуктов
+  // const res = Promise.all([getProduct(1), getProduct(2), getProduct(3)]);
+
+  const res = await Promise.all(
+    products.map((product) => getProduct(product.id))
+  );
+  console.log(res);
+  // сделаем что-то конкретно к каждому из продуктов
+  // for (const product of products) {
+  //   const res = await getProduct(product.id);
+  //   console.log(res);
+  // }
+}
+main();
