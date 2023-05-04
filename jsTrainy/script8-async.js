@@ -472,3 +472,109 @@ async function main() {
   // }
 }
 main();
+
+// Другие комбинации Promise
+
+async function getProduct2(id) {
+  const response = await fetch('https://dummyjson.com/products/' + id);
+  return response.json();
+}
+
+async function getProductError2(id) {
+  const response = await fetch('https://dummyjsons.com/products/' + id);
+  return response.json();
+}
+
+async function main2() {
+  // const res1 = await Promise.all([getProduct2(1), getProduct2(2)]);
+  // console.log(res1); // (2) [{…}, {…}] - может упасть из-за одной проблемы
+
+  // // вернет даже если один упадет -
+  // const res2 = await Promise.allSettled([
+  //   getProduct2(1),
+  //   getProduct2(2),
+  //   // getProductError2(2),
+  // ]);
+  // console.log(res2); // {status: 'fulfilled', value: {…}}
+
+  const race3 = await Promise.race([getProduct2(1), getProduct2(2)]);
+  console.log(race3);
+}
+main2();
+
+// Все возможности fetch
+
+async function main3() {
+  const res = await fetch('https://dummyjson.com/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      username: 'kminchelle',
+      password: '0lelplR',
+    }),
+  });
+  const data = await res.json();
+  console.log(data);
+}
+main3();
+
+// упражнение - ГЕНЕРАТОР АКТИВНОСТЕЙ
+const wrapper = document.querySelector('.wrapper');
+async function getActivity() {
+  const res = await fetch('https://www.boredapi.com/api/activity');
+  return res.json();
+}
+
+async function generate() {
+  try {
+    wrapper.innerHTML = ';';
+    const data = await Promise.all([
+      getActivity(),
+      getActivity(),
+      getActivity(),
+    ]);
+    console.log(data);
+
+    for (const el of data) {
+      const element = document.createElement('div');
+      element.innerHTML = `${el.activity}`;
+      wrapper.appendChild(element);
+    }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+// ТРЕНЕРОВКИ
+
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  console.log(values); // [ 3, 42, 'foo' ]
+});
+
+try {
+  console.log('try block');
+  throw 'error1';
+} catch (error) {
+  console.log(error);
+} finally {
+  console.log('finally block');
+}
+
+/*
+try block
+error1
+finally block
+ */
+
+try {
+  const a = 1;
+  throw a;
+} catch (e) {
+  console.log(a); // ReferenceError: a is not defined
+}
