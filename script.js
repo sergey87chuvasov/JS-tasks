@@ -5595,3 +5595,81 @@ in setTimeout4
 in Promise 2
 in setTimeout3
 */
+
+// 668 -  Что выведет консоль
+function sayHello668() {
+  console.log('hello');
+}
+console.log(sayHello668.prototype); // {constructor: ƒ} - объект со свойством конструктора
+
+// 669 -  Что выведет консоль
+// Выражения внутри литералов шаблона рассчитываются первыми
+// немедленно исполняемая функция
+console.log('task 669', `${((x) => x)('I love')} JS`); // I love JS
+
+// 670 -  Что выведет консоль
+// Выражение for await...of создаёт цикл, проходящий через асинхронные итерируемые объекты
+// Таким образом, в первой итерации скрипт дождется выполнения первого промиса в массиве - apple. Затем, сразу же выдаст banana, т.к. 2000 мс уже пройдут. Завершиться выводом через секунду и cherry
+
+async function getData670() {
+  const promises = [
+    new Promise((resolve) => setTimeout(() => resolve('apple'), 2000)),
+    new Promise((resolve) => setTimeout(() => resolve('banana'), 1000)),
+    new Promise((resolve) => setTimeout(() => resolve('cherry'), 3000)),
+  ];
+
+  for await (const fruit of promises) {
+    console.log(fruit);
+  }
+}
+getData670(); // apple - banana - cherry
+
+// 671 -  Что выведет консоль
+// Этот код создает новый объект даты date, используя конструктор Date(). Конструктор принимает один аргумент - строку, которая представляет собой дату в определенном формате. В данном случае строка 'Mon May 01 2023' представляет дату 1 мая 2023 года (понедельник). Затем код вызывает метод getDate() объекта date, который возвращает день месяца (число от 1 до 31) для заданной даты. Далее код вызывает метод getMonth() объекта date, который возвращает номер месяца (от 0 до 11) для заданной даты, где 0 соответствует январю, 1 - февралю и т.д.В итоге, в консоли будут выведены числа 1 и 4, соответствующие дню месяца и номеру месяца для даты 1 мая 2023 года.
+const date671 = new Date('Mon May 01 2023');
+console.log(date671.getDate()); // 1
+console.log(date671.getMonth()); // 4
+
+// 672 -  Что выведет консоль
+// Оператор rest (версия ES6) конвертирует разделённые запятой значения в массив, таким образом параметр numbers в функции add становится массивом.
+function add672(...numbers) {
+  return numbers.reduce((acc, value) => {
+    return acc + value;
+  }, 100);
+}
+
+const sum672 = add672(20, 40, 60, 80);
+console.log(sum672); // 300
+
+// 673 -  Что выведет консоль
+// Создать новый массив с помощью spread-оператора
+const nums673_1 = ['2', '3', '4'];
+const nums673_2 = ['6', '7', '8'];
+
+const combined673 = ['один', ...nums673_1, 'пять', ...nums673_2];
+console.log(combined673); // (8) ['один', '2', '3', '4', 'пять', '6', '7', '8']
+
+// 674 -  Что выведет консоль
+// Заполнить массив определённым значением
+const arr674 = Array(5).fill('hello');
+const arr674_2 = [...Array(5).keys()];
+console.log(arr674); // [ 'hello', 'hello', 'hello', 'hello', 'hello' ]
+console.log(arr674_2); // [ 0, 1, 2, 3, 4 ]
+
+// 675 -  Что выведет консоль
+// Случайное число от 0 до 100:
+console.log(Math.floor(Math.random() * 100));
+// Случайное число от 1 до 100:
+console.log(Math.floor(Math.random() * 100) + 1);
+
+// Случайное число между минимальным (включительно) и максимальным значением (не включая):
+function getRandom675(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+console.log(675(10, 35)); // случайное число в диапазоне >= 10 и < 35
+
+// Случайное число между и максимальным значением (включая оба значения):
+function getRandom675_2(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log(getRandom675_2(10, 35)); // случайное число в диапазоне >= 10 и <= 35
