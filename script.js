@@ -5733,3 +5733,47 @@ const user682 = {
 
 const streetName682 = user682?.location?.street?.name;
 console.log(streetName682); // 11 wall street
+
+// 683 -  Что выведет консоль
+const arr683 = [1, 2];
+const [, , ...rest] = arr683;
+console.log(rest); // []
+
+// 684 -  Что выведет консоль
+// Как показать пользователю уведомление о том, что в его браузере не включен javascript?
+<noscript>Your browser does not support JavaScript!</noscript>;
+
+// 685 -  Что выведет консоль
+// every() - Этот метод используется для проверки того, удовлетворяют ли элементы указанного массива определенному условию. Если все элементы удовлетворяют условию, метод возвращает true, в противном случае — false
+const ages685 = [34, 133, 164, 20];
+function checkAge685(age) {
+  return age > 18;
+}
+console.log(ages685.every(checkAge685)); // true
+
+// 686 -  Что выведет консоль
+// for…of iterator - Этот оператор выполняет цикл обхода итерируемых объектов
+const ages686 = [33, 32, 16];
+for (const element of ages686) {
+  console.log(element + ' year'); // 33 year 32 year 16 year
+}
+
+// 687 -  Что выведет консоль
+// повторяем с интервалом в 1 секунду:
+let intervalId687 = setInterval(() => console.log('tick'), 1000);
+
+// остановимся через 10 секунд:
+setTimeout(() => {
+  clearInterval(intervalId687);
+  console.log('stop');
+}, 10000);
+
+// 688 -  Что выведет консоль
+function sum688(num1, num2 = num1) {
+  console.log(num1 + num2);
+}
+sum688(10); // 20
+
+// 689 -  Что выведет консоль
+let newList689 = [1, 2, 3, 4, 5, 6].push(7);
+console.log(newList689.push(100)); // TypeError: newList689.push is not a function
