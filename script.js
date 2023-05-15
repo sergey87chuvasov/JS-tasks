@@ -5673,3 +5673,63 @@ function getRandom675_2(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 console.log(getRandom675_2(10, 35)); // случайное число в диапазоне >= 10 и <= 35
+
+// 676 -  Что выведет консоль
+// Вывести JSON в отформатированном виде
+const book676 = { date: '2019-03-22', book: 'Harry Poter', author: 'J.K.Row' };
+console.log(JSON.stringify(book676, null, 2)); // разделение 2 пробела
+console.log(JSON.stringify(book676, null, '\t')); // разделение  - tab
+
+// 677 -  Что выведет консоль
+// Реализовать плавный переход в верх страницы
+window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+
+// 678 -  Что выведет консоль
+// Это будет особенно полезно, если вы не хотите послать в бэкенд значение null или undefined.
+let number678;
+console.log(!!number678); // false
+let number678_2 = 10;
+console.log(!!number678_2); // true
+let number678_3 = 'hey';
+console.log(!!number678_3); // true
+let number678_4 = '';
+console.log(!!number678_4); // false
+let number678_5 = null;
+console.log(!!number678_5); // false
+
+// 679 -  Что выведет консоль
+// Быстро преобразовать строку в число
+const number679 = '20';
+const converted679 = +number679;
+console.log(typeof converted679, converted679); // number 20
+
+// 680 -  Что выведет консоль
+// Преобразовать строку в массив
+const name680 = 'Serge Wis';
+console.log(name680.split('')); // ['S', 'e', 'r', 'g', 'e', ' ', 'W', 'i', 's']
+const chars680 = 'a,b,c,d,e,f';
+console.log(chars680.split(',')); // ['a', 'b', 'c', 'd', 'e', 'f']
+const chars680_2 = 'a,b,c,d,e,f';
+console.log(chars680_2.split('')); // 11) ['a', ',', 'b', ',', 'c', ',', 'd', ',', 'e', ',', 'f']
+
+// 681 -  Что выведет консоль
+// Отобразить число с точностью до двух знаков после запятой
+const number681 = 100.33333122;
+console.log(number681.toFixed(3)); // 100.333
+
+// 682 -  Что выведет консоль
+// Использование оператора опциональной последовательности (optional chaining operator)
+// в версии ES11, код после оператора опциональной последовательности выполнится, только если обращение по предыдущей ссылке не привело к undefined или null. - сокращает наш код;
+// Раньше, чтобы получить доступ ко вложенному свойству, нужно было проверять, существует ли каждое из свойств. Прямое обращение к user.location.street.name могло выбросить исключение, что мы пытаемся обратиться к name через несуществующие ссылки к методам location или street.
+const user682 = {
+  name: 'Serge',
+  location: {
+    street: {
+      number: 20,
+      name: '11 wall street',
+    },
+  },
+};
+
+const streetName682 = user682?.location?.street?.name;
+console.log(streetName682); // 11 wall street
