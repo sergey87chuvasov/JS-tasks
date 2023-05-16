@@ -5777,3 +5777,51 @@ sum688(10); // 20
 // 689 -  Что выведет консоль
 let newList689 = [1, 2, 3, 4, 5, 6].push(7);
 console.log(newList689.push(100)); // TypeError: newList689.push is not a function
+
+// 690 -  Что выведет консоль
+function myFunc690() {
+  this.a = 11;
+}
+
+const result690 = new myFunc690();
+console.log(result690); // { a: 11 }
+
+// 691 -  Что выведет консоль
+const [a691, ...x691] = 'Hello';
+console.log(x691); // [ 'e', 'l', 'l', 'o' ]
+const [b691, ...y691] = 1234;
+console.log(y691); // TypeError: 1234 is not iterable
+
+// 692 -  Что выведет консоль
+const [x692, ...{ length }] = [1, 2, 3];
+console.log(length); // 2
+console.log(x692); // 1
+
+// 693 -  Что выведет консоль
+let a693 = 10;
+let b693 = a693++;
+let c693 = ++a693;
+let d693 = a693 == b693 ? с693++ : ++c693;
+console.log(d693); // 13
+
+// 694 -  Что выведет консоль
+console.log(1 + 2 + '1'); // 31
+console.log('1' + 1 + 2); // 112
+
+// 695 -  Что выведет консоль
+// Оператор == неявно приводит операнды к типу Number. Исключение: оба операнда типа String, тогда приведение к Number не происходит.
+console.log(0 == '0'); // true
+console.log(0 == []); // true
+console.log('0' == []); // false
+
+// 695 -  Что выведет консоль
+console.log(null > 0, null < 0, null == 0, null >= 0); // false false false true
+
+// 696 -  Что выведет консоль
+const x696 = new Boolean(false);
+console.log(x696); // false - bool
+if (x696) {
+  console.log('if', x696 == false); // if true
+} else {
+  console.log('else', x == false);
+}
