@@ -5818,6 +5818,7 @@ console.log('0' == []); // false
 console.log(null > 0, null < 0, null == 0, null >= 0); // false false false true
 
 // 696 -  Что выведет консоль
+// Любой объект, включая логический объект, значение которого равно false, оценивается как true при передаче в условный оператор.
 const x696 = new Boolean(false);
 console.log(x696); // false - bool
 if (x696) {
