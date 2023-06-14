@@ -5826,3 +5826,69 @@ if (x696) {
 } else {
   console.log('else', x == false);
 }
+
+// 697 -  Что выведет консоль
+// удаление дубликатов из массива
+const nums697 = [1, 2, 2, 3, 3, 4, 5, 6, 6, 6, 7, 7, 7, 7];
+console.log([...new Set(nums697)]); // [ 1, 2, 3, 4, 5, 6, 7 ]
+
+// 698 -  Что выведет консоль
+// отфильтрованный массив
+let arr698 = ['aa', '*', 'bb', '*', 'cc', '*', 'dd', '*', 'ee', '*', 'ff'];
+let newArr698 = arr698.filter((el) => el !== '*');
+console.log(newArr698); // [ 'aa', 'bb', 'cc', 'dd', 'ee', 'ff' ]
+
+// 699 - Что выведет консоль
+// myFunc ожидает объект со свойствами x, y и z в качестве аргумента.
+const myFunc699 = ({ x, y, z }) => {
+  console.log(x, y, z);
+};
+
+console.log(myFunc699(1, 2, 3)); // undefined undefined undefined
+console.log(myFunc699({ x: 1, y: 2, z: 3 })); // 1 2 3
+
+// 700 - Что выведет консоль
+// Когда мы пытаемся получить доступ к значениям x, y и z в функции последней стрелки, движок JS поднимается вверх по цепочке областей видимости, чтобы найти значения для x и y соответственно.
+const add701 = (x) => (y) => (z) => {
+  console.log(x, y, z); // 10 20 30
+  return x + y + z;
+};
+
+console.log(add701(10)(20)(30)); // 60
+
+// 701 - Что выведет консоль
+// typeof name возвращает "строку". Строка "string" является истинным значением, поэтому !typeof name возвращает логическое значение false.
+const name701 = 'test';
+console.log(!typeof name701 === 'object'); // false
+console.log(!typeof name701 === 'string'); // false
+
+// 702 - Что выведет консоль
+let array702 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(array702.slice(-1)); // Result: [9]
+console.log(array702.slice(-2)); // Result: [8, 9]
+console.log(array702.slice(-3)); // Result: [7, 8, 9]
+
+// 703 - Что выведет консоль
+// шаблонные строки
+const name703 = 'Serge';
+const age703 = 35;
+const message703 = `My name is ${name703} and I am ${age703} years old.`;
+console.log(message703); // My name is Serge and I am 35 years old.
+
+// 704 - Что выведет консоль
+for (let key in { city: 'Minsk', isCapital: true }) {
+  console.log(key); // city isCapital;
+}
+
+// 705 - Что выведет консоль
+let arr705 = new Array(1, 2, 3);
+console.log(arr705); // [ 1, 2, 3 ]
+let arr705_2 = new Array(10, 20, 30);
+let arr705_3 = new Array(10);
+console.log(arr705_3[0], arr705_3); // undefined , [ <10 empty items> ]
+console.log(arr705_2[2]); // 30
+console.log(arr705[0] + arr705_2[2]); // NaN
+
+// 706 - Что выведет консоль
+// console.log([].push(22, 33).unshift(44).join()); // TypeError:
+console.log([].push(22, 33)); // 2 - длинна
