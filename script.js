@@ -5892,3 +5892,73 @@ console.log(arr705[0] + arr705_2[2]); // NaN
 // 706 - Что выведет консоль
 // console.log([].push(22, 33).unshift(44).join()); // TypeError:
 console.log([].push(22, 33)); // 2 - длинна
+
+// 707 - Что выведет консоль
+// Статический Object.entries() - метод возвращает массив собственных перечислимых пар ключ-значение свойства со строковым ключом данного объекта.
+const randomKeyOrder707 = { 77: 'ya', 24: 'b5', 7: 'c' };
+console.log(Object.entries(randomKeyOrder707)); // [ [ '7', 'c' ], [ '24', 'b5' ], [ '77', 'ya' ] ]
+
+// 708 - Что выведет консоль
+// Статический Object.values()метод возвращает массив собственных перечислимых значений свойств данного объекта со строковыми ключами.
+const arrayLikeObj708 = { 10: 'aa', 11: 'bb', 12: 'cc' };
+console.log(Object.values(arrayLikeObj708)); // [ 'aa', 'bb', 'cc' ]
+
+// 709 - Что выведет консоль
+console.log('' == '0'); // false
+console.log(0 == ''); // true
+console.log(0 == '0'); // true
+
+// 710 - Что выведет консоль
+function sum710() {
+  console.log(arguments); // { '0': 4, '1': 8, '2': 20 }
+  var retval = 0;
+  for (var i = 0, len = arguments.length; i < len; ++i) {
+    retval += arguments[i];
+  }
+  return retval;
+}
+
+console.log(sum710(4, 8, 20)); // 32
+
+// 711 - Что выведет консоль
+const arr711 = [1, 2, 3];
+const func711 = (x) => {
+  console.log(x); // 1 2 3
+};
+
+arr711.forEach(func711);
+
+// 712 - Что выведет консоль
+function getAge712() {
+  'use strict';
+  age = 21;
+  console.log(age);
+}
+
+getAge712(); // ReferenceError: age is not defined
+
+// 713 - Что выведет консоль
+let nums713 = [11, 22, 33];
+let newNum713 = nums713;
+
+newNum713.push(8888);
+console.log(nums713.length); // 4
+
+// 714 - Что выведет консоль
+const numbers714 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let sum714 = 0;
+
+for (let i = 0; i < numbers714.length; i++) {
+  sum714 += numbers714[i];
+}
+
+console.log(sum714); // 45
+
+// 715 - Что выведет консоль
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1); // 3 3 3
+}
+
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 1); // 0 1 2
+}
