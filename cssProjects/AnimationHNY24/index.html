@@ -39,7 +39,42 @@
     </div>
 
   </div>
-  <h2>Happy New Year 2024</h2>
+  <h2>Happy New Year</h2>
+
+  <div class="glowing">
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+  </div>
+
+  <div class="glowing">
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+  </div>
+
+  <div class="glowing">
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+  </div>
+
+  <div class="glowing">
+    <span style="--i:1;"></span>
+    <span style="--i:2;"></span>
+    <span style="--i:3;"></span>
+  </div>
+
+  <script>
+    let h2 = document.querySelector('h2');
+    let container = document.querySelector('.container')
+
+    h2.onclick = function() {
+      container.classList.toggle('newyear');
+      console.log(this)
+      this.classList.toggle('active')
+    }
+  </script>
   
 </body>
 </html>

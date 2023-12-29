@@ -27,7 +27,15 @@ body {
   height: 100px;
   transform-style: preserve-3d;
   transition: 2.5s ease-in-out;
-  transition-delay: calc(0.25s * var(--i));
+  transition-delay: calc(0.25s * var(--j));
+}
+
+.container.newyear .text {
+  transform: rotateX(calc(-360deg * 1));
+}
+
+.container.newyear .text:last-child {
+  transform: rotateX(calc(-630deg * 1));
 }
 
 .text span {
@@ -63,4 +71,27 @@ body {
 
 .text:last-child:before {
   background: #11a728;
+}
+
+h2 {
+  position: absolute;
+  bottom: 50px;
+  color: #252525;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+h2.active {
+  color: #fff;
+  text-shadow: 0 0 20px #fff, 0 0 50px #fff;
+}
+
+h2:after {
+  content: ' 2024';
+  transition: 0.5s;
+}
+
+h2.active:after {
+  color: #32ed4e;
+  text-shadow: 0 0 20px #32ed4e, 0 0 50px #32ed4e;
 }
